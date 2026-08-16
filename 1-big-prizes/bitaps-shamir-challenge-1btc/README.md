@@ -127,12 +127,16 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
    dated capture from this window showing a different page state; closed by a search of
    regional archivers and search-engine caches turning up nothing, matching the rest of
    the timeline.
-2. **Uncertified channels** (hours). archive.today returned HTTP 429 on its own
-   known-good witness page when I tried it; Memento TimeTravel was unreachable; I found
-   no verified anonymous read route for X replies to `@bitaps_com`; the 13 GitHub forks
-   of `mnemonic-offline-tool` have not been individually reviewed; Telegram's
-   `t.me/s/bitapscom` public preview has not been read. None of these are established as
-   empty, only as not yet checked with a working method.
+2. **Uncertified channels** (hours; GitHub forks closed, 2026-08-16). archive.today
+   returned HTTP 429 on its own known-good witness page when I tried it; Memento
+   TimeTravel was unreachable; I found no verified anonymous read route for X replies to
+   `@bitaps_com`; Telegram's `t.me/s/bitapscom` public preview has not been read. The 13
+   GitHub forks of `mnemonic-offline-tool` are now closed: all 13 were cloned and
+   compared directly (commit hash and full branch list, not just a file diff). 12 are at
+   the exact same commit as upstream (`5b6dd995`); the 13th (`Stevenans985900`) is 1
+   commit behind on the same history, missing only the final wording-only "grammar" fix.
+   No fork has a second branch or any commit absent from upstream. This channel carries
+   no divergent 3rd share.
 
 Full notes: [analysis/leads.md](analysis/leads.md).
 
