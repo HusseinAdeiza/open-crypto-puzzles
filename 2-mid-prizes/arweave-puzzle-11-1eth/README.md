@@ -126,11 +126,13 @@ Cumulative: on the order of 1,000 candidates tested across geometry and metadata
 
 ## Open leads, ranked
 
-1. **A systematic LSB scan of the continuous grayscale and alpha channels** (hours). Every
-   candidate so far reads geometry or metadata as a whole value; a bit-level scan with a tool
-   built for this (`zsteg -a`, `stegoveritas`) has not yet been run to exhaustion. Confirmed if
-   an extracted 64-hex string derives the target exactly; killed once the sweep is exhaustive
-   across bit order and bit width with no match.
+1. **A systematic LSB scan of the continuous grayscale and alpha channels** (hours; 1- and
+   2-bit widths done). Every possible 256-bit window at 1 and 2 bits per pixel, both channels,
+   both scan directions, both packing orders, has now been tried exhaustively: 13,431,083
+   candidates, 0 matches (see `analysis/tested.md`). Wider bit widths (3+) remain untested and
+   are not currently planned, since each step has lower prior probability and this repository's
+   own guidance favors a narrowing insight over open-ended compute. Confirmed if an extracted
+   64-hex string derives the target exactly; the 1- and 2-bit case is now killed.
 2. **Join the community Telegram group and search first-hand for the promised hint** (needs a
    person). I already searched the full archived window (November 2021 to May 2026) and found
    nothing; what remains untested is anything from before the archive starts or outside its
