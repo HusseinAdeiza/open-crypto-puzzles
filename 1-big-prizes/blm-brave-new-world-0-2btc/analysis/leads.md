@@ -20,16 +20,15 @@ accounts). Confirms: a word not present in any prior candidate pool turns up and
 the others, derives the target. Kills: a systematic relisting reproduces the same pool already
 tested, closing this as a source of new candidates.
 
-## 3. Cross the rune transcription against the Russian-prose cipher key (minutes, free)
+## 3. Cross the rune transcription against the Russian-prose cipher key (closed, 2026-08-02)
 
-The 85-glyph positioned transcription of the geometric rune script (3 locations on the image)
-was completed on 2026-08-02. The hypothesis that this script decodes as Russian-language prose
-was developed earlier and independently. The two have never been directly cross-checked against
-each other, because the positioned transcription did not exist until the later pass. Either the
-decoded prose reads coherently start to finish, which would settle the rune channel as
-non-seed-bearing with certainty rather than high confidence, or a mismatch would reopen the
-cipher as a candidate word source. The image's pedestal and bottom band remain untranscribed, so
-even a coherent result would not close the glyph inventory completely.
+This entry was still marked open here, but `analysis/tested.md`'s "Steganography and cipher
+channels" table already logs this exact cross-check, dated 2026-08-02, witnessed by an
+index-of-coincidence match to natural-language text: the 85-glyph positioned transcription
+decodes as Russian-language prose, not seed words. The README's "Established facts" section
+(item 5) states the same conclusion. This file was simply not updated to match; it is now.
+The image's pedestal and bottom band remain untranscribed, so this closes the rune channel as
+checked, not the glyph inventory as complete.
 
 ## 4. Settle BIP39 versus old-Electrum from a source, not from more derivation (needs new
 information)

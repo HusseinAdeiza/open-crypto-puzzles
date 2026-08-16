@@ -137,15 +137,15 @@ exhaustive one.
    reachable through Medium, GitHub, and his employer Synonym's public accounts, and
    explicitly invites
    solvers in his own write-up. Confirmed by any reply that narrows the passphrase;
-   killed by no reply, which leaves only the bounded fallbacks below.
-2. **Safety-net derivation on BIP44 and BIP49** (minutes). The puzzle specifies BIP84, but
-   replaying the existing 108-word corpus on BIP44 (`m/44'`) and BIP49 (`m/49'`) at the
-   change level is nearly free and closes off an alternative-derivation explanation.
-   Confirmed by a match on either path; killed by the expected 0 match.
-3. **Three-word thematic combinator** (hours). Only two-word combinations from the
+   killed by no reply, which leaves only the bounded fallback below.
+2. **Three-word thematic combinator** (hours). Only two-word combinations from the
    puzzle's vocabulary have been tested; a three-word extension over the same curated
    list is a bounded, not-yet-run search. Confirmed by a match; killed by a full sweep
    with 0 matches.
+
+Closed: safety-net derivation on BIP44/BIP49 needed no search. The target is a bech32
+address, a format only BIP84 can produce; BIP44 (`1...`) and BIP49 (`3...`) addresses can
+never string-match it, for any passphrase. See `analysis/leads.md`.
 
 Full notes: [analysis/leads.md](analysis/leads.md).
 
