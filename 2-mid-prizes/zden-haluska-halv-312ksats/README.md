@@ -81,6 +81,15 @@ certifies the derivation pipeline (secp256k1, hash160, base58check) used by the 
    source image larger than the published one (950 by 950 pixels) anywhere.
 3. All 59 rendered lobe strokes peak at the same pixel value in this monochrome image,
    confirming there is no separate color, angle or sign channel to read.
+4. A small vertical tick-mark ladder, about 8 to 9 short dashes evenly spaced roughly 7 pixels
+   apart, sits at pixel column x=90 to 92, rows y=446 to 506, just left of and separate from
+   the leftmost waveform lobe. Not mentioned in this folder's prior established facts or
+   tested.md, so found and logged here for the first time, 2026-08-16. Every dash measured
+   the same width and comparable height (anti-aliasing accounts for the 1 to 5 pixel row-count
+   variance seen in a raw threshold scan); no length, spacing or shape variation was found
+   between dashes, which argues for a scale or ruler marking (a common oscilloscope-plot
+   convention) over a hidden per-tick data channel, but this was not tested as a candidate
+   channel and the reading, if any, is unknown.
 
 ## What has been tested
 
@@ -103,6 +112,9 @@ consumed, not as a witnessed negative in this project's strict sense.
    series eventually received one; HALV has not. Full details in
    [analysis/leads.md](analysis/leads.md).
 2. **Certify the oracle with a known-good vector** (minutes; done in this folder already).
+3. **Read the tick-mark ladder found 2026-08-16** (minutes, low priority). A small, previously
+   undocumented row of 8 to 9 evenly-spaced dashes sits left of the waveform; likely a scale
+   marking, but untested as a data channel. Cannot close the capacity gap alone.
 
 ## Files in this folder
 
