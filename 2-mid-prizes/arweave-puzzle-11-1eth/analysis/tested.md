@@ -41,6 +41,22 @@ an anomaly present only in this puzzle and its sibling puzzle #9.
 | Container-level myths (embedded executable or filesystem inside the PNG) | full file | binwalk, manual chunk inspection | refuted: file is a clean, valid PNG (IHDR, gAMA, cHRM, bKGD, pHYs, 22 IDAT, 3 tEXt, IEND chunks), 0 bytes after IEND; the "executable" reports from other solvers are binwalk false positives on near-random decompressed pixel bytes | yes (direct chunk inspection) | 2026-06-13 |
 | Alpha channel as a data carrier | full channel | direct pixel inspection | 434 pixels have alpha under 255, all clustered on the large sailboat's outline (an anti-aliasing halo from a copy-paste), values 1 to 30, consistent with a smoothed edge rather than structured data | yes | 2026-06-13 |
 
+## Exhaustive 1-bit-per-pixel LSB sweep (2026-08-16)
+
+Every possible contiguous 256-bit window was tried as a raw private key, sliding 1 pixel at a
+time across the grayscale and alpha channels: `num_windows = num_pixels - 255` per channel per
+scan direction per byte-packing order. This is the systematic LSB scan named in open lead 1,
+run to exhaustion for 1-bit-per-pixel extraction specifically.
+
+| Hypothesis | Space | Method | Result | Witness | Rate | Date |
+|---|---|---|---|---|---|---|
+| LSB of grayscale channel, row-major and column-major, MSB-first and LSB-first byte packing | 4 families, up to 1,767,745 windows each (1,161,114 to 1,292,262 valid non-degenerate candidates per family after skipping all-zero windows from uniform background regions) | direct secp256k1 + Keccak-256 address derivation, compared byte-exact | 0 match, best coincidental prefix match 3 of 20 address bytes (consistent with chance at this sample size, not a signal) | uncertified (no known-answer vector for this puzzle) | about 11,800 to 12,200/s | 2026-08-16 |
+| LSB of alpha channel, same 4 combinations | 4 families, up to 1,767,745 windows each (18,431 to 25,296 valid candidates per family; the channel is constant 255 outside 434 pixels, so almost every window is the degenerate all-ones value and is correctly skipped as out of curve range) | same | 0 match, 0 near-miss | uncertified | about 2,200 to 3,100/s | 2026-08-16 |
+
+Cumulative: 4,994,119 candidates tested across 8 families (every combination of {grayscale,
+alpha} x {row-major, column-major} x {MSB-first, LSB-first} at 1 bit per pixel), 0 matches. This
+closes 1-bit-per-pixel LSB steganography, exhaustively, as a candidate encoding for this image.
+
 ## What the ~460-candidate geometry sweep and the metadata sweep together rule out
 
 Between the two families above, on the order of 1,000 candidates were checked, all through the
