@@ -94,6 +94,18 @@ JavaScript decryptor running under Node, on both matching and non-matching passp
    grammar: the drawn object is never the literal answer; the answer is a specific proper
    noun, a notation, or a count. An earlier pass of this research over-fit puzzle #3's
    readings to Arweave-ecosystem jargon before recalibrating against this grammar.
+6. A fresh visual read of slot 7 on 2026-08-16 finds a saguaro-style cactus with drawn
+   thorns and a distinct cowboy-boot silhouette at the lower left, not an obvious match
+   for the current "pull" reading; no confident replacement word was settled on.
+7. A pixel-level count of slot 8's dots, done 2026-08-16 (connected-component detection,
+   then a manual check of every borderline and oversized blob against the source image),
+   finds 59, after excluding 2 false positives where the detector caught the drawn border
+   line at its corners rather than an inked dot. This is a candidate reading of the
+   author's own "did anybody count the dots?" hint, not a confirmed one.
+8. A re-read of slot 1 under autocontrast and 5x magnification, done 2026-08-16, still did
+   not produce a confident reading: the central tangle resolves to either claws, horns, or
+   flame shapes with no single interpretation clearly favored. Recorded as attempted and
+   inconclusive, not skipped.
 
 ## What has been tested
 
@@ -113,13 +125,15 @@ readings, 0 matches.
 
 ## Open leads, ranked
 
-1. **A sharper visual and OSINT reading of slots 1 and 7** (hours), the two most
-   speculative images, plus arbitration between the leading candidates for slot 5 (a
-   chess notation versus a year) and slot 8 (a service name versus a literal count). The
-   3 already-solved siblings' answer grammar (proper nouns, notations, counts) is the
+1. **A sharper visual and OSINT reading of slots 1 and 7** (hours; partial progress
+   2026-08-16). Slot 7's cactus-and-cowboy-boot imagery and slot 8's 59-dot count are
+   documented above as candidate readings (established facts 6 and 7), but the specific
+   4-character words tried for them so far (see `analysis/tested.md`, row B17) did not
+   match; slot 1 remains unread with confidence despite a fresh, contrast-enhanced look.
+   The 3 already-solved siblings' answer grammar (proper nouns, notations, counts) is the
    filter to re-read the images through, rather than Arweave-ecosystem jargon. Confirmed
    by a full 8-slot candidate matching the escrow; killed only by exhausting every
-   plausible reading of the remaining 2 images.
+   plausible reading of the remaining images.
 2. **Bounded 2-slot sweeps on the most-suspect slot pairs** (minutes once a reading is
    fixed), covering the case where exactly 2 of the current readings are wrong at once.
    Not yet run, since the readings to sweep around are still in flux.

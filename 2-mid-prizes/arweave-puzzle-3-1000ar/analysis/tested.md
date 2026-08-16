@@ -40,3 +40,5 @@ source for that slot's 4-character token).
 Cumulative: on the order of 330,000,000 candidates tested against the current best-guess
 readings, 0 matches. The oracle and mechanism are not in question; what remains unresolved
 is which of the 8 image readings are still wrong.
+
+| B17 | Slot 2 (5 digit-substring readings of the drawn "21863"), slot 7 (6 cactus/boot-themed readings: west, draw, boot, spur, wild, ouch), slot 8 (4 dot-count readings: 0058-0061), all combinations, other 5 slots at current best guess | 120 | certified oracle, --stdin | 0 match | yes: --stdin behavior confirmed (prints MATCH lines only, silent on a clean run, matching its own documented contract) | 2026-08-16 |
