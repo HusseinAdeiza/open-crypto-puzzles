@@ -10,10 +10,12 @@ Purpose:
       - BIP39 -> BIP84, m/84'/0'/0'/0/i, empty passphrase, standard BIP39 checksum.
         This branch is CERTIFIED: it reproduces the public BIP39/BIP84 test vector.
       - Electrum segwit seed, salt "electrum", path m/0'/0/i, no BIP39 checksum.
-        This branch is NOT CERTIFIED: no known-good (published seed plus published
-        address) vector exists to prove the derivation accepts a correct answer, even
-        though it is the wallet type the author explicitly named. A "NO MATCH" on this
-        branch alone should not be read as a real negative.
+        This branch is CERTIFIED as of 2026-08-16 against a seed generated and read
+        back by Electrum's own real source code (mnemonic.py, bip32.py, segwit_addr.py,
+        crypto.py, fetched unmodified from github.com/spesmilo/electrum at the `master`
+        branch, run standalone with only non-cryptographic stub modules for util/
+        logging/constants/keystore so the real derivation code needs no changes): see
+        ELECTRUM_SELFTEST_SEED below. A "NO MATCH" on this branch is now a real negative.
 
 Usage:
     python3 tools/oracle.py --selftest                 # must print SELFTEST OK
@@ -172,6 +174,23 @@ def electrum_seed_version_ok(phrase: str) -> bool:
 SELFTEST_VECTOR = " ".join(["abandon"] * 11 + ["about"])
 SELFTEST_EXPECTED_ADDRESS = "bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu"
 
+# Electrum segwit-seed test vector. Generated 2026-08-16 by Electrum's own real
+# Mnemonic.make_seed(seed_type="segwit") and confirmed valid by Electrum's own real
+# is_new_seed() (source: github.com/spesmilo/electrum, master branch, files mnemonic.py,
+# version.py, unmodified). The 3 addresses were then derived 2 independent ways from the
+# same seed: (a) this file's address_electrum_segwit(), and (b) Electrum's own real
+# bip32.py (BIP32Node.from_rootseed with xtype="p2wpkh", subkey_at_private_derivation
+# "m/0'/" then "m/0/i") plus its own real segwit_addr.py and crypto.hash_160, unmodified.
+# Both methods produced byte-identical addresses at indexes 0, 1 and 2, certifying that
+# this file's Electrum branch matches Electrum's actual derivation, not just a plausible
+# reimplementation of it.
+ELECTRUM_SELFTEST_SEED = "chimney mention taste bread short soup deal regular aerobic valley range creek"
+ELECTRUM_SELFTEST_ADDRESSES = [
+    "bc1q7fctjmrs2f7r57339xlzffla387zczz94xautj",  # index 0
+    "bc1qszp7em5erpaesywcrhcjjnw4vdha393rja0un8",  # index 1
+    "bc1qqsgm5l9f4cvkqqmmfutdnjfws47x66gc9lsqyl",  # index 2
+]
+
 
 def check(phrase: str, depth: int = 5) -> tuple[str, int, str] | None:
     words = phrase.split()
@@ -210,12 +229,16 @@ def selftest() -> bool:
     print(f"  {'OK' if not_target else 'FAIL'}  the test vector does not match the puzzle target")
     ok = ok and not_target
 
-    print("-> Electrum segwit seed (uncertified branch, no known-good vector)")
-    deterministic = electrum_seed_version_ok(SELFTEST_VECTOR) == electrum_seed_version_ok(SELFTEST_VECTOR)
-    print(f"  {'OK' if deterministic else 'FAIL'}  the version check is deterministic")
-    print("  NOTE  no known-good Electrum seed+address pair is embedded here: a NO MATCH")
-    print("        on this branch alone is uncertified, not a proven negative")
-    ok = ok and deterministic
+    print("-> Electrum segwit seed (certified branch)")
+    is_valid_electrum_seed = electrum_seed_version_ok(ELECTRUM_SELFTEST_SEED)
+    print(f"  {'OK' if is_valid_electrum_seed else 'FAIL'}  the certified seed passes Electrum's own seed-version check")
+    ok = ok and is_valid_electrum_seed
+    for i, expected in enumerate(ELECTRUM_SELFTEST_ADDRESSES):
+        got_i = address_electrum_segwit(ELECTRUM_SELFTEST_SEED, i)
+        match_i = got_i == expected
+        print(f"  {'OK' if match_i else 'FAIL'}  index {i} matches Electrum's own real bip32.py/segwit_addr.py output")
+        print(f"        {got_i}")
+        ok = ok and match_i
 
     if ok:
         print("SELFTEST OK")
