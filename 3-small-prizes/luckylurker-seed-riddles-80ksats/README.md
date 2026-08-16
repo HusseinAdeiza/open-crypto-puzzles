@@ -86,12 +86,23 @@ derives to `bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu` under
 3. Across 3 saved candidate pools and 3 derivation paths, about 2 million
    position-combinations were checked with the 4 known words fixed, yielding
    about 125,000 checksum-valid full mnemonics, none matching the address.
+4. A fresh reading of the 8 open riddles, done 2026-08-16, finds 5 with a strong,
+   fairly literal single-word match: position 2 (the domain-ruled-by-a-crown
+   hint) to `kingdom`; position 6 ("Not created but uncovered") to `discover`;
+   position 10 ("The systematic pursuit of the unknown") to `science`; position
+   11 ("It only works when it's open, and it's there to shield you") to
+   `umbrella`; position 12 ("A single mark on a map, or the act of finding it")
+   to `spot`, which fits both readings in the hint (a spot marks a map, and "to
+   spot" means to find). Positions 1, 4, and 7 resisted a confident single
+   reading. All 5 strong words and reasonable alternates for the other 3 were
+   tested (see row below); none matched.
 
 ## What has been tested
 
 | Hypothesis | Space | Method | Result | Witness | Date |
 |---|---|---|---|---|---|
 | The 8 riddle words are all inside plausible synonym pools | about 2,000,000 position-combinations across 3 pools and 3 derivation paths | BIP39 checksum filter, then BIP84/BIP49/BIP44 derivation and exact address match | about 125,000 checksum-valid mnemonics, 0 match | uncertified: no known-good candidate was planted in the pool to prove the sweep would have caught it | 2026-08-04 |
+| A fresh, literal reading of all 8 open riddles: 5 positions fixed to their strongest single-word match (`kingdom`, `discover`, `science`, `umbrella`, `spot`) with a small set of alternates, times a handful of candidates each for the 3 unresolved positions (1, 4, 7) | 288 tightly-targeted candidates, then 20,736 with alternates added for the 5 "strong" positions too | certified oracle, `--stdin` | 0 match | yes: `--selftest` passes and `--stdin`'s documented silent-on-no-match contract was confirmed before relying on it | 2026-08-16 |
 
 ## Open leads, ranked
 
@@ -100,9 +111,10 @@ derives to `bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu` under
    remains the only place a confirmation could come from at no cost. Once about
    7 of the 8 riddle words are confidently pinned, checksum plus the 4 known
    words reduce the rest to a sub-second exact-match check.
-2. **Re-check the other 8 articles for the same italic-tag device** (minutes).
-   The marker is confirmed on 4 of 12 target articles; whether it extends to
-   any of the remaining riddle-linked pages has not been checked.
+2. **Re-check the other 8 articles for the same italic-tag device** (minutes;
+   blocked in this environment 2026-08-16, luckylurker.com unreachable). The
+   marker is confirmed on 4 of 12 target articles; whether it extends to any of
+   the remaining riddle-linked pages has not been checked.
 
 ## Files in this folder
 
