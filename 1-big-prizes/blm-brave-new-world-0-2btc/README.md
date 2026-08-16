@@ -109,6 +109,11 @@ public vector matches the escrow. Reproduced 2026-08-16.
 5. The geometric rune script (about 85 glyphs across 3 locations on the image) decodes as
    Russian-language prose under a monoalphabetic substitution, consistent with natural-language
    text by an index-of-coincidence check; it names no seed word directly.
+6. A faint signature, "CHaRLy", sits rotated 90 degrees in the image's top-left corner
+   (crop `[15:220, 0:90]`), previously undocumented in this research. It most likely credits
+   the illustrator commissioned to draw the collage rather than the puzzle author `u/stsh_n`
+   himself; a web search on the handle alone returns no clear match to a known artist account.
+   Noted here for completeness, not as a seed-word source. Found 2026-08-16.
 
 ## What has been tested
 
@@ -142,6 +147,13 @@ directly from the image has not been run (see "Open leads, ranked").
 3. **Settle BIP39 versus old-Electrum from a source, not from more derivation** (needs new
    information). This single fact would cut the remaining search space roughly in half; no
    message signature or other author confirmation is known to exist.
+4. **Identify the artist "CHaRLy"** (needs a person, low probability). A signature by this
+   handle sits in the image's top-left corner; a name-only web search found no clear match.
+   Ranks last: the signature most likely credits an illustrator commissioned to execute the
+   collage, not the puzzle's designer, so even a confirmed identity may carry no information
+   about the seed. Confirmed by contact that yields any detail about word placement or intent;
+   killed by no reply or by confirmation the artist worked from a brief with no puzzle
+   knowledge.
 
 Closed: crossing the rune transcription against the Russian-prose cipher key was already done
 and logged in `analysis/tested.md` on 2026-08-02 (index-of-coincidence match to natural-language
