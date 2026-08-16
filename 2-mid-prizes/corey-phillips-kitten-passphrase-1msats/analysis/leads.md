@@ -20,20 +20,21 @@ the full notes behind each entry.
 - **What would kill it**: no reply; that leaves only the bounded fallbacks below.
 - **Status**: open, not yet executed.
 
-## 2. Safety-net derivation on alternate BIP paths
+## 2. Safety-net derivation on alternate BIP paths (closed by address format, not by search)
 
-- **Cost**: minutes.
-- **What it is**: the puzzle uses BIP84 (native segwit); replaying the 108-word
-  Corey-specific corpus (already built) against BIP44 (`m/44'`) and BIP49 (`m/49'`) at the
-  change level costs seconds of compute and closes off a cheap alternative-derivation
-  explanation before assuming the passphrase itself is the only variable.
-- **Why it ranks here**: bounded and already available (the corpus exists); low
-  probability since the author's own code and article both specify BIP84, but the cost of
-  checking is close to zero.
-- **What would confirm it**: a derived address under BIP44 or BIP49 for any of the 108
-  words matching the target.
-- **What would kill it**: 108 candidates times 2 paths, 0 match (expected).
-- **Status**: open, not yet run.
+- **Cost**: none; closed by inspection.
+- **What it is**: the target `bc1qcyrndzgy036f6ax370g8zyvlw86ulawgt0246r` is a bech32
+  P2WPKH address, a format only BIP84 (or an explicit native-segwit derivation) can ever
+  produce. BIP44 (`m/44'`) derives legacy P2PKH addresses (base58, `1...` prefix); BIP49
+  (`m/49'`) derives P2SH-wrapped segwit addresses (base58, `3...` prefix). Neither encoding
+  can ever string-equal a bech32 address, for any passphrase, so no candidate under either
+  path could ever match the target.
+- **Why it ranks here**: what looked like a cheap, bounded search turns out to need no
+  search at all: the address-format mismatch rules out the whole family analytically.
+- **What would confirm it**: not applicable; closed by address-format incompatibility, not
+  by a negative result.
+- **What would kill it**: not applicable.
+- **Status**: closed, 2026-08-16. No candidates were run; none were needed.
 
 ## 3. Three-word thematic combinator
 

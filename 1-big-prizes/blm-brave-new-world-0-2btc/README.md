@@ -139,13 +139,14 @@ directly from the image has not been run (see "Open leads, ranked").
    systematic relisting of every word visible on the collage. Confirmed if a word absent from
    every prior pool derives the target once combined with the rest; killed if the relisting
    reproduces the same pool already tested.
-3. **Cross the rune transcription against the Russian-prose cipher key** (minutes, free). The
-   positioned 85-glyph transcription and the substitution-cipher hypothesis have never been
-   directly checked against each other. Confirmed as closed if the decoded prose reads
-   coherently start to finish; reopened as a candidate word source if it does not.
-4. **Settle BIP39 versus old-Electrum from a source, not from more derivation** (needs new
+3. **Settle BIP39 versus old-Electrum from a source, not from more derivation** (needs new
    information). This single fact would cut the remaining search space roughly in half; no
    message signature or other author confirmation is known to exist.
+
+Closed: crossing the rune transcription against the Russian-prose cipher key was already done
+and logged in `analysis/tested.md` on 2026-08-02 (index-of-coincidence match to natural-language
+text, not seed words); this file's ranked list had not been updated to reflect it. See
+`analysis/leads.md`.
 
 Full notes: [analysis/leads.md](analysis/leads.md).
 
