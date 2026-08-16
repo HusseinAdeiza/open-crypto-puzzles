@@ -20,12 +20,25 @@ Cost: an afternoon of searching alternative archivers; no compute.
 archive.today returned HTTP 429 on its own known-good witness page when I tried it
 (2026-08-03), so I could not tell whether it holds anything for this challenge; Memento
 TimeTravel was unreachable the same session; I found no verified anonymous read route for
-X replies to `@bitaps_com`; the GitHub forks of `mnemonic-offline-tool` (13 as of
-2026-08-03) have not been individually reviewed for a diverged share; and Telegram's
-`t.me/s/bitapscom` public preview has not been read. None of these are established as
-empty, only as not yet checked with a working method. What would confirm or kill each:
-a working read of the channel that either surfaces a 3rd share or comes back clean with a
-witness proving the read method works. Cost: minutes to hours per channel, no compute.
+X replies to `@bitaps_com`; and Telegram's `t.me/s/bitapscom` public preview has not been
+read. What would confirm or kill each: a working read of the channel that either surfaces
+a 3rd share or comes back clean with a witness proving the read method works. Cost:
+minutes to hours per channel, no compute.
+
+**GitHub forks, closed 2026-08-16.** All 13 forks of `mnemonic-offline-tool` listed on
+GitHub's network-members page (`0xGoerliMainnet`, `alfathsurya`, `digitalderrick`,
+`djmuratb`, `goodlookingull-stack`, `KingParmenides`, `palashganguly38-code`,
+`pingeye92`, `secp8x32`, `Stevenans985900`, `unit-code-cnbd`, `yatescleta-afk`,
+`zanko7`) were cloned directly (`git clone --depth 50`) and checked both by commit hash
+and by full remote branch list, not just a working-tree file diff (a diff alone would
+miss a divergent share sitting in an unmerged branch or an earlier commit no longer in
+the tree). Witness: 12 of the 13 resolve to the exact same commit as upstream,
+`5b6dd995478b49c489b95444fbb0dca4006746a2`; the 13th, `Stevenans985900`, sits 1 commit
+behind on the identical history (`91ea8b9`, missing only the final "grammar" wording
+fix, itself already an ancestor commit of `5b6dd995` in the upstream repository, not a
+divergent tip). Every fork has exactly 1 branch (`master`), matching upstream, with no
+second branch anywhere. This closes the GitHub-fork channel: it carries no diverged
+share and needs no further review.
 
 ## 3. Direct computation
 
