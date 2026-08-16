@@ -38,3 +38,15 @@ The puzzle author posted once, in 2020, and has not been heard from since; no kn
 message signature exists. The only path I have not exhausted is a further pass over 2025 to
 2026 Reddit and BitcoinTalk activity for any post that quotes or references a hint from the
 author directly, as opposed to a poster's own guess.
+
+## 5. Identify the artist "CHaRLy" (needs a person, low probability)
+
+A faint signature reading "CHaRLy", rotated 90 degrees, sits in the image's top-left corner
+(pixel crop `[15:220, 0:90]` of the published PNG); it does not appear in any prior pass of
+this research. A name-only web search turns up no clear match to a known illustrator account.
+This ranks last among open leads: the signature most likely credits an artist commissioned to
+execute the collage from the puzzle author's brief, not the author himself, so even a confirmed
+identity may carry no information about seed-word placement or intent. Confirms: contact with
+the artist that yields any detail about word placement, order, or the author's brief. Kills: no
+reply, or a reply confirming the artist worked from a visual brief with no puzzle-specific
+knowledge.
