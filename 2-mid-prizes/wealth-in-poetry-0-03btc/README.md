@@ -24,7 +24,7 @@ by the author's own design, are not guessable from the article alone.
 | Status | OPEN |
 | Puzzle type | bip39-seed, text-cipher, brainwallet |
 | Target format | BIP39 12 words, position selected by an author-specific numeric key applied to the article text; passphrase and derivation path not confirmed |
-| Certified oracle | no: see "Derivation and oracle" below |
+| Certified oracle | yes, as of 2026-08-16: `tools/oracle.py --selftest` (BIP44/BIP49, raw BIP32, master key against the public BIP39 vector; old-Electrum v1 and v2 against seeds cross-checked in this session against Electrum's own real source) |
 | What remains | the real carrier text and the numeric key; both are author-specific by the article's own design |
 | Series | none |
 
@@ -53,14 +53,20 @@ are treated as certain rather than assumed.
 
 ### Derivation and oracle
 
-No certified oracle is shipped in this folder. The private derivation code exists and covers
-BIP44/49/84, raw BIP32 paths, the master key, and old Electrum v1/v2, but it has no known-good
-test proving it actually accepts a correct candidate: no solved sibling of this puzzle exists,
-and no synthetic seed-and-address pair was ever embedded to certify the acceptance path. A
-candidate is checked the same way a solver would: derive the P2PKH address (compressed and
-uncompressed) for a 12-word candidate under BIP44/49/84 and any raw BIP32 path in scope, and
-compare it, byte for byte, to the escrow address at
-[mempool.space](https://mempool.space/address/1K4ezpLybootYF23TM4a8Y4NyP7auysnRo).
+```
+python3 tools/oracle.py --selftest              # must print SELFTEST OK
+python3 tools/oracle.py "w1 w2 ... w12"
+python3 tools/oracle.py --stdin                  # one 12-word candidate per line
+```
+
+A candidate is checked the same way a solver would: derive the P2PKH address (compressed and
+uncompressed) for a 12-word candidate under BIP44/BIP49 (3 accounts, both change branches, 5
+indexes each), 5 raw BIP32 paths seen used elsewhere in this puzzle series, the master key
+with no derivation, old-Electrum v1, and old-Electrum v2 (standard, non-segwit), and compare
+each, byte for byte, to the escrow address. This folder previously shipped no oracle at all
+(built 2026-08-16, closing the gap named in `analysis/leads.md`); the roughly 900,000
+derivations reported under "What has been tested" below predate it and were produced by
+private, uncertified code, which is why every row there is marked uncertified.
 
 ### Established facts
 
@@ -96,19 +102,25 @@ this repository's own convention these counts describe search coverage, not prov
    Steganographia, shelfmark Jesus College M.7.7, which contains genuine cipher tables. The
    author published this image without flagging it as a candidate key; it is the one artifact in
    the article not yet exploited as a possible numeric key source.
-2. **Rule out an old-Electrum (non-BIP39) wallet** (hours). If the wallet predates BIP39, the
-   large body of BIP39-based derivation work to date is off-target even with the correct words.
-3. **Build a certified acceptance test for the derivation code** (minutes). No known-good
-   seed-and-address pair has ever been run through the derivation library to prove it accepts a
-   correct candidate; every negative above is technically unproven without this.
+2. **Rule out an old-Electrum (non-BIP39) wallet** (hours; oracle now supports it). The
+   derivation code exists and is certified as of 2026-08-16 (see above); what remains is
+   running the existing candidate word sets through the old-Electrum v1 and v2 branches, which
+   has not been done, only proposed.
+
+Closed: building a certified acceptance test for the derivation code. `tools/oracle.py` is now
+shipped and certified against 5 independent vectors (see "Derivation and oracle" above), 2 of
+them cross-checked against Electrum's own real source code. Every future negative through this
+file is a real one, not an uncertified one; the roughly 900,000 candidates tested before
+2026-08-16 remain uncertified, since they used different, unshipped code.
 
 ## Files in this folder
 
 | Path | What it is |
 |---|---|
 | `clues/author-posts.md` | the article's two worked examples and closing lines, quoted verbatim with the source URL and date |
-| `analysis/tested.md` | the complete negatives ledger, marked uncertified |
+| `analysis/tested.md` | the complete negatives ledger, marked uncertified (predates `tools/oracle.py`) |
 | `analysis/leads.md` | full notes behind the ranked leads |
+| `tools/oracle.py` | candidate checker: BIP44/BIP49, raw BIP32, master key, old-Electrum v1 and v2 standard, certified against 5 independent vectors |
 
 ## Sources
 
