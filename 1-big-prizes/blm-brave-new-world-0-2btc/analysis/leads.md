@@ -9,7 +9,7 @@ never written down. This is the fastest possible action: rerun each and record w
 tool printed a match. Confirms: any match ends the puzzle. Kills: a clean run on all 3
 confirms these particular candidate sets carry no signal, without spending new compute.
 
-## 2. Re-derive the word inventory from the image itself, not from community claims (hours)
+## 2. Re-derive the word inventory from the image itself, not from community claims (hours; partially started)
 
 Every large campaign to date, including the 3.75-million-seed anchor-free sweep, still forces
 a fixed pool of "obviously visible" words rather than a pool built by a fresh, systematic pass
@@ -19,6 +19,20 @@ of the word lists used in past runs (several of which trace back to the 2 unconf
 accounts). Confirms: a word not present in any prior candidate pool turns up and, combined with
 the others, derives the target. Kills: a systematic relisting reproduces the same pool already
 tested, closing this as a source of new candidates.
+
+Progress, 2026-08-16: a contrast-boosted, full-image pass (autocontrast plus a 3x sharpness
+enhancement, read in quadrants at native resolution) turned up one previously undocumented
+sentence, in very low-contrast grey text running vertically beside the escrow address on the
+Statue of Liberty: "PAY FOR THE FUTURE. THIS IS THE FIRST PREDICTION." Cross-checked against
+the bundled BIP39 and old-Electrum v1 wordlists (`bip_utils`' own wordlist files, not a
+downloaded list): `pay` is old-Electrum-exclusive; `future` and `first` are valid in both.
+This is not a confirmed new candidate: whether these words already sit inside the roughly
+30-word private candidate pool referenced in `data/format-fork.json` cannot be checked from
+this public repository, since that pool's full contents are not stored here. What this pass
+did not do: a complete word-by-word relisting of every other region (the whitepaper microtext
+block alone contains dozens of incidental BIP39-valid English words that are almost certainly
+noise, not placed candidates, and were not re-litigated here). The rest of lead 2 is still
+open.
 
 ## 3. Cross the rune transcription against the Russian-prose cipher key (closed, 2026-08-02)
 

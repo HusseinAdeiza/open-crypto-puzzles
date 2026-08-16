@@ -114,6 +114,13 @@ public vector matches the escrow. Reproduced 2026-08-16.
    the illustrator commissioned to draw the collage rather than the puzzle author `u/stsh_n`
    himself; a web search on the handle alone returns no clear match to a known artist account.
    Noted here for completeness, not as a seed-word source. Found 2026-08-16.
+7. A line of small, low-contrast text runs vertically beside the escrow address on the Statue
+   of Liberty (crop `[1478:1770, 0:60]` before rotation; visible only after autocontrast):
+   "PAY FOR THE FUTURE. THIS IS THE FIRST PREDICTION." This sentence is not referenced anywhere
+   in this folder's prior notes. `pay` is old-Electrum-exclusive (not in BIP39); `future` and
+   `first` are valid in both wordlists. Whether these 3 words are already part of the roughly
+   30-word candidate pool tracked in the private research folder (see `data/format-fork.json`)
+   is unconfirmed from this public repository alone. Found 2026-08-16.
 
 ## What has been tested
 
@@ -139,11 +146,13 @@ directly from the image has not been run (see "Open leads, ranked").
    against a pipeline whose own known-answer test passes, but their result was never written
    down. Confirmed if either rerun prints a match; killed as a source of new candidates once
    both are logged clean.
-2. **Re-derive the word inventory from the image itself** (hours). Every large campaign to
-   date, including the anchor-free sweep, still uses a fixed candidate pool rather than a fresh,
-   systematic relisting of every word visible on the collage. Confirmed if a word absent from
-   every prior pool derives the target once combined with the rest; killed if the relisting
-   reproduces the same pool already tested.
+2. **Re-derive the word inventory from the image itself** (hours; partially started). Every
+   large campaign to date, including the anchor-free sweep, still uses a fixed candidate pool
+   rather than a fresh, systematic relisting of every word visible on the collage. A first
+   contrast-boosted pass over the full image on 2026-08-16 turned up one sentence not in any
+   prior note (see established fact 7), but did not attempt a full pixel-by-pixel relisting.
+   Confirmed if a word absent from every prior pool derives the target once combined with the
+   rest; killed if a complete relisting reproduces the same pool already tested.
 3. **Settle BIP39 versus old-Electrum from a source, not from more derivation** (needs new
    information). This single fact would cut the remaining search space roughly in half; no
    message signature or other author confirmation is known to exist.
