@@ -39,5 +39,8 @@ was measured (cross-correlation against the authoritative on-chain PNG, peak cor
 0.41) and judged an upscaling artifact rather than a real signal, since that composite is
 larger than every known authentic source of the image.
 
+| Direct KJV Genesis 28 transcriptions (full chapter with/without punctuation and spaces; verses 1-19; verses 6+3+18 concatenated; verses 3-18; verse 12 alone with/without punctuation) | 10 | 2026-08-16, text sourced from a public-domain KJV JSON dataset, not memory |
+
 Cumulative: on the order of 8,010,190 candidates tested to completion across every
-literal, pun, notation, and genesis-block reading found so far, 0 matches.
+literal, pun, notation, and genesis-block reading found so far, plus the 10 direct
+Genesis 28 transcriptions above, 0 matches.
