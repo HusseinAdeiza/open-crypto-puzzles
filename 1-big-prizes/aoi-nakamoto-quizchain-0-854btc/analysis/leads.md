@@ -2,7 +2,47 @@
 
 Ranked summary is in the README. This file has the reasoning behind the ranking.
 
-## 1. Expand the remaining collapsed reply threads on the Real Big Block Discussion post (mostly exhausted)
+## 1. Resolve whether the case-flip rule is real at all
+
+This repository's own prior notes claimed the case-flip rule "reproduces
+`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` [Block 77 Stage One] exactly," citing
+research done against Hal Finney's real bitcointalk post text. On 2026-08-17,
+a person supplied that real text directly (bitcointalk.org is unreachable from
+this research environment, confirmed by testing, along with 3 mirror sites),
+and an exhaustive test - every subset of the post's 16 paragraphs, both flip
+directions, all 4 line-ending conventions, 524,288 candidates total - produced
+0 match against that address (`analysis/tested.md`, "Block 77 Stage One
+reproduction attempt"). The post's structure matches what this file's own
+prior description implied (16 paragraphs, exactly 4 starting outside
+`ITASM`), which argues against a wildly different transcription, but does not
+rule one out.
+
+This is the most consequential open question in this puzzle, because
+everything else in this folder that assumes the case-flip rule - the
+2^17-paragraph sweep, the "certified groups," the case-flipped variants of
+every whole-chapter and whole-section candidate tested since - inherits its
+uncertainty. If the rule is wrong, those negative results say nothing about
+whether the right paragraph selection was ever tried, since they were all
+tested under a transform that itself doesn't work.
+
+What would confirm the rule is real: a transcription of Finney's post,
+independent of the one already tried, that reproduces
+`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` under some serialization. Sources worth
+trying: a "view source" or raw HTML copy instead of a rendered-page copy (in
+case whitespace or HTML entities differ from what displays), or a copy from
+an archived/cached version of the post from closer to 2019 (Finney's post has
+its own edit history, last dated 2013-03-25, and the puzzle author would have
+read whatever version existed when she solved Stage 1 in 2019, not
+necessarily an identical byte sequence to today's).
+What would kill the rule entirely (as this specific mechanism): a second,
+independently-sourced transcription also failing to reproduce the address
+under a reasonably thorough search, at which point Real Big Block's mechanism
+should be treated as fully unknown, not "case-flip on an unknown paragraph
+subset."
+Cost: minutes if an alternate source of the text is available; the derivation
+itself is fast.
+
+## 2. Expand the remaining collapsed reply threads on the Real Big Block Discussion post (mostly exhausted)
 
 The "Real Big Block Discussion" thread (`clues/author-posts.md`) has now been
 read directly (a reader's own copy-paste, 2026-08-17), including all 3
@@ -11,7 +51,7 @@ collapsed "N more replies" sub-threads that were not expanded on first read.
 whether to also mirror the block on dropmefiles.com instead of Wattpad
 (tangential), 1 was a 1-line acknowledgement ("Got it. Thank you."). The 1
 that mattered - the exact clarification behind the `\r\n\r\n` separator used
-in lead 2 - has already been extracted. What remains open is whether this
+in lead 3 - has already been extracted. What remains open is whether this
 single thread accounts for all 27 posts and comments the README's "read the
 27 posts" figure refers to, or whether other threads or profile comments from
 2019-07-30 to 2019-08-04 exist and are still unread.
@@ -23,7 +63,7 @@ What would kill it: confirming this one thread is the complete set of 27, with
 nothing left unread.
 Cost: minutes, needs a person to check her comment/post history for the window.
 
-## 2. Reconstruct the 2019 browser-copy rendering of the Wattpad chapter
+## 3. Reconstruct the 2019 browser-copy rendering of the Wattpad chapter
 
 The author gives 2 dated, precise, and now-reconciled statements about the
 line breaks (`clues/author-posts.md`, full quotes there). 2019-07-28, about
@@ -43,18 +83,18 @@ current one. This raises confidence that `\r\n\r\n` is the right separator for
 the live target from "a plausible reading" to "confirmed by 2 independent,
 consistent primary-source statements." Under
 the confirmed `\r\n\r\n` separator (and `\r\n`, `\n`, `\n\n` for completeness),
-raw and with the certified case-flip rule, the following have now all been
-tested against both open escrows with 0 match: the whole chapter and each of
-its 2 top-level sections, headers in and out (48 candidates); every subset of
-the chapter's 6 natural subsections (252); every prefix and every suffix of the
-chapter (1,920); every single paragraph alone, dialogue-only and
-narration-only extractions, and the short "truth or lie" riddle exchange alone
-(128); leading/trailing separator variants and a naive straight-to-curly quote
+raw and with the case-flip rule (whose own certification is now separately in
+question, see lead 1), the following have now all been tested against both
+open escrows with 0 match: the whole chapter and each of its 2 top-level
+sections, headers in and out (48 candidates); every subset of the chapter's 6
+natural subsections (252); every prefix and every suffix of the chapter
+(1,920); every single paragraph alone, dialogue-only and narration-only
+extractions, and the short "truth or lie" riddle exchange alone (128);
+leading/trailing separator variants and a naive straight-to-curly quote
 conversion (40). A targeted single-character-edit sweep (delete, case toggle,
 whitespace family insert/replace, quote-style toggle) at every position across
-8 of the strongest `\r\n\r\n`-joined bases, 772,720 candidates, was started
-2026-08-17 and is running in the background; see `analysis/tested.md` for its
-row and current status.
+8 of the strongest `\r\n\r\n`-joined bases, 772,720 candidates, completed
+2026-08-17 with 0 match; see `analysis/tested.md` for the row.
 
 What is still not tested under the confirmed `\r\n\r\n` separator is the
 earlier, narrower paragraph-subset hypotheses from the original private
@@ -67,16 +107,16 @@ list itself is not present anywhere in this repo to re-derive from.
 What would confirm it: re-running the specific paragraph-subset hypotheses
 already identified in this file, this time joined with the confirmed exact
 `\r\n\r\n` separator, through `tools/oracle.py`.
-What would kill it: exhausting those subset hypotheses (and the running
-character-edit sweep) under `\r\n\r\n` with 0 match, at which point the
-separator itself (now high-confidence but not proven, since no candidate has
-matched under it yet) becomes worth re-examining rather than paragraph
-selection.
+What would kill it: exhausting those subset hypotheses under `\r\n\r\n` with 0
+match (the character-edit sweep already is exhausted, 0 match), at which
+point the separator itself (now high-confidence but not proven, since no
+candidate has matched under it yet) becomes worth re-examining rather than
+paragraph selection - alongside lead 1's more fundamental question of whether
+the case-flip rule applies at all.
 Cost: minutes to re-run existing candidate lists under the new separator; the
-derivation itself is seconds per candidate. The character-edit sweep costs
-roughly an hour of compute, already running.
+derivation itself is seconds per candidate.
 
-## 3. The second, differently-worded copy of the opening scene is her own reused Block 29 draft, not an impersonator's copy or a hashing candidate
+## 4. The second, differently-worded copy of the opening scene is her own reused Block 29 draft, not an impersonator's copy or a hashing candidate
 
 The live chapter page shows its opening scene (the "Good morning, Tom" /
 "What's your name" exchange) twice: the real chapter has "2020." for the year,
@@ -118,12 +158,13 @@ What would kill it as a lead entirely: no further distinctive single-word
 candidates in the chapter producing a match either.
 Cost: minutes per additional word tried.
 
-## 4. Two-character edits on the strongest base texts
+## 5. Two-character edits on the strongest base texts
 
 The single-character-edit sweep (266,038,400 candidates, `analysis/tested.md`)
 covers every one-character difference from 40 base texts under the older `\n\n`
 assumption and is exhaustive for that distance; a targeted 1-character sweep on
-the new `\r\n\r\n`-confirmed bases is running now (see lead 2). Neither covers
+the 8 `\r\n\r\n`-joined bases completed 2026-08-17 with 0 match (see lead 3).
+Neither covers
 2-character differences, which would catch a base text that is off by, for
 example, one inserted invisible character AND one capitalization slip. A
 2-character sweep restricted to the small set of NBSP and line-ending pairs
@@ -138,7 +179,7 @@ Cost: on the order of an hour on a rented GPU for the bounded version described
 above; the private research folder priced this at roughly 45 minutes per base
 text for a similarly scoped variant.
 
-## 5. Identify what "76" indexes for Block 76
+## 6. Identify what "76" indexes for Block 76
 
 A method confirmed on 3 other blocks in the same series (56, 57, 58) uses the
 block's own number as a position index into a specific corpus (a numbered post
@@ -159,7 +200,7 @@ What would kill it: exhausting the remaining candidate corpora with no match at
 position 76.
 Cost: minutes per corpus once a candidate corpus is assembled.
 
-## 6. A short, human-reasoned answer to "change to" / "from change to"
+## 7. A short, human-reasoned answer to "change to" / "from change to"
 
 The author's own hint structure (a short, freeform-text question plus a short
 TOMI expansion, confirmed on more than a dozen other blocks) argues for a short,

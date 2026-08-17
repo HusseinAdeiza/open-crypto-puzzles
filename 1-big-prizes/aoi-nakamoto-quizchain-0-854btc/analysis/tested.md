@@ -4,14 +4,53 @@ Summary table is in the README. This file has the full detail behind each row.
 All figures are re-read from the private research's own dated result logs before
 being written here.
 
+## Block 77 Stage One reproduction attempt (mechanism check, 2026-08-17)
+
+This section is not a Real Big Block hypothesis; it is a check on whether the
+case-flip rule the rows below assume is even real. This file previously
+asserted the rule "reproduces the solved sibling lot Block 77 Stage One
+exactly," citing research that, by its own account, needed Hal Finney's real
+bitcointalk post text (this repository does not ship that text; see README,
+"Derivation and oracle"). bitcointalk.org turned out to be unreachable from
+this research environment (confirmed 2026-08-17, along with 3 mirror sites
+tried as alternatives), which raises the real possibility that claim was
+written without ever being tested.
+
+A person independently fetched Hal Finney's actual post text from
+bitcointalk.org (topic 155054) and supplied it for testing. Split into
+paragraphs on blank lines, it has exactly 16, of which exactly 4 start with a
+letter outside `ITASM`, matching this file's own prior description of the
+rule's expected shape. Despite that structural match, exhaustively testing
+every subset of those 16 paragraphs (2^16 = 65,536) under the documented flip
+rule, its reverse, and all 4 plausible line-ending conventions (`\n`, `\n\n`,
+`\r\n`, `\r\n\r\n`), 524,288 candidates total, against
+`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` (Block 77 Stage One's real, solved,
+already-swept address) produced 0 match.
+
+| Hypothesis | Candidates | Result |
+|---|---|---|
+| Every paragraph-subset (2^16) x documented flip direction x 4 line-ending conventions | 262,144 | 0 match |
+| Every paragraph-subset (2^16) x reversed flip direction x 4 line-ending conventions | 262,144 | 0 match |
+
+This does not prove the case-flip rule is wrong: the Finney post has its own
+edit history (last edited 2013-03-25), and a transcription difference from
+whatever byte sequence the puzzle author actually hashed in 2019 remains a
+live possibility, not ruled out here. But it means the rule's prior
+"confirmed" status in this repository was not actually earned, and every row
+below that assumes the rule (the case-flip-related ones specifically) should
+be read with that caveat: they tested a hypothesis that is itself unverified,
+not a certified mechanism. See `analysis/leads.md` for the lead this opens.
+
 ## Real Big Block (0.777 BTC)
 
-The mechanism is certified (the case-flip rule reproduces the solved sibling lot
-Block 77 Stage One exactly). What is not established is exactly which paragraphs
-of the "Second" chapter the author modified on 2019-07-30, and the precise text
-she copied. Every row below tests a specific hypothesis about that, against both
-the current escrow (`14zMkTgaVXJcxdh4JdWi29MLRR44iUSG9W`) and its superseded
-predecessor (`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`).
+The MD5-to-BIP39-to-BIP44 transform is certified (see README, "Certified
+against"); the case-flip rule layered on top of it is not (see the section
+above). What is not established is exactly which paragraphs of the "Second"
+chapter the author modified on 2019-07-30, the precise text she copied, and
+now also whether the case-flip rule applies at all. Every row below tests a
+specific hypothesis about the first two, against both the current escrow
+(`14zMkTgaVXJcxdh4JdWi29MLRR44iUSG9W`) and its superseded predecessor
+(`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`).
 
 | Hypothesis family | Candidates | Result |
 |---|---|---|
@@ -46,11 +85,17 @@ predecessor (`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`).
 | Quizchain Block 29's own draft text (identified as the source of the chapter's duplicate opening excerpt), raw and with its own confirmed "voice" to "vOIce" correction, tested directly against Real Big Block; the identical sentence inside the real chapter, with the same correction applied alone and combined with the certified case-flip rule, under `\r\n\r\n` | 17 | 0 match |
 | Fixing 2 genuine typos in the chapter's own text ("Paloecene" to "Paleocene", "marktet" to "market"), alone and combined, on 4 base texts, raw and case-flipped, under `\r\n\r\n` | 24 | 0 match |
 
-Witness status: every row above used the oracle certified against Block 77 Stage
-One (see README, "Certified against"); the single-character-edit row additionally
-planted 3 synthetic witnesses per base text (head, middle, tail) and recovered
-all of them on all 40 bases, plus recovered the real Stage One text and address
-when run as a 41st base. Dates: all rows 2026-08-15.
+Witness status: every row above used the oracle certified against the author's
+own self-contained MD5-to-address calibration vector (see README, "Certified
+against"), which does not depend on the case-flip rule or on Finney's post
+text. The single-character-edit row additionally planted 3 synthetic witnesses
+per base text (head, middle, tail) and recovered all of them on all 40 bases.
+An earlier version of this line also claimed that run "recovered the real
+Stage One text and address... when run as a 41st base"; that claim is
+withdrawn as of 2026-08-17, since it is directly contradicted by the
+524,288-candidate reproduction attempt in the section above, which found 0
+match under every plausible reading of the rule. Dates: all rows 2026-08-15
+unless marked otherwise.
 
 Cumulative for Real Big Block: approximately 273 million candidates tested, 0
 match. The 2 single-character-edit sweeps (the original 40-base LF sweep and

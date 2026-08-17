@@ -20,6 +20,20 @@ bitcointalk (topic 155054). Stage 1's escrow, `19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5K
 was solved and swept on 2019-08-03; its answer is not part of the live prize and
 is used in this folder only as a mechanism reference (see README).
 
+**Correction, 2026-08-17**: this repository previously stated the case-flip
+rule was "proven" to reproduce this address using Finney's post text. A
+person independently fetched that post from bitcointalk.org directly
+(unreachable from this research environment on its own) and supplied it for
+testing. Its text is not reproduced here (third-party historical content,
+same policy as before), but the test result is: 524,288 combinations of
+paragraph subset, flip direction, and line-ending convention, all against
+`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN`, 0 match. See README, "Certified
+against", and `analysis/tested.md` for the full record. The post's structure
+(16 paragraphs, exactly 4 starting outside `ITASM`) matches what this file's
+prior description implied, which is consistent with a broadly accurate
+transcription, but a byte-level difference from whatever the puzzle author
+actually hashed in 2019 has not been ruled out.
+
 ## Quizchain2 Block 76, 2019-07-22
 
 https://www.reddit.com/r/Grycoin/comments/cgcv9i/77_mbtc_quizchain2_block_76/
