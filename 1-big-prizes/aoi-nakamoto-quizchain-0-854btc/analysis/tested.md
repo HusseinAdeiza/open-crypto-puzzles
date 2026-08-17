@@ -42,7 +42,7 @@ predecessor (`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`).
 | Every prefix and every suffix of the full chapter and the no-headers chapter, all lengths, CRLF-CRLF and LF-LF, raw and case-flipped | 1,920 | 0 match |
 | Every single paragraph alone; dialogue-only and narration-only extractions; the short "truth or lie" riddle exchange alone | 128 | 0 match |
 | Leading/trailing separator variants (none, leading, trailing, both) on the 2 strongest bases; a naive straight-to-curly quote conversion of the same bases | 40 | 0 match |
-| A targeted single-character-edit sweep (delete, case toggle, whitespace insert/replace among space/NBSP/tab/CR/LF, straight/curly quote toggle) at every position, across 8 CRLF-CRLF-joined base texts | 772,720 planned | in progress as of 2026-08-17, see analysis/leads.md |
+| A targeted single-character-edit sweep (delete, case toggle, whitespace insert/replace among space/NBSP/tab/CR/LF, straight/curly quote toggle) at every position, across 8 CRLF-CRLF-joined base texts | 772,720 | 0 match, completed 2026-08-17 |
 | Quizchain Block 29's own draft text (identified as the source of the chapter's duplicate opening excerpt), raw and with its own confirmed "voice" to "vOIce" correction, tested directly against Real Big Block; the identical sentence inside the real chapter, with the same correction applied alone and combined with the certified case-flip rule, under `\r\n\r\n` | 17 | 0 match |
 | Fixing 2 genuine typos in the chapter's own text ("Paloecene" to "Paleocene", "marktet" to "market"), alone and combined, on 4 base texts, raw and case-flipped, under `\r\n\r\n` | 24 | 0 match |
 
@@ -52,10 +52,11 @@ planted 3 synthetic witnesses per base text (head, middle, tail) and recovered
 all of them on all 40 bases, plus recovered the real Stage One text and address
 when run as a 41st base. Dates: all rows 2026-08-15.
 
-Cumulative for Real Big Block: approximately 272 million candidates tested, 0
-match. The single-character-edit sweep accounts for the large majority of this
-total and is the only row certified as a complete sweep of its stated space (all
-40 bases, every single edit); every other row is a targeted, not exhaustive,
+Cumulative for Real Big Block: approximately 273 million candidates tested, 0
+match. The 2 single-character-edit sweeps (the original 40-base LF sweep and
+the 2026-08-17 8-base CRLF-CRLF sweep) account for the large majority of this
+total and are the only rows certified as complete sweeps of their stated space
+(every base, every single edit); every other row is a targeted, not exhaustive,
 test of one specific hypothesis about which paragraphs were modified.
 
 ## Quizchain2 Block 76 (0.077 BTC)

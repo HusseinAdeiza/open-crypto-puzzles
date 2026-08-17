@@ -188,14 +188,14 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: whole-chapter and whole-section candidates joined with the author's own confirmed exact separator (`\r\n\r\n`, "13 10 13 10") and 3 other line-ending combinations, checked against derivation indices 0 to 19 | 48 | same | 0 match | yes | 2026-08-17 |
 | RBB: every subset of the chapter's 6 natural subsections, and every prefix/suffix of the chapter, under `\r\n\r\n`/`\n\n` | 2,172 | same | 0 match | yes | 2026-08-17 |
 | RBB: every single paragraph alone; dialogue-only, narration-only, and riddle-exchange extractions; leading/trailing separators; a naive curly-quote conversion | 168 | same | 0 match | yes | 2026-08-17 |
-| RBB: targeted single-character-edit sweep (delete, case toggle, whitespace family, quote style) at every position across 8 `\r\n\r\n`-joined bases | 772,720 planned | same | in progress | yes | 2026-08-17 |
+| RBB: targeted single-character-edit sweep (delete, case toggle, whitespace family, quote style) at every position across 8 `\r\n\r\n`-joined bases | 772,720 | same | 0 match | yes | 2026-08-17 |
 | RBB: Quizchain Block 29's own draft text (source of the chapter's duplicate opening excerpt) and its confirmed "voice" to "vOIce" correction, direct and applied to the identical sentence in the real chapter | 17 | same | 0 match | yes | 2026-08-17 |
 | RBB: name/word paragraph selectors, browser-copy simulation, invisible characters, alternate encodings | approximately 1,830,000 | same | 0 match | yes | 2026-08-15 |
 | Block 76: standard BIP44/49/84 derivations, paths, passphrases on the one chain found by search | standard space plus 24,564 off-by-one variants | MD5 to BIP39 to address compare | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 | Block 76: word-transform "salves" on "change to" / "from change to" | approximately 53,000 candidate solutions | MD5-prefix filter, then derivation on survivors | 0 match | yes | 2026-08-15 |
 | Block 76: scripted dictionary-times-corpus sweep | approximately 3.2x10^11 MD5, approximately 78,000,000 derivations | MD5-prefix filter, then derivation on survivors | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 
-Cumulative: approximately 272 million candidates tested against Real Big Block
+Cumulative: approximately 273 million candidates tested against Real Big Block
 and approximately 78 million derivations plus approximately 78,000 smaller
 candidates tested against Block 76, all negative. Full scope notes, including
 which rows are complete sweeps versus targeted tests, are in
