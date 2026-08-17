@@ -202,33 +202,31 @@ which rows are complete sweeps versus targeted tests, are in
 
 ## Open leads, ranked
 
-1. **Expand the 2 collapsed reply threads on the Real Big Block Discussion
-   post** (minutes, needs a person). A reader's own copy-paste of that thread
-   is now in `clues/author-posts.md` and is where the `\r\n\r\n` confirmation
-   below came from, but 2 sub-threads were left collapsed when copied: one
-   under a reader's initial line-break concern (2 replies), and one directly
-   under the author's own `\r\n\r\n` clarification (1 reply). Whether this
-   thread accounts for all 27 posts and comments in the window, or whether
-   other threads or profile comments from 2019-07-30 to 2019-08-04 exist, is
-   also unconfirmed. Confirmed by a detail in either collapsed reply that
-   changes the separator or candidate paragraphs when re-tested; killed by
-   both turning out to be unrelated and no other thread surfacing anything.
-2. **Re-run the paragraph-subset hypotheses under the author's confirmed exact
+1. **Re-run the paragraph-subset hypotheses under the author's confirmed exact
    separator** (minutes to re-run, more to identify the exact subsets again).
-   A direct quote pins the line break between paragraphs at `\r\n\r\n` ("hit
-   enter twice... 13 10 13 10"), read against an earlier, contradictory quote
-   that the actual hashed string has only 1 line break; the difference between
-   the 2 may be exactly what changed in the rehash. Every whole-chapter,
-   whole-section, subsection-subset, prefix/suffix, and single-paragraph
-   candidate has been tested under all 4 line-ending combinations (0 match,
-   see `analysis/tested.md`); a single-character-edit sweep on 8 of the
-   strongest bases is running in the background. The narrower
-   paragraph-subset hypotheses from the original private research (the
-   17-candidate-paragraph sweep) have not yet been re-run under this exact
-   separator, and that candidate list is not itself preserved anywhere in this
-   repo. Confirmed by a match once re-run; killed by exhausting the running
-   sweep and those subsets under `\r\n\r\n` with 0 match, at which point the 2
-   contradictory quotes become the thing to resolve.
+   2 dated, reconciled quotes (not a contradiction, once read carefully) now
+   confirm `\r\n\r\n` between paragraphs for the current, still-funded address
+   specifically ("hit enter twice... 13 10 13 10"), versus `\r\n` for the
+   superseded one. Every whole-chapter, whole-section, subsection-subset,
+   prefix/suffix, and single-paragraph candidate has been tested under all 4
+   line-ending combinations (0 match, see `analysis/tested.md`); a
+   single-character-edit sweep on 8 of the strongest bases is running in the
+   background. The narrower paragraph-subset hypotheses from the original
+   private research (the 17-candidate-paragraph sweep) have not yet been
+   re-run under this exact separator, and that candidate list is not itself
+   preserved anywhere in this repo. Confirmed by a match once re-run; killed
+   by exhausting the running sweep and those subsets under `\r\n\r\n` with 0
+   match, at which point the separator itself (high-confidence but still
+   unproven) becomes worth re-examining.
+2. **Check whether the Real Big Block Discussion thread covers all 27 posts in
+   the window** (minutes, needs a person). That thread has now been read in
+   full, including its 3 previously-collapsed reply threads (2 contributed
+   nothing beyond what's already recorded); it is where the `\r\n\r\n`
+   confirmation above came from. Whether it accounts for the full 27 posts and
+   comments the author made 2019-07-30 to 2019-08-04, or whether other threads
+   or profile comments from that window exist and remain unread, is still
+   unconfirmed. Confirmed by another thread surfacing something new; killed by
+   confirming this is the complete set.
 3. **Track down the impersonator's copy of the chapter, confirmed but likely
    irrelevant to the hash** (minutes, if reachable). The live page shows the
    chapter's opening scene twice with different wording each time ("2020." vs

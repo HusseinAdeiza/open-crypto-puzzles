@@ -43,10 +43,19 @@ https://www.reddit.com/r/Grycoin/comments/chn8un/real_big_block_discussion/
 2019-07-25: "When I posted the real big block at the Wattpad site, I added extra
 line breaks between paragraphs. This information is needed to solve the block."
 
-2019-07-28: "I have line breaks in the chapter between all paragraphs. And there
-are two line breaks there now, since Wattpad would not display them correctly
-with only one each. [...] The solution you need to hash with has only one line
-break between paragraphs."
+2019-07-28, replying to a reader who quoted her original post back at her and
+said "I still don't see the line breaks": "I have line breaks in the chapter
+between all paragraphs. And there are two line breaks there now, since Wattpad
+would not display them correctly with only one each. I analyzed them with the
+tool at asciivalue.com and that shows one 13 and one 10 for each of the line
+breaks. The solution you need to hash with has only one line break between
+paragraphs, which is one 13 and one 10 in ASCII according to the
+asciivalue.com tool. Again, I will probably post this to dropmefiles.com later
+in the original format, once people actually have a shot at solving this
+block." This statement is specifically about her original post (the reader
+was quoting it as "1 point, 2 days ago"), i.e. about the superseded address:
+displayed on Wattpad as 2 line breaks (`\r\n\r\n`) because Wattpad would not
+render 1, but hashed with only 1 (`\r\n`).
 
 2019-07-31: "I took back the prize for a moment and sent it again to a new
 address, hashing with a slightly different solution [...] It has multiple
@@ -54,18 +63,17 @@ paragraphs and two line breaks between each of them."
 
 Same thread, immediately after the 2019-07-31 post, a reader (martypyouknowme)
 asks her to disambiguate "two line breaks" as either one keystroke-Enter
-between paragraphs or two. Her reply: "I mean the second one. Hit enter twice.
-This displays in Ascii as 13 10 13 10, according to asciivalue.com." That is
-`\r\n\r\n` (CRLF CRLF), not `\n\n` (LF LF). This is a precise, primary-source
-confirmation, but it sits in tension with the 2019-07-28 quote just above,
-which says the string she actually hashes has only one line break between
-paragraphs even though the chapter is typed and displayed with two. Read
-together, the most consistent explanation is that the difference between the
-superseded solution and this current one is exactly this: the earlier hash
-used one line break between paragraphs, the rehash confirmed by this exchange
-uses two (`\r\n\r\n`). Every whole-chapter and whole-section candidate has now
-been tested under both interpretations (see `analysis/tested.md`); 0 match
-either way, so this remains unresolved rather than confirmed.
+between paragraphs or two, with a worked example of each. Her reply: "I mean
+the second one. Hit enter twice. This displays in Ascii as 13 10 13 10,
+according to asciivalue.com." martypyouknowme: "asciivalue.com. Got it. Thank
+you." (no further detail in that reply). Read together with the 2019-07-28
+quote above, these are 2 different statements about 2 different addresses, not
+a contradiction: the superseded address was hashed with 1 line break (`\r\n`)
+between paragraphs, the current, still-funded address confirmed here was
+hashed with 2 (`\r\n\r\n`). Every whole-chapter and whole-section candidate has
+been tested under `\r\n\r\n` against the current address (see
+`analysis/tested.md`); 0 match so far, so the separator is now high-confidence
+but the exact paragraph selection is still open.
 
 She also mentions, in an aside earlier in the same thread: "I just noticed
 that the 7th private key in the list for this wallet contains the number 7

@@ -2,45 +2,46 @@
 
 Ranked summary is in the README. This file has the reasoning behind the ranking.
 
-## 1. Expand the 2 collapsed reply threads on the Real Big Block Discussion post
+## 1. Expand the remaining collapsed reply threads on the Real Big Block Discussion post (mostly exhausted)
 
-The author rehashed and refunded the Real Big Block on 2019-07-30, then stopped
-posting shortly after. The "Real Big Block Discussion" thread
-(`clues/author-posts.md`) has now been read directly (a reader's own
-copy-paste, 2026-08-17), and produced the exact `\r\n\r\n` line-break
-confirmation used in lead 2, plus the reason `tools/oracle.py` now checks
-derivation indices up to 19. That copy has 2 collapsed "N more replies" threads
-that were not expanded when copied: one under a reader's initial concern about
-line-break ambiguity (2 replies), and one directly under the author's `\r\n\r\n`
-clarification itself (1 reply) - the second sits exactly on the topic most
-likely to matter. Also unconfirmed: whether this single thread accounts for all
-27 posts and comments in the window, or whether other threads or profile
-comments from 2019-07-30 to 2019-08-04 exist and remain unread.
+The "Real Big Block Discussion" thread (`clues/author-posts.md`) has now been
+read directly (a reader's own copy-paste, 2026-08-17), including all 3
+collapsed "N more replies" sub-threads that were not expanded on first read.
+2 of the 3 are now fully read and contribute nothing further: 1 was about
+whether to also mirror the block on dropmefiles.com instead of Wattpad
+(tangential), 1 was a 1-line acknowledgement ("Got it. Thank you."). The 1
+that mattered - the exact clarification behind the `\r\n\r\n` separator used
+in lead 2 - has already been extracted. What remains open is whether this
+single thread accounts for all 27 posts and comments the README's "read the
+27 posts" figure refers to, or whether other threads or profile comments from
+2019-07-30 to 2019-08-04 exist and are still unread.
 
-What would confirm it: either collapsed reply, once expanded, containing a
-detail (a correction, a further clarification) that changes the confirmed
-separator or the candidate paragraphs when re-tested.
-What would kill it: both collapsed replies turning out to be unrelated
-(off-topic tangents, thanks, etc.), and no other thread from the window
-surfacing anything new.
-Cost: minutes, needs a person to expand and paste the 2 collapsed threads.
+What would confirm it: another thread or profile comment from the window
+surfacing a detail that changes the confirmed separator or candidate
+paragraphs when re-tested.
+What would kill it: confirming this one thread is the complete set of 27, with
+nothing left unread.
+Cost: minutes, needs a person to check her comment/post history for the window.
 
 ## 2. Reconstruct the 2019 browser-copy rendering of the Wattpad chapter
 
-The author gives 2 dated, and seemingly contradictory, statements about the line
-breaks (`clues/author-posts.md`). 2019-07-28, about the original (superseded)
-solution: "I have line breaks in the chapter between all paragraphs. And there
-are two line breaks there now, since Wattpad would not display them correctly
-with only one each. [...] The solution you need to hash with has only one line
-break between paragraphs." 2019-07-31, right after the rehash to the current,
-still-funded escrow, in reply to a reader asking her to disambiguate "two line
-breaks": "I mean the second one. Hit enter twice. This displays in Ascii as 13
-10 13 10." That is `\r\n\r\n` (CRLF CRLF) between paragraphs, an exact byte
-sequence, not `\n\n`.
+The author gives 2 dated, precise, and now-reconciled statements about the
+line breaks (`clues/author-posts.md`, full quotes there). 2019-07-28, about
+her original post specifically (a reader had quoted it back at her): the
+chapter is typed and displayed on Wattpad with 2 line breaks between
+paragraphs (`\r\n\r\n`, since Wattpad would not render 1), but the string she
+hashed for that (superseded) address had only 1 (`\r\n`). 2019-07-31, right
+after the rehash to the current, still-funded escrow, in reply to a reader
+asking her to disambiguate "two line breaks" with a worked example: "I mean
+the second one. Hit enter twice. This displays in Ascii as 13 10 13 10." That
+is `\r\n\r\n` (CRLF CRLF) between paragraphs for the current address
+specifically, an exact byte sequence, not `\n\n`.
 
-Read together, the simplest explanation is that this exact detail is the
-"slightly different solution" of the rehash: 1 line break (`\r\n`) between
-paragraphs for the superseded address, 2 (`\r\n\r\n`) for the current one. Under
+These 2 statements are about 2 different addresses, not a contradiction: 1
+line break (`\r\n`) for the superseded solution, 2 (`\r\n\r\n`) for the
+current one. This raises confidence that `\r\n\r\n` is the right separator for
+the live target from "a plausible reading" to "confirmed by 2 independent,
+consistent primary-source statements." Under
 the confirmed `\r\n\r\n` separator (and `\r\n`, `\n`, `\n\n` for completeness),
 raw and with the certified case-flip rule, the following have now all been
 tested against both open escrows with 0 match: the whole chapter and each of
@@ -68,9 +69,9 @@ already identified in this file, this time joined with the confirmed exact
 `\r\n\r\n` separator, through `tools/oracle.py`.
 What would kill it: exhausting those subset hypotheses (and the running
 character-edit sweep) under `\r\n\r\n` with 0 match, at which point the
-contradiction between the 2 dated quotes above becomes the more promising
-thing to resolve (which one, if either, describes the actual byte sequence she
-hashed).
+separator itself (now high-confidence but not proven, since no candidate has
+matched under it yet) becomes worth re-examining rather than paragraph
+selection.
 Cost: minutes to re-run existing candidate lists under the new separator; the
 derivation itself is seconds per candidate. The character-edit sweep costs
 roughly an hour of compute, already running.
