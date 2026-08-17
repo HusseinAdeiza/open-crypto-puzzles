@@ -4,27 +4,38 @@ Ranked summary is in the README. This file has the reasoning behind the ranking.
 
 ## 1. Reconstruct the 2019 browser-copy rendering of the Wattpad chapter
 
-The author states she typed the chapter with a blank line between paragraphs
-("two line breaks... one 13 and one 10 for each"), but the chapter's current
-storage (fetched through Wattpad's API, `modifyDate` 2019-07-23, matching the
-2019-07-30 funding of the current escrow) contains no blank paragraphs at all:
-Wattpad's storage format normalizes them away. What she actually hashed was most
-likely whatever her browser produced when she selected and copied the rendered
-page in 2019, not the raw API storage read today. A first attempt at simulating
-this (Chromium's `selection.toString` and `innerText` rendering rules) is
-included in the "simulated browser copy" row of `analysis/tested.md`, but it
-used only one rendering assumption; the actual 2019 Wattpad reader page layout
-(paragraph spacing, non-breaking spaces around punctuation, title block) has not
-been reconstructed and tested as its own base text.
+The author gives 2 dated, and seemingly contradictory, statements about the line
+breaks (`clues/author-posts.md`). 2019-07-28, about the original (superseded)
+solution: "I have line breaks in the chapter between all paragraphs. And there
+are two line breaks there now, since Wattpad would not display them correctly
+with only one each. [...] The solution you need to hash with has only one line
+break between paragraphs." 2019-07-31, right after the rehash to the current,
+still-funded escrow, in reply to a reader asking her to disambiguate "two line
+breaks": "I mean the second one. Hit enter twice. This displays in Ascii as 13
+10 13 10." That is `\r\n\r\n` (CRLF CRLF) between paragraphs, an exact byte
+sequence, not `\n\n`.
 
-What would confirm it: rendering `data/chapitre_second_page.html` the way a 2019
-browser would have displayed it, extracting the resulting paragraph text, and
-running it (with the certified case-flip rule applied to the same candidate
-paragraph groups already tested) through `tools/oracle.py`.
-What would kill it: a faithful reconstruction still not matching after the
-already-tested paragraph-selection hypotheses are re-applied to it.
-Cost: hours, mostly in getting the 2019 rendering right; the derivation itself is
-seconds per candidate.
+Read together, the simplest explanation is that this exact detail is the
+"slightly different solution" of the rehash: 1 line break (`\r\n`) between
+paragraphs for the superseded address, 2 (`\r\n\r\n`) for the current one. Every
+whole-chapter and whole-section candidate has now been tested under all 4
+combinations of `\n`/`\r\n` and single/double, both raw and with the certified
+case-flip rule (`analysis/tested.md`, "48" row): 0 match. What is not yet tested
+under the confirmed `\r\n\r\n` separator is the earlier, narrower
+paragraph-subset hypotheses (the 17-candidate-paragraph sweep and the 3 planted
+groups plus the Finney quote): those were run under `\n\n` and, separately, a
+generic "CRLF line endings" pass whose exact byte sequence is not recorded
+clearly enough in this file to confirm it was `\r\n\r\n` specifically.
+
+What would confirm it: re-running the specific paragraph-subset hypotheses
+already identified in this file, this time joined with the confirmed exact
+`\r\n\r\n` separator, through `tools/oracle.py`.
+What would kill it: exhausting those subset hypotheses under `\r\n\r\n` with 0
+match, at which point the contradiction between the 2 dated quotes above
+becomes the more promising thing to resolve (which one, if either, describes
+the actual byte sequence she hashed).
+Cost: minutes to re-run existing candidate lists under the new separator; the
+derivation itself is seconds per candidate.
 
 ## 2. A second, differently-worded copy of the opening scene is real, but is very likely the impersonator's version, not the author's
 

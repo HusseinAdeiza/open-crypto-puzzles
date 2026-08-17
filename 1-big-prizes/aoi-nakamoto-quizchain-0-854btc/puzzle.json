@@ -56,7 +56,7 @@
     }
   ],
   "puzzle_type": ["bip39-seed", "word-selection"],
-  "target_format": "source text (candidate answer); MD5 of its UTF-8 bytes as 128-bit entropy; BIP39 mnemonic; BIP44 m/44'/0'/0'/0/i for i = 0 to 5; P2PKH address",
+  "target_format": "source text (candidate answer); MD5 of its UTF-8 bytes as 128-bit entropy; BIP39 mnemonic; BIP44 m/44'/0'/0'/0/i for i = 0 to 19; P2PKH address",
   "derivation": {
     "summary": "candidate text to MD5 (128-bit entropy) to BIP39 mnemonic to BIP44 m/44'/0'/0'/0/i to P2PKH address, compared against both open escrows",
     "oracle": "tools/oracle.py",
