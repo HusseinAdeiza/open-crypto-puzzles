@@ -217,6 +217,7 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: every single paragraph alone; dialogue-only, narration-only, and riddle-exchange extractions; leading/trailing separators; a naive curly-quote conversion | 168 | same | 0 match | yes | 2026-08-17 |
 | RBB: targeted single-character-edit sweep (delete, case toggle, whitespace family, quote style) at every position across 8 `\r\n\r\n`-joined bases | 772,720 | same | 0 match | yes | 2026-08-17 |
 | RBB: Quizchain Block 29's own draft text (source of the chapter's duplicate opening excerpt) and its confirmed "voice" to "vOIce" correction, direct and applied to the identical sentence in the real chapter | 17 | same | 0 match | yes | 2026-08-17 |
+| RBB: bounded 2-slot edit sweep, every pair of line-ending gaps (4 states each) and both known NBSP positions (3 states each) deviating from baseline at once, across 4 base texts | 163,698 | same | 0 match | yes | 2026-08-17 |
 | RBB: name/word paragraph selectors, browser-copy simulation, invisible characters, alternate encodings | approximately 1,830,000 | same | 0 match | yes | 2026-08-15 |
 | Block 76: standard BIP44/49/84 derivations, paths, passphrases on the one chain found by search | standard space plus 24,564 off-by-one variants | MD5 to BIP39 to address compare | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 | Block 76: word-transform "salves" on "change to" / "from change to" | approximately 53,000 candidate solutions | MD5-prefix filter, then derivation on survivors | 0 match | yes | 2026-08-15 |
@@ -281,13 +282,13 @@ which rows are complete sweeps versus targeted tests, are in
    chapter were tested (0 match, `analysis/tested.md`). Confirmed as a live
    lead by a match on any other distinctive word in the chapter tried the same
    way; killed by exhausting the chapter's distinctive words with no match.
-5. **A bounded 2-character-edit sweep on the strongest base texts** (about an
-   hour on a rented GPU). The 1-character sweep on the old `\n\n` bases and a
-   second one on the new `\r\n\r\n` bases are both exhaustive and both
-   negative; a 2-character sweep restricted to the small set of NBSP and
-   line-ending pairs, rather than every position, is a bounded extension on
-   top of that. Confirmed by a match in that bounded space; killed by
-   exhausting it with none.
+5. **A bounded 2-character-edit sweep on the strongest base texts, now
+   exhausted** (done). Both 1-character sweeps (the old `\n\n` bases and the
+   `\r\n\r\n` bases) are exhaustive and negative; the proposed bounded
+   2-character extension - every pair of line-ending gaps and NBSP positions
+   deviating from baseline at once, 163,698 candidates - completed 2026-08-17
+   with 0 match. The full, unbounded 2-character space remains disproportionate
+   without a narrower reason to expect the answer there, and is not proposed.
 6. **Identify what "76" indexes for Block 76** (minutes per candidate corpus).
    A method confirmed on 3 sibling blocks uses the block number as a position
    index into a specific numbered corpus; every corpus tried so far does not
