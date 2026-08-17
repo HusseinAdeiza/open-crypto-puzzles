@@ -36,6 +36,36 @@ to\"."
 > "I will shut down soon now (after posting the second stage of 77), so I will
 > not be available for hints or questions."
 
+## Quizchain Block 29 (solved, reference only)
+
+r/bitcoinpuzzles, `u/AoiNakamoto`, "[Easy] [7 mbtc] Quizchain Block 29"
+(undated in the copy read; from early in the series, well before Real Big
+Block). Not part of the live prize (solved and swept) and unrelated to Real
+Big Block's own escrow; useful here only because its text and mechanism are
+now directly readable, and because it happens to be the source of a
+duplicate excerpt that appears on the live "Second" chapter's Wattpad page
+(see README, "second copy" note).
+
+Question: "Second version." Format: `[solution] [link]`. Update, posted in
+full: "Copypaste from my draft, exactly same as used for hashing:" followed
+by the complete source text (not reproduced here in full; it opens "Good
+morning, Tom." and is the same opening dialogue scene later reused, reworded,
+in the "Second" Wattpad chapter). The confirmed solution, posted after the
+block was solved: "just change the o and i in 'voice' in the second
+sentence to 'O' and 'I', same method as in Block 2. Only two letters
+changed is good match to title 'second' as well as to method from block 2."
+That is, in "A pleasant female voice." (the draft's second sentence), correct
+to "A pleasant female vOIce."
+
+This confirms the mechanism for block 29 specifically is a single-word
+letter-case correction, not the paragraph-level case-flip rule confirmed on
+Block 77 Stage One. The draft text is a near-verbatim match (1 word
+different: "Overlord" vs "Omnipotent") for the second, differently-worded
+copy of the "Second" chapter's opening scene found on the live Wattpad page
+(see README); this is a far more specific and better-evidenced explanation
+for that duplicate than the earlier theory that it was an impersonator's
+altered copy.
+
 ## Real Big Block Discussion thread
 
 https://www.reddit.com/r/Grycoin/comments/chn8un/real_big_block_discussion/

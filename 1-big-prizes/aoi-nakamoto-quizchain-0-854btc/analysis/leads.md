@@ -76,7 +76,7 @@ Cost: minutes to re-run existing candidate lists under the new separator; the
 derivation itself is seconds per candidate. The character-edit sweep costs
 roughly an hour of compute, already running.
 
-## 3. A second, differently-worded copy of the opening scene is real, but is very likely the impersonator's version, not the author's
+## 3. The second, differently-worded copy of the opening scene is her own reused Block 29 draft, not an impersonator's copy or a hashing candidate
 
 The live chapter page shows its opening scene (the "Good morning, Tom" /
 "What's your name" exchange) twice: the real chapter has "2020." for the year,
@@ -84,30 +84,39 @@ The live chapter page shows its opening scene (the "Good morning, Tom" /
 shorter block right after it, in the position a Wattpad "you might also like"
 or highlight widget occupies, has "Still 21st Century.", "one hundred years",
 "Third most popular name", and "second rate quiz questions", then cuts off.
-This was first seen in a screenshot/OCR capture and re-confirmed with a direct
-browser copy-paste of the whole page (2 independent extractions, same text,
-same position), which rules out an OCR artifact.
+Confirmed real by 3 independent extractions (an OCR capture, a direct browser
+copy-paste of the whole page, and now a source identification), ruling out an
+OCR artifact.
 
-The likely explanation is in this same corpus: the author's own "Second"
-chapter (further down the page) describes a scammer who registered the
-near-identical Wattpad handle `Aoi_Nakamoto` (hers is `AoiNakamoto`, no
-underscore) and "copied all of my Wattpad story chapters and the cover," later
-removed. A second, altered copy of the same chapter's opening, surfacing as a
-recommendation right where the real chapter ends, matches that description
-better than a second authorial edition would: the author's own confirmed edit
-was to the block's hashed *text and possibly its line breaks*, made once,
-2019-07-30, not a second public copy of the whole story under another handle.
-Both wordings were tested whole, joined, case-flipped, and spliced into the
-rest of the chapter (`analysis/tested.md`); 0 match for either, consistent with
-the second copy being unrelated to the hash.
+This is now identified, not just explained by inference: it is a verbatim
+match (bar 1 word, "Overlord" vs "Omnipotent") for the author's own draft text
+for an earlier, already-solved, unrelated block, "[Easy] [7 mbtc] Quizchain
+Block 29" (`r/bitcoinpuzzles`, `u/AoiNakamoto`), which she posted in full,
+labeled "Copypaste from my draft, exactly same as used for hashing." Block
+29's own confirmed solution was a single-word correction ("voice" to "vOIce"
+in "A pleasant female voice.", the second sentence), not the paragraph-level
+case-flip rule used elsewhere in this series. A prior theory in this file
+attributed the second copy to a scammer who registered the near-identical
+handle `Aoi_Nakamoto`; that is superseded by this stronger, source-identified
+explanation, since the wording match to her own verified draft is far more
+specific than the generic impersonation story fits.
 
-What would confirm this is the impersonator's copy rather than noise: finding
-the `Aoi_Nakamoto` (with underscore) account or story ID directly and matching
-its chapter text to the second block.
-What would revive it as a hashing candidate: a reason to think the author's own
-final edit matches the second wording specifically, beyond the generic
-"slightly different solution" quote already covered by lead 2.
-Cost: minutes, if Wattpad search for the account name is reachable.
+The Block 29 draft text was tested directly against Real Big Block (raw, with
+its own "voice" to "vOIce" correction, and with "Overlord" normalized to
+"Omnipotent"): 0 match, as expected since it names a different block. Applying
+the same "voice" to "vOIce" correction to the identical sentence inside the
+current, real "Second" chapter (which contains the same sentence verbatim, as
+its own paragraph) was also tested, alone and combined with the certified
+case-flip rule, under the confirmed `\r\n\r\n` separator: 0 match
+(`analysis/tested.md`).
+
+What would confirm a link to the live hash: a reason to think Real Big Block
+specifically reuses a Block-29-style single-word correction rather than the
+Stage-One-style paragraph case-flip rule, tested on other distinctive words in
+the chapter beyond "voice".
+What would kill it as a lead entirely: no further distinctive single-word
+candidates in the chapter producing a match either.
+Cost: minutes per additional word tried.
 
 ## 4. Two-character edits on the strongest base texts
 
