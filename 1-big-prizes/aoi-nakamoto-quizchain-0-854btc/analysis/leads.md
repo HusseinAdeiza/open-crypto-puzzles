@@ -25,20 +25,28 @@ uncertainty. If the rule is wrong, those negative results say nothing about
 whether the right paragraph selection was ever tried, since they were all
 tested under a transform that itself doesn't work.
 
-What would confirm the rule is real: a transcription of Finney's post,
-independent of the one already tried, that reproduces
-`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` under some serialization. Sources worth
-trying: a "view source" or raw HTML copy instead of a rendered-page copy (in
-case whitespace or HTML entities differ from what displays), or a copy from
-an archived/cached version of the post from closer to 2019 (Finney's post has
-its own edit history, last dated 2013-03-25, and the puzzle author would have
-read whatever version existed when she solved Stage 1 in 2019, not
-necessarily an identical byte sequence to today's).
-What would kill the rule entirely (as this specific mechanism): a second,
-independently-sourced transcription also failing to reproduce the address
-under a reasonably thorough search, at which point Real Big Block's mechanism
-should be treated as fully unknown, not "case-flip on an unknown paragraph
-subset."
+**Update, 2026-08-17**: a second, independent copy-paste of the same post was
+supplied and is byte-identical to the first (confirmed by `diff`); pure ASCII,
+no hidden Unicode. A Block-29-style single-word correction was also tried
+directly on this text ("voice" to "vOIce" - the post contains "voice" twice,
+the same word Block 29 corrected), at either occurrence, both, raw and
+case-flipped, under all 4 line-ending conventions: 24 more candidates, 0
+match. This rules out a one-off copy-paste mistake on the reader's end as the
+explanation; it does not rule out today's live page having drifted from what
+was hashed in 2019, which is now the leading explanation if the rule itself
+is sound.
+
+What would confirm the rule is real: a transcription of Finney's post from a
+source that could differ from today's live rendering - specifically "view
+source" / raw HTML instead of a rendered-page copy (in case whitespace or
+HTML entities differ from what displays but 2 rendered-page copies would
+agree on), or an archived/cached version from closer to 2019 (Finney's post
+has its own edit history, last dated 2013-03-25) - that reproduces
+`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` under some serialization.
+What would kill the rule entirely (as this specific mechanism): the same
+sources above also failing to reproduce the address under a reasonably
+thorough search, at which point Real Big Block's mechanism should be treated
+as fully unknown, not "case-flip on an unknown paragraph subset."
 Cost: minutes if an alternate source of the text is available; the derivation
 itself is fast.
 
