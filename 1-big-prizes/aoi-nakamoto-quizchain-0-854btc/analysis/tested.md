@@ -36,6 +36,7 @@ predecessor (`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`).
 | 1 to 3 single-letter case toggles across all sign positions, and 1 to 2 across all paragraph boundaries | 1,450,000 | 0 match |
 | Every single-character edit (insert, delete, replace, case toggle) at every position, across 40 base texts (5 paragraph-set choices x 2 NBSP conventions x 2 line-ending conventions x 2 separator conventions) | 266,038,400 | 0 match |
 | Whole-chapter and whole-section candidates from a fresh 2026 screen read of the live page (both sections, headers included and excluded, paragraphs joined with one and two line breaks, raw and with the certified case-flip rule) | 24 | 0 match |
+| Whole-chapter candidates from a direct browser copy-paste of the live page, preserving the 2 real non-breaking spaces confirmed present in the chapter text at their exact positions, both left as NBSP and normalized to a regular space or deleted | 7 | 0 match |
 
 Witness status: every row above used the oracle certified against Block 77 Stage
 One (see README, "Certified against"); the single-character-edit row additionally
