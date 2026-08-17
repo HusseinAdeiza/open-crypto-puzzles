@@ -52,6 +52,28 @@ break between paragraphs."
 address, hashing with a slightly different solution [...] It has multiple
 paragraphs and two line breaks between each of them."
 
+Same thread, immediately after the 2019-07-31 post, a reader (martypyouknowme)
+asks her to disambiguate "two line breaks" as either one keystroke-Enter
+between paragraphs or two. Her reply: "I mean the second one. Hit enter twice.
+This displays in Ascii as 13 10 13 10, according to asciivalue.com." That is
+`\r\n\r\n` (CRLF CRLF), not `\n\n` (LF LF). This is a precise, primary-source
+confirmation, but it sits in tension with the 2019-07-28 quote just above,
+which says the string she actually hashes has only one line break between
+paragraphs even though the chapter is typed and displayed with two. Read
+together, the most consistent explanation is that the difference between the
+superseded solution and this current one is exactly this: the earlier hash
+used one line break between paragraphs, the rehash confirmed by this exchange
+uses two (`\r\n\r\n`). Every whole-chapter and whole-section candidate has now
+been tested under both interpretations (see `analysis/tested.md`); 0 match
+either way, so this remains unresolved rather than confirmed.
+
+She also mentions, in an aside earlier in the same thread: "I just noticed
+that the 7th private key in the list for this wallet contains the number 7
+three times [...] the first one also has some amazing properties," which is
+why `tools/oracle.py` now checks derivation indices 0 through 19 rather than
+0 through 5: she was looking at more than 6 derived addresses for at least one
+block in this series, so the oracle should too.
+
 This last post corresponds to the current, still-funded escrow
 (`14zMkTgaVXJcxdh4JdWi29MLRR44iUSG9W`, funded 2019-07-30); an earlier address,
 `1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`, was funded 2019-07-24 from the

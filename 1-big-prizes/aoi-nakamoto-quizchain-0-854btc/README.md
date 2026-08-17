@@ -23,7 +23,7 @@ Block and a short answer to a word riddle for Block 76.
 | Last on-chain check | 2026-08-16: both funded and unspent (0.777 BTC and 0.077 BTC) |
 | Status | OPEN |
 | Puzzle type | bip39-seed, word-selection |
-| Target format | source text (candidate answer), MD5 to 128-bit entropy, BIP39 mnemonic, BIP44 `m/44'/0'/0'/0/i` for i = 0 to 5, P2PKH address |
+| Target format | source text (candidate answer), MD5 to 128-bit entropy, BIP39 mnemonic, BIP44 `m/44'/0'/0'/0/i` for i = 0 to 19, P2PKH address |
 | Certified oracle | yes: `tools/oracle.py --selftest` (certified against the author's own published entropy-to-WIF vector; see "Certified against" for what is and is not covered) |
 | What remains | Real Big Block: the exact source text the author hashed on 2019-07-30 (the transform and rule are confirmed). Block 76: a short answer to a published word riddle, since no derivation of the one candidate chain found by search reaches the address |
 | Series | this folder covers the 2 open lots of the approximately 90-block Quizchain series; the rest were solved by other readers in 2019 |
@@ -117,7 +117,7 @@ python3 tools/oracle.py --flip-case "<one paragraph>"
 ```
 
 Given a candidate text, the oracle MD5s its UTF-8 bytes, derives BIP44 indices 0
-through 5, and compares each resulting address against both open escrows.
+through 19, and compares each resulting address against both open escrows.
 `--block76-filter` checks the 2 free MD5-prefix hints before any derivation.
 `--flip-case` applies the confirmed Stage One rule to one paragraph you supply.
 This script ships no source text of its own: Real Big Block's source (a Wattpad
@@ -185,6 +185,7 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: every single-character edit across 40 base texts | 266,038,400 | same | 0 match | yes: 3 planted witnesses per base plus the real Stage One text, all recovered | 2026-08-15 |
 | RBB: whole-chapter and whole-section candidates from a fresh 2026 screen read of the live page, headers in/out, 1 and 2 line breaks, raw and case-flipped | 24 | same | 0 match | yes | 2026-08-17 |
 | RBB: whole-chapter candidates from a direct browser copy-paste, preserving the 2 real NBSP characters confirmed in the chapter at their exact positions | 7 | same | 0 match | yes | 2026-08-17 |
+| RBB: whole-chapter and whole-section candidates joined with the author's own confirmed exact separator (`\r\n\r\n`, "13 10 13 10") and 3 other line-ending combinations, checked against derivation indices 0 to 19 | 48 | same | 0 match | yes | 2026-08-17 |
 | RBB: name/word paragraph selectors, browser-copy simulation, invisible characters, alternate encodings | approximately 1,830,000 | same | 0 match | yes | 2026-08-15 |
 | Block 76: standard BIP44/49/84 derivations, paths, passphrases on the one chain found by search | standard space plus 24,564 off-by-one variants | MD5 to BIP39 to address compare | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 | Block 76: word-transform "salves" on "change to" / "from change to" | approximately 53,000 candidate solutions | MD5-prefix filter, then derivation on survivors | 0 match | yes | 2026-08-15 |
@@ -198,13 +199,18 @@ which rows are complete sweeps versus targeted tests, are in
 
 ## Open leads, ranked
 
-1. **Reconstruct the 2019 browser-copy rendering of the Wattpad chapter**
-   (hours). The chapter's API storage today has no blank paragraphs, but the
-   author describes typing 2 line breaks between paragraphs; Wattpad likely
-   normalized this away, and what she hashed was probably what her browser
-   rendered and she copied in 2019, not today's raw storage. Confirmed by
-   re-testing the already-tried paragraph selections against a faithfully
-   reconstructed 2019 rendering; killed if that still does not match.
+1. **Re-run the paragraph-subset hypotheses under the author's confirmed exact
+   separator** (minutes to re-run, more to identify the exact subsets again).
+   A direct quote pins the line break between paragraphs at `\r\n\r\n` ("hit
+   enter twice... 13 10 13 10"), read against an earlier, contradictory quote
+   that the actual hashed string has only 1 line break; the difference between
+   the 2 may be exactly what changed in the rehash. Every whole-chapter and
+   whole-section candidate has been tested under all 4 line-ending
+   combinations (0 match); the narrower paragraph-subset hypotheses from
+   earlier research have not yet been re-run under this exact separator.
+   Confirmed by a match once re-run; killed by exhausting those subsets under
+   `\r\n\r\n` with 0 match, at which point the 2 contradictory quotes become
+   the thing to resolve.
 2. **Track down the impersonator's copy of the chapter, confirmed but likely
    irrelevant to the hash** (minutes, if reachable). The live page shows the
    chapter's opening scene twice with different wording each time ("2020." vs
