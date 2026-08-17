@@ -31,15 +31,20 @@ already-swept address) produced 0 match.
 |---|---|---|
 | Every paragraph-subset (2^16) x documented flip direction x 4 line-ending conventions | 262,144 | 0 match |
 | Every paragraph-subset (2^16) x reversed flip direction x 4 line-ending conventions | 262,144 | 0 match |
+| A second, independent copy-paste of the same post: byte-identical to the first (confirmed by diff), ruling out a one-off transcription slip | 1 comparison | identical, no new candidate needed |
+| Block-29-style single-word correction ("voice" to "vOIce", the same word and transform Block 29 used, and the post contains "voice" twice) at either occurrence or both, raw and case-flipped, 4 line-ending conventions | 24 | 0 match |
 
 This does not prove the case-flip rule is wrong: the Finney post has its own
-edit history (last edited 2013-03-25), and a transcription difference from
-whatever byte sequence the puzzle author actually hashed in 2019 remains a
-live possibility, not ruled out here. But it means the rule's prior
-"confirmed" status in this repository was not actually earned, and every row
-below that assumes the rule (the case-flip-related ones specifically) should
-be read with that caveat: they tested a hypothesis that is itself unverified,
-not a certified mechanism. See `analysis/leads.md` for the lead this opens.
+edit history (last edited 2013-03-25), and a byte-level difference between
+today's live page and whatever the puzzle author actually hashed in 2019
+remains a live, unruled-out possibility - now the leading explanation, since 2
+independent copy-pastes of today's page agree exactly with each other. What
+this rules out is a one-off copy-paste mistake on this end. It means the
+rule's prior "confirmed" status in this repository was not actually earned,
+and every row below that assumes the rule (the case-flip-related ones
+specifically) should be read with that caveat: they tested a hypothesis that
+is itself unverified, not a certified mechanism. See `analysis/leads.md` for
+the lead this opens.
 
 ## Real Big Block (0.777 BTC)
 

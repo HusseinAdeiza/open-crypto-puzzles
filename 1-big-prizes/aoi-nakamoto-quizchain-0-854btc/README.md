@@ -218,7 +218,10 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: targeted single-character-edit sweep (delete, case toggle, whitespace family, quote style) at every position across 8 `\r\n\r\n`-joined bases | 772,720 | same | 0 match | yes | 2026-08-17 |
 | RBB: Quizchain Block 29's own draft text (source of the chapter's duplicate opening excerpt) and its confirmed "voice" to "vOIce" correction, direct and applied to the identical sentence in the real chapter | 17 | same | 0 match | yes | 2026-08-17 |
 | RBB: bounded 2-slot edit sweep, every pair of line-ending gaps (4 states each) and both known NBSP positions (3 states each) deviating from baseline at once, across 4 base texts | 163,698 | same | 0 match | yes | 2026-08-17 |
+| RBB: Block-29-style corrections on "Grycoin"/"grycoin"/"grycoins", the chapter's most-repeated invented term | 18 | same | 0 match | yes | 2026-08-17 |
 | RBB: name/word paragraph selectors, browser-copy simulation, invisible characters, alternate encodings | approximately 1,830,000 | same | 0 match | yes | 2026-08-15 |
+| Stage One mechanism check: every paragraph-subset of Hal Finney's real post (2^16) x both flip directions x 4 line-ending conventions, against Stage One's own solved address, not RBB | 524,288 | MD5 to BIP39 to address compare | 0 match | yes | 2026-08-17 |
+| Stage One mechanism check: a second, independent copy-paste of the same post (byte-identical to the first) with a "voice" to "vOIce" correction, raw and case-flipped, 4 line-ending conventions | 24 | same | 0 match | yes | 2026-08-17 |
 | Block 76: standard BIP44/49/84 derivations, paths, passphrases on the one chain found by search | standard space plus 24,564 off-by-one variants | MD5 to BIP39 to address compare | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 | Block 76: word-transform "salves" on "change to" / "from change to" | approximately 53,000 candidate solutions | MD5-prefix filter, then derivation on survivors | 0 match | yes | 2026-08-15 |
 | Block 76: scripted dictionary-times-corpus sweep | approximately 3.2x10^11 MD5, approximately 78,000,000 derivations | MD5-prefix filter, then derivation on survivors | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
@@ -238,11 +241,17 @@ which rows are complete sweeps versus targeted tests, are in
    post text directly (bitcointalk.org is unreachable from this research
    environment), and an exhaustive test - every subset of its 16 paragraphs,
    both flip directions, all 4 line-ending conventions, 524,288 candidates -
-   produced 0 match against that address (`analysis/tested.md`). Everything
-   below that assumes the case-flip rule inherits this uncertainty. Confirmed
-   real by an independent transcription of the post reproducing the address
-   under some serialization; killed as this specific mechanism by a second
-   independent transcription also failing.
+   produced 0 match against that address. A second, independent copy-paste of
+   the same post came back byte-identical to the first, and a Block-29-style
+   single-word correction on "voice" (the post's own echo of Block 29's
+   corrected word) also failed, 24 more candidates (`analysis/tested.md`).
+   This rules out a one-off transcription mistake; today's live page having
+   drifted from what was hashed in 2019 is now the leading explanation if the
+   rule itself is sound. Everything below that assumes the case-flip rule
+   inherits this uncertainty. Confirmed real by a transcription from a source
+   that could differ from today's rendering (view-source, or an
+   archived/cached version closer to 2019) reproducing the address; killed as
+   this specific mechanism by that also failing.
 2. **Re-run the paragraph-subset hypotheses under the author's confirmed exact
    separator** (minutes to re-run, more to identify the exact subsets again).
    2 dated, reconciled quotes (not a contradiction, once read carefully)
