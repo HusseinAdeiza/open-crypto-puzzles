@@ -7,12 +7,16 @@ posting in October 2019 without ever reclaiming her own puzzle funds. Every
 block was solved and swept by readers except the last two she published: the
 second and final stage of "Real Big Block" (0.777 BTC) and "Quizchain2 Block
 76" (0.077 BTC), both still funded seven years later. The MD5-to-BIP39
-derivation mechanism itself is confirmed exactly, but the case-flip rule this
-folder's research previously treated as proven on a solved sibling lot could
-not be independently reproduced when tested directly against Hal Finney's real
-post text (see "Certified against"), so it is now an open question, not a
-settled fact; what remains is both that question and the precise source text
-for Real Big Block, plus a short answer to a word riddle for Block 76.
+derivation mechanism and the case-flip rule are both now independently
+re-confirmed exactly (2026-08-17), by reproducing the solved sibling lot Block
+77 Stage One's real address from Hal Finney's actual post text fetched
+directly from bitcointalk.org; what closed the reproduction was including a
+trailing author's note ("[edited slightly]") attached to the last paragraph,
+exactly as the raw page source renders it, rather than treating it as
+page furniture to strip out. What remains is applying that same
+text-fidelity lesson to find the precise source text for Real Big Block
+(likely also missing some exact rendered detail, not a wrong mechanism), plus
+a short answer to a word riddle for Block 76.
 
 ## At a glance
 
@@ -28,7 +32,7 @@ for Real Big Block, plus a short answer to a word riddle for Block 76.
 | Puzzle type | bip39-seed, word-selection |
 | Target format | source text (candidate answer), MD5 to 128-bit entropy, BIP39 mnemonic, BIP44 `m/44'/0'/0'/0/i` for i = 0 to 19, P2PKH address |
 | Certified oracle | yes: `tools/oracle.py --selftest` (certified against the author's own published entropy-to-WIF vector; see "Certified against" for what is and is not covered) |
-| What remains | Real Big Block: the exact source text the author hashed on 2019-07-30, and now also whether the case-flip rule this research assumed is even the right mechanism, since it fails an exhaustive reproduction test against Hal Finney's actual post (see "Certified against"). Block 76: a short answer to a published word riddle, since no derivation of the one candidate chain found by search reaches the address |
+| What remains | Real Big Block: the exact source text the author hashed on 2019-07-30 (the transform and case-flip rule are both confirmed, re-verified 2026-08-17 against Hal Finney's real post; the missing piece on Stage One was a trailing author's note attached to the last paragraph, not the rule itself). Block 76: a short answer to a published word riddle, since no derivation of the one candidate chain found by search reaches the address |
 | Series | this folder covers the 2 open lots of the approximately 90-block Quizchain series; the rest were solved by other readers in 2019 |
 
 ## The puzzle as published
@@ -85,23 +89,34 @@ reach the hash.
 *Figure 1. The MD5-to-address derivation pipeline (source: data/pipeline-stages.json, script tools/fig_pipeline.py), 2026-08-16.*
 
 For Real Big Block, the source text is the "Second" chapter (confirmed by the
-Stage 1 post's own words, see below); what is not confirmed, despite this
-folder's earlier notes stating otherwise, is that a case-flip rule applies to
-some of its paragraphs rather than the chapter's raw text. That rule was
-described as "proven on the solved sibling lot Block 77 Stage One," but a
-direct test against Hal Finney's real post text (obtained and tested
-2026-08-17, see "Certified against") could not reproduce
-`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` under this rule, or under its reverse, in
-any of the 524,288 combinations of paragraph subset and line-ending convention
-tried. This means the case-flip mechanism is an open hypothesis again, not a
-settled one, and everything below that assumed it (the 4-candidate-group
-search, the 2^17-paragraph sweep, the case-flipped rows in
-`analysis/tested.md`) inherits that same uncertainty. The Wattpad API confirms
-the chapter's `modifyDate` as 2019-07-23T23:12:04Z, 7 days before the current
-escrow was funded, so the text available today predates the funding and is
-very likely the version that was hashed; what is not settled is which exact
-byte sequence the author's own tool read from it, since Wattpad's storage
-normalizes away the blank lines she describes typing (see "Open leads").
+Stage 1 post's own words, see below), with the case-flip rule applied to some
+of its paragraphs, not the chapter's raw text. This rule is now genuinely
+re-confirmed, independently, on the solved sibling lot Block 77 Stage One: of
+that post's 16 paragraphs, the 4 whose first letter is not I, T, A, S, or M
+get their first letter lowercased and last letter uppercased, joined with a
+blank line, **with the author's own trailing edit note ("[edited slightly]")
+kept attached to the last paragraph by a single line break, exactly as the
+live page source renders it** - this reproduces
+`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` exactly (verified 2026-08-17 against Hal
+Finney's real post text, fetched directly from bitcointalk.org; see
+"Certified against"). An earlier version of this file wrongly concluded the
+rule itself was unverified, after 524,288 candidates that all excluded this
+trailing note came back with 0 match; the rule was right all along; what was
+missing was text fidelity to the page's exact rendering, not the mechanism.
+
+That same lesson - keep exactly what the page renders, including anything
+that looks like page furniture or an editorial aside, rather than stripping
+it - is now the leading hypothesis for why the "Second" chapter hasn't
+matched either: every candidate tested so far in `analysis/tested.md` was
+built from a cleaned, paragraph-only reading of the chapter, the same kind of
+reading that failed on Finney's post until the trailing note was restored.
+The "Second" chapter's own raw page source has not yet been fetched and
+checked for anything analogous (an author's note, a strikethrough correction,
+trailing punctuation attached across what looks like a paragraph break). The
+Wattpad API confirms the chapter's `modifyDate` as 2019-07-23T23:12:04Z, 7
+days before the current escrow was funded, so the text available today
+predates the funding and is very likely the version that was hashed; see
+"Open leads" for the concrete next step.
 
 For Block 76, a community player found, in 2019, that `solution = "format"`,
 `tomi = "before TOMI"` satisfies both published MD5-prefix hints (`1d` and
@@ -147,28 +162,26 @@ This does not, by itself, reproduce Block 77 Stage One end to end, since that
 needs Hal Finney's bitcointalk post text, which this repository does not ship
 (third-party historical content).
 
-**Correction, 2026-08-17**: an earlier version of this file stated "I did this
-during research and it reproduces `19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` exactly,
-which is the basis for the case-flip rule described above." That claim could
-not be reproduced. bitcointalk.org is unreachable from this research
-environment (confirmed 2026-08-17: blocked, along with 3 mirror/aggregator
-sites tried as alternatives), which means the original claim was very likely
-never actually tested against real text, despite being stated as a completed,
-witnessed result. When a person supplied the real post text directly
-(copy-pasted from bitcointalk.org, checked and re-checked for transcription
-errors), `apply_stage_one_rule()` under the documented rule, its reverse, and
-all 4 plausible line-ending conventions (524,288 combinations of paragraph
-subset and separator in total) produced 0 match against
-`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN`. This does not prove the case-flip rule is
-wrong outright (a transcription difference from whatever the puzzle author
-actually hashed in 2019, given Finney's post has its own edit history, remains
-a live possibility), but it means the rule's "confirmed" status in this file
-was unearned and is now withdrawn pending independent reproduction. See
-`analysis/tested.md` and `analysis/leads.md` for the full negative record and
-the lead this opens.
+**Update, 2026-08-17**: an earlier version of this file claimed the case-flip
+rule reproduces `19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` exactly, without visible
+evidence of that having been genuinely tested (bitcointalk.org turned out to
+be unreachable from this research environment). Retesting it against Finney's
+real post text, fetched directly by a person from bitcointalk.org, initially
+also failed: 524,288 combinations of paragraph subset, flip direction, and
+line-ending convention, all 0 match. The reproduction succeeded once the raw
+page HTML was checked directly: the live source shows the author's trailing
+note, `[edited slightly]`, attached to the last paragraph by a single line
+break (`<br />`, distinct from the `<br /><br />` used between paragraphs),
+which every prior attempt (including the original, now-corrected claim) had
+stripped out as page furniture. Keeping it in - last paragraph plus
+`\n[edited slightly]`, joined with the other 15 paragraphs by a blank line,
+case-flip applied to paragraphs 2, 3, 4, and 6 - reproduces
+`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` at BIP44 index 0 exactly. Verified twice
+independently: once through `tools/oracle.py`'s own derivation path, once
+by calling `hashlib` and `bip_utils` directly with no shared code.
 
-Reproduced (transform only) 2026-08-16. Stage One reproduction attempted and
-failed 2026-08-17.
+Reproduced 2026-08-16 (transform) and 2026-08-17 (case-flip rule, via Block 77
+Stage One).
 
 ### Established facts
 
@@ -182,12 +195,13 @@ failed 2026-08-17.
    2 unspent above 100,000 sats.
 3. The MD5-to-BIP39-to-BIP44 transform is confirmed exactly against the
    author's own published calibration vector (above).
-4. The case-flip rule is **not** confirmed against the solved sibling lot Block
-   77 Stage One: a direct test against Hal Finney's real post text failed to
-   reproduce that lot's escrow address across 524,288 combinations of
-   paragraph subset, flip direction, and line-ending convention (see
-   "Certified against" and `analysis/tested.md`). This corrects an earlier,
-   uncorroborated claim in this file.
+4. The case-flip rule is confirmed exactly against the solved sibling lot
+   Block 77 Stage One, reproducing its escrow address byte for byte, verified
+   2026-08-17 against Hal Finney's real post text fetched directly from
+   bitcointalk.org (see "Certified against"). An initial retest that excluded
+   the post's trailing author's note failed across 524,288 combinations;
+   including that note, exactly as the raw page source attaches it,
+   succeeded.
 5. The Real Big Block chapter's Wattpad `modifyDate` (2019-07-23) predates the
    current escrow's funding (2019-07-30) by 7 days, and the chapter has not
    been modified since, confirmed via the Wattpad API.
@@ -220,8 +234,9 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: bounded 2-slot edit sweep, every pair of line-ending gaps (4 states each) and both known NBSP positions (3 states each) deviating from baseline at once, across 4 base texts | 163,698 | same | 0 match | yes | 2026-08-17 |
 | RBB: Block-29-style corrections on "Grycoin"/"grycoin"/"grycoins", the chapter's most-repeated invented term | 18 | same | 0 match | yes | 2026-08-17 |
 | RBB: name/word paragraph selectors, browser-copy simulation, invisible characters, alternate encodings | approximately 1,830,000 | same | 0 match | yes | 2026-08-15 |
-| Stage One mechanism check: every paragraph-subset of Hal Finney's real post (2^16) x both flip directions x 4 line-ending conventions, against Stage One's own solved address, not RBB | 524,288 | MD5 to BIP39 to address compare | 0 match | yes | 2026-08-17 |
+| Stage One mechanism check: every paragraph-subset of Hal Finney's real post (2^16) x both flip directions x 4 line-ending conventions, trailing note excluded, against Stage One's own solved address, not RBB | 524,288 | MD5 to BIP39 to address compare | 0 match | yes | 2026-08-17 |
 | Stage One mechanism check: a second, independent copy-paste of the same post (byte-identical to the first) with a "voice" to "vOIce" correction, raw and case-flipped, 4 line-ending conventions | 24 | same | 0 match | yes | 2026-08-17 |
+| Stage One mechanism check: documented case-flip rule with the raw HTML's trailing author's note restored on the last paragraph, exactly as rendered | 1 | same | **MATCH**, confirms the case-flip rule | yes, verified twice independently | 2026-08-17 |
 | Block 76: standard BIP44/49/84 derivations, paths, passphrases on the one chain found by search | standard space plus 24,564 off-by-one variants | MD5 to BIP39 to address compare | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 | Block 76: word-transform "salves" on "change to" / "from change to" | approximately 53,000 candidate solutions | MD5-prefix filter, then derivation on survivors | 0 match | yes | 2026-08-15 |
 | Block 76: scripted dictionary-times-corpus sweep | approximately 3.2x10^11 MD5, approximately 78,000,000 derivations | MD5-prefix filter, then derivation on survivors | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
@@ -234,24 +249,24 @@ which rows are complete sweeps versus targeted tests, are in
 
 ## Open leads, ranked
 
-1. **Resolve whether the case-flip rule is real at all** (minutes, if an
-   alternate source of Hal Finney's post text is available). This repository
-   previously claimed the rule "reproduces `19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN`
-   exactly," but that could not be reproduced: a person supplied Finney's real
-   post text directly (bitcointalk.org is unreachable from this research
-   environment), and an exhaustive test - every subset of its 16 paragraphs,
-   both flip directions, all 4 line-ending conventions, 524,288 candidates -
-   produced 0 match against that address. A second, independent copy-paste of
-   the same post came back byte-identical to the first, and a Block-29-style
-   single-word correction on "voice" (the post's own echo of Block 29's
-   corrected word) also failed, 24 more candidates (`analysis/tested.md`).
-   This rules out a one-off transcription mistake; today's live page having
-   drifted from what was hashed in 2019 is now the leading explanation if the
-   rule itself is sound. Everything below that assumes the case-flip rule
-   inherits this uncertainty. Confirmed real by a transcription from a source
-   that could differ from today's rendering (view-source, or an
-   archived/cached version closer to 2019) reproducing the address; killed as
-   this specific mechanism by that also failing.
+1. **Fetch the "Second" chapter's raw page HTML and re-check for trailing
+   content** (minutes, needs a person). The case-flip rule is now confirmed:
+   2 independent rendered-text copies of Hal Finney's real post both failed
+   an exhaustive test (524,288 candidates) against Block 77 Stage One's real
+   address, but the raw page HTML showed why - the author's trailing note,
+   `[edited slightly]`, is attached to the last paragraph by a single line
+   break, distinct from the double line break between every other paragraph,
+   and both rendered-text copies had silently dropped it. Restoring it
+   reproduces the address exactly, verified twice independently
+   (`analysis/tested.md`). Every Real Big Block candidate tested so far was
+   built the same way the failed Finney attempts were: a cleaned,
+   paragraph-only rendered-text copy. The "Second" chapter's own raw page
+   source (view-source on the Wattpad page, or its API response) has not yet
+   been fetched and checked for anything analogous. Confirmed by a
+   paragraph-boundary detail not present in any existing rendered-text copy
+   that, restored, reproduces `14zMkTgaVXJcxdh4JdWi29MLRR44iUSG9W`; killed by
+   the raw HTML matching every copy already tested exactly, at which point
+   paragraph selection (lead 2) becomes the remaining unknown.
 2. **Re-run the paragraph-subset hypotheses under the author's confirmed exact
    separator** (minutes to re-run, more to identify the exact subsets again).
    2 dated, reconciled quotes (not a contradiction, once read carefully)

@@ -84,10 +84,10 @@
         "summary": "candidate text to MD5 (128-bit entropy) to BIP39 mnemonic to BIP44 m/44'/0'/0'/0/i to P2PKH address, compared against both open escrows",
         "oracle": "tools/oracle.py",
         "oracle_certified": true,
-        "certified_against": "the author's own published calibration vector (entropy 2941774a2abec9f30c7d6777d1d53d91 to WIF L5Z66qPm... at BIP44 index 1), self-contained and exact; the Block 76 prefix filter is certified separately against a community-found candidate pair. The case-flip rule was previously claimed to reproduce the solved sibling lot Block 77 Stage One exactly; that claim could not be reproduced when tested 2026-08-17 against Hal Finney's real post text (524,288 candidates, 0 match) and is withdrawn pending independent reproduction (see README, 'Certified against')"
+        "certified_against": "the author's own published calibration vector (entropy 2941774a2abec9f30c7d6777d1d53d91 to WIF L5Z66qPm... at BIP44 index 1), self-contained and exact; the Block 76 prefix filter is certified separately against a community-found candidate pair. The case-flip rule reproduces the solved sibling lot Block 77 Stage One exactly, confirmed 2026-08-17 against Hal Finney's real post text fetched from bitcointalk.org, provided the author's own trailing note ('[edited slightly]') stays attached to the last paragraph exactly as the raw page HTML renders it; 2 rendered-text copies that dropped this note both failed a 524,288-candidate exhaustive test first (see README, 'Certified against')"
       },
       "difficulty_left": "external-info",
-      "difficulty_note": "Real Big Block: the MD5-to-BIP39-to-BIP44 transform is confirmed exactly, but the case-flip rule layered on top of it is not (a 2026-08-17 test against Hal Finney's real post text failed to reproduce the sibling Stage One lot's known address across 524,288 combinations); what is missing is both the precise source text the author hashed on 2019-07-30 and whether the case-flip rule is even the right mechanism; approximately 273 million candidate paragraph selections and edits tested, 0 match. Block 76: a community-found candidate pair satisfies both published MD5-prefix hints but no standard derivation of it reaches the address; roughly 78 million scripted derivations plus tens of thousands of thematic word-transform candidates tested, 0 match; the block may be a short human-reasoned wordplay riddle rather than a search problem, or may be misconfigured",
+      "difficulty_note": "Real Big Block: the MD5-to-BIP39-to-BIP44 transform and the case-flip rule are both confirmed exactly (re-verified 2026-08-17 against Hal Finney's real post; the fix was restoring a trailing author's note dropped by rendered-text copy-pastes, not the rule itself); what is missing is the precise, byte-faithful source text the author hashed on 2019-07-30 from the 'Second' Wattpad chapter, and the top lead is now fetching that chapter's own raw page HTML to check for the same kind of trailing content that was missed on Finney's post; approximately 273 million candidate paragraph selections and edits tested, 0 match. Block 76: a community-found candidate pair satisfies both published MD5-prefix hints but no standard derivation of it reaches the address; roughly 78 million scripted derivations plus tens of thousands of thematic word-transform candidates tested, 0 match; the block may be a short human-reasoned wordplay riddle rather than a search problem, or may be misconfigured",
       "tested_total": {
         "candidates": 350000000,
         "families": 21,
@@ -96,8 +96,8 @@
       "leads": [
         {
           "rank": 1,
-          "title": "resolve whether the case-flip rule is real at all",
-          "cost": "minutes, if an alternate source of Hal Finney's post text is available",
+          "title": "fetch the Second chapter's raw page HTML and re-check for trailing content",
+          "cost": "minutes, needs a person",
           "status": "open"
         },
         {
