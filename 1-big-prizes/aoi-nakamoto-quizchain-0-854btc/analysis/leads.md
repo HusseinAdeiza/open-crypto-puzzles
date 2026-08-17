@@ -158,26 +158,33 @@ What would kill it as a lead entirely: no further distinctive single-word
 candidates in the chapter producing a match either.
 Cost: minutes per additional word tried.
 
-## 5. Two-character edits on the strongest base texts
+## 5. Two-character edits on the strongest base texts (bounded version exhausted)
 
 The single-character-edit sweep (266,038,400 candidates, `analysis/tested.md`)
 covers every one-character difference from 40 base texts under the older `\n\n`
 assumption and is exhaustive for that distance; a targeted 1-character sweep on
 the 8 `\r\n\r\n`-joined bases completed 2026-08-17 with 0 match (see lead 3).
-Neither covers
-2-character differences, which would catch a base text that is off by, for
-example, one inserted invisible character AND one capitalization slip. A
-2-character sweep restricted to the small set of NBSP and line-ending pairs
-(rather than all positions) is a bounded space, not a full 40-base
-2-character search.
+Neither covered 2-character differences, which would catch a base text that is
+off by, for example, one inserted invisible character AND one capitalization
+slip.
 
-What would confirm it: a match within the bounded 2-character space.
-What would kill it: exhausting that bounded space with 0 match; the full,
-unbounded 2-character space is not proposed here, since its cost is
-disproportionate without a narrower reason to expect the answer lives there.
-Cost: on the order of an hour on a rented GPU for the bounded version described
-above; the private research folder priced this at roughly 45 minutes per base
-text for a similarly scoped variant.
+The bounded version proposed here - every pair of inter-paragraph line-ending
+gaps (4 possible states each) and the 2 known real NBSP positions (3 states
+each), both slots deviating from the `\r\n\r\n`/NBSP baseline at once, across
+4 base texts - completed 2026-08-17: 163,698 candidates, 0 match
+(`analysis/tested.md`). This exhausts the specific bounded space described
+here. The full, unbounded 2-character space (any 2 positions, any 2
+characters, not just whitespace/NBSP slots) is still not proposed, since its
+cost remains disproportionate without a narrower reason to expect the answer
+lives there.
+
+What would confirm it: not applicable; the bounded space is now exhausted.
+What would revive this lead: a specific reason to expect a 2-character
+deviation outside the NBSP/line-ending slots tested (for example, a stated
+detail from an unread source), which would justify defining a new, still-bounded
+search rather than the disproportionate full 2-character space.
+Cost: the bounded sweep took about 15 minutes of compute; the unbounded space
+remains an hour-plus on a rented GPU, not attempted.
 
 ## 6. Identify what "76" indexes for Block 76
 

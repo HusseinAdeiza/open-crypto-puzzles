@@ -84,6 +84,7 @@ specific hypothesis about the first two, against both the current escrow
 | A targeted single-character-edit sweep (delete, case toggle, whitespace insert/replace among space/NBSP/tab/CR/LF, straight/curly quote toggle) at every position, across 8 CRLF-CRLF-joined base texts | 772,720 | 0 match, completed 2026-08-17 |
 | Quizchain Block 29's own draft text (identified as the source of the chapter's duplicate opening excerpt), raw and with its own confirmed "voice" to "vOIce" correction, tested directly against Real Big Block; the identical sentence inside the real chapter, with the same correction applied alone and combined with the certified case-flip rule, under `\r\n\r\n` | 17 | 0 match |
 | Fixing 2 genuine typos in the chapter's own text ("Paloecene" to "Paleocene", "marktet" to "market"), alone and combined, on 4 base texts, raw and case-flipped, under `\r\n\r\n` | 24 | 0 match |
+| Bounded 2-slot edit sweep: every pair of inter-paragraph line-ending gaps (4 states each: `\r\n\r\n`, `\r\n`, `\n\n`, `\n`) and the 2 known real NBSP positions (3 states each: NBSP, space, deleted), both slots deviating from the `\r\n\r\n`/NBSP baseline simultaneously, across 4 base texts | 163,698 | 0 match, completed 2026-08-17 |
 
 Witness status: every row above used the oracle certified against the author's
 own self-contained MD5-to-address calibration vector (see README, "Certified
