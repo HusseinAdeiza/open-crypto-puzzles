@@ -150,3 +150,21 @@ https://www.wattpad.com/720888559-second
 The author's own published chapter, titled "Second", posted under her own
 Wattpad account. Its text is the confirmed source of Real Big Block stage 2's
 answer (see README). This folder does not reproduce the chapter text.
+
+**Update, 2026-08-17**: the chapter is paginated into 12 Wattpad pages
+(9,091 words). The working transcription used for testing up to this point
+had, without anyone noticing, only ever covered the first 5 of those 12
+pages - roughly the first 40% of the chapter, ending mid-way through the
+Grycoin whitepaper section. Pages 6 through 12 (the rest of the whitepaper,
+plus the entire "III. Second Identity" section, in which the author explains
+her own Satoshi/Hal Finney "Satoshi Code" reasoning at length) had never been
+transcribed or tested against either escrow at all. A person fetched all 12
+pages directly from Wattpad (page 1's raw page source, pages 2-12 via the
+chapter's own plain-text API endpoint), and each was diffed paragraph by
+paragraph against the working transcription, the same fidelity check that
+resolved the Hal Finney post above. This found 5 small byte-level errors on
+pages 1-5 (missing spaces around 2 inline line breaks inside paragraphs,
+missing trailing spaces at the end of 2 paragraphs) and, far more
+significantly, the missing 148 paragraphs from pages 6-12. The complete,
+corrected chapter is 272 paragraphs; see README and `analysis/tested.md` for
+what has since been tested against it.

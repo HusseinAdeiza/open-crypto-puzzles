@@ -13,10 +13,15 @@ re-confirmed exactly (2026-08-17), by reproducing the solved sibling lot Block
 directly from bitcointalk.org; what closed the reproduction was including a
 trailing author's note ("[edited slightly]") attached to the last paragraph,
 exactly as the raw page source renders it, rather than treating it as
-page furniture to strip out. What remains is applying that same
-text-fidelity lesson to find the precise source text for Real Big Block
-(likely also missing some exact rendered detail, not a wrong mechanism), plus
-a short answer to a word riddle for Block 76.
+page furniture to strip out. Applying that same fidelity check to the
+"Second" Wattpad chapter itself (2026-08-17) found that the working
+transcription had silently covered only the first 5 of the chapter's 12
+Wattpad pages; the complete, byte-checked 272-paragraph chapter is now
+available for the first time, and an exhaustive sweep of every contiguous
+paragraph range under the confirmed separator found 0 match. What remains is
+non-contiguous paragraph selection or a character-level edit on top of a
+contiguous range for Real Big Block, plus a short answer to a word riddle
+for Block 76.
 
 ## At a glance
 
@@ -32,7 +37,7 @@ a short answer to a word riddle for Block 76.
 | Puzzle type | bip39-seed, word-selection |
 | Target format | source text (candidate answer), MD5 to 128-bit entropy, BIP39 mnemonic, BIP44 `m/44'/0'/0'/0/i` for i = 0 to 19, P2PKH address |
 | Certified oracle | yes: `tools/oracle.py --selftest` (certified against the author's own published entropy-to-WIF vector; see "Certified against" for what is and is not covered) |
-| What remains | Real Big Block: the exact source text the author hashed on 2019-07-30 (the transform and case-flip rule are both confirmed, re-verified 2026-08-17 against Hal Finney's real post; the missing piece on Stage One was a trailing author's note attached to the last paragraph, not the rule itself). Block 76: a short answer to a published word riddle, since no derivation of the one candidate chain found by search reaches the address |
+| What remains | Real Big Block: the exact source text the author hashed on 2019-07-30 (the transform and case-flip rule are both confirmed; the chapter is now complete and byte-checked for the first time, 272 paragraphs, and every contiguous-paragraph-range selection under the confirmed separator has been exhaustively ruled out, 0 match). Block 76: a short answer to a published word riddle, since no derivation of the one candidate chain found by search reaches the address |
 | Series | this folder covers the 2 open lots of the approximately 90-block Quizchain series; the rest were solved by other readers in 2019 |
 
 ## The puzzle as published
@@ -234,6 +239,7 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: bounded 2-slot edit sweep, every pair of line-ending gaps (4 states each) and both known NBSP positions (3 states each) deviating from baseline at once, across 4 base texts | 163,698 | same | 0 match | yes | 2026-08-17 |
 | RBB: Block-29-style corrections on "Grycoin"/"grycoin"/"grycoins", the chapter's most-repeated invented term | 18 | same | 0 match | yes | 2026-08-17 |
 | RBB: name/word paragraph selectors, browser-copy simulation, invisible characters, alternate encodings | approximately 1,830,000 | same | 0 match | yes | 2026-08-15 |
+| RBB: complete 272-paragraph chapter recovered (pages 6-12 had never been transcribed before), diffed page by page against raw source, 5 byte-level fixes applied; every contiguous paragraph range of the complete chapter, flip and no-flip, under the confirmed `\r\n\r\n` separator | 74,256 | same | 0 match | yes | 2026-08-17 |
 | Stage One mechanism check: every paragraph-subset of Hal Finney's real post (2^16) x both flip directions x 4 line-ending conventions, trailing note excluded, against Stage One's own solved address, not RBB | 524,288 | MD5 to BIP39 to address compare | 0 match | yes | 2026-08-17 |
 | Stage One mechanism check: a second, independent copy-paste of the same post (byte-identical to the first) with a "voice" to "vOIce" correction, raw and case-flipped, 4 line-ending conventions | 24 | same | 0 match | yes | 2026-08-17 |
 | Stage One mechanism check: documented case-flip rule with the raw HTML's trailing author's note restored on the last paragraph, exactly as rendered | 1 | same | **MATCH**, confirms the case-flip rule | yes, verified twice independently | 2026-08-17 |
@@ -242,6 +248,9 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | Block 76: scripted dictionary-times-corpus sweep | approximately 3.2x10^11 MD5, approximately 78,000,000 derivations | MD5-prefix filter, then derivation on survivors | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 
 Cumulative: approximately 273 million candidates tested against Real Big Block
+(this figure predates the 2026-08-17 chapter recovery below and does not yet
+include its 74,256 candidates, added separately since most of the earlier
+total was built from an incomplete, pages-1-5-only transcription)
 and approximately 78 million derivations plus approximately 78,000 smaller
 candidates tested against Block 76, all negative. Full scope notes, including
 which rows are complete sweeps versus targeted tests, are in
@@ -249,39 +258,36 @@ which rows are complete sweeps versus targeted tests, are in
 
 ## Open leads, ranked
 
-1. **Fetch the "Second" chapter's raw page HTML and re-check for trailing
-   content** (minutes, needs a person). The case-flip rule is now confirmed:
-   2 independent rendered-text copies of Hal Finney's real post both failed
-   an exhaustive test (524,288 candidates) against Block 77 Stage One's real
-   address, but the raw page HTML showed why - the author's trailing note,
-   `[edited slightly]`, is attached to the last paragraph by a single line
-   break, distinct from the double line break between every other paragraph,
-   and both rendered-text copies had silently dropped it. Restoring it
-   reproduces the address exactly, verified twice independently
-   (`analysis/tested.md`). Every Real Big Block candidate tested so far was
-   built the same way the failed Finney attempts were: a cleaned,
-   paragraph-only rendered-text copy. The "Second" chapter's own raw page
-   source (view-source on the Wattpad page, or its API response) has not yet
-   been fetched and checked for anything analogous. Confirmed by a
-   paragraph-boundary detail not present in any existing rendered-text copy
-   that, restored, reproduces `14zMkTgaVXJcxdh4JdWi29MLRR44iUSG9W`; killed by
-   the raw HTML matching every copy already tested exactly, at which point
-   paragraph selection (lead 2) becomes the remaining unknown.
-2. **Re-run the paragraph-subset hypotheses under the author's confirmed exact
-   separator** (minutes to re-run, more to identify the exact subsets again).
-   2 dated, reconciled quotes (not a contradiction, once read carefully)
-   confirm `\r\n\r\n` between paragraphs for the current, still-funded address
-   specifically ("hit enter twice... 13 10 13 10"), versus `\r\n` for the
-   superseded one - independent of whether the case-flip rule itself turns out
-   to be right (lead 1). Every whole-chapter, whole-section, subsection-subset,
-   prefix/suffix, and single-paragraph candidate has been tested under all 4
-   line-ending combinations (0 match), and a single-character-edit sweep on 8
-   of the strongest bases completed with 0 match (see `analysis/tested.md`).
-   The narrower paragraph-subset hypotheses from the original private research
-   (the 17-candidate-paragraph sweep) have not yet been re-run under this
-   exact separator, and that candidate list is not itself preserved anywhere
-   in this repo. Confirmed by a match once re-run; killed by exhausting those
-   subsets under `\r\n\r\n` with 0 match.
+1. **Non-contiguous paragraph selection from the now-complete chapter**
+   (minutes per hypothesis once defined). Fetching the chapter's raw page
+   source and checking it for trailing content (formerly this lead) is done:
+   it found the working transcription had silently covered only the first 5
+   of the chapter's 12 Wattpad pages, missing 148 paragraphs (the rest of the
+   Grycoin whitepaper and the entire "Second Identity" section) entirely, plus
+   5 smaller byte-level errors on the pages it did cover. With the complete,
+   byte-checked 272-paragraph chapter now available, an exhaustive sweep
+   tested every *contiguous* paragraph range under the confirmed `\r\n\r\n`
+   separator, flip and no-flip: 74,256 candidates, 0 match
+   (`analysis/tested.md`). This rules out every "single contiguous run of
+   paragraphs" hypothesis. What is not ruled out is a non-contiguous
+   selection - specific paragraphs picked by a rule, the way Finney's post
+   used first-letter matching against `ITASM` - including the original
+   private research's 17-candidate-paragraph hypothesis, which has never been
+   re-derived or re-run against the complete chapter or the confirmed exact
+   separator. Confirmed by a match on any non-contiguous selection; killed by
+   exhausting the specific rules worth trying with 0 match (this space is not
+   boundable the way contiguous ranges are, so "killed" here means "no more
+   promising rules identified," not exhaustion).
+2. **Character-level edits on top of the complete, corrected chapter**
+   (about an hour, mostly compute). The single-character and bounded
+   2-character sweeps in `analysis/tested.md` (772,720 and 163,698
+   candidates, both 0 match) were run against the old, incomplete
+   transcription - accurate for the pages-1-5 text they covered, but built
+   before pages 6-12 existed in this repo's working copy and before the 5
+   small fixes found on 2026-08-17. Re-running the same sweeps' strongest
+   base texts against the complete, corrected chapter has not been done.
+   Confirmed by a match once re-run; killed by 0 match on the same bounded
+   space.
 3. **Check whether the Real Big Block Discussion thread covers all 27 posts in
    the window** (minutes, needs a person). That thread has now been read in
    full, including its 3 previously-collapsed reply threads (2 contributed
@@ -306,21 +312,14 @@ which rows are complete sweeps versus targeted tests, are in
    chapter were tested (0 match, `analysis/tested.md`). Confirmed as a live
    lead by a match on any other distinctive word in the chapter tried the same
    way; killed by exhausting the chapter's distinctive words with no match.
-5. **A bounded 2-character-edit sweep on the strongest base texts, now
-   exhausted** (done). Both 1-character sweeps (the old `\n\n` bases and the
-   `\r\n\r\n` bases) are exhaustive and negative; the proposed bounded
-   2-character extension - every pair of line-ending gaps and NBSP positions
-   deviating from baseline at once, 163,698 candidates - completed 2026-08-17
-   with 0 match. The full, unbounded 2-character space remains disproportionate
-   without a narrower reason to expect the answer there, and is not proposed.
-6. **Identify what "76" indexes for Block 76** (minutes per candidate corpus).
+5. **Identify what "76" indexes for Block 76** (minutes per candidate corpus).
    A method confirmed on 3 sibling blocks uses the block number as a position
    index into a specific numbered corpus; every corpus tried so far does not
    contain "change" at position 76. Confirmed by a match in an untried corpus
    (candidates include a fuller archive of Hal Finney's tweets, Satoshi's
    SourceForge posts, or the author's own r/Grycoin posts read as their own
    sequence); killed by exhausting the remaining candidate corpora.
-7. **A short, human-reasoned answer to "change to" / "from change to"**
+6. **A short, human-reasoned answer to "change to" / "from change to"**
    (minutes per candidate). The author's confirmed style elsewhere in the
    series favors short, punchy wordplay answers over long dictionary phrases; a
    free filter (`tools/oracle.py --block76-filter`) checks any candidate in

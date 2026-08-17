@@ -55,21 +55,83 @@ cleaned paragraphs only - and should be re-examined against the "Second"
 chapter's own raw page source once available. See `analysis/leads.md` for the
 lead this opens, now the top priority.
 
+## "Second" chapter, complete raw-source recovery and full-chapter sweep (2026-08-17)
+
+Every Real Big Block candidate tested before this section (the whole table
+below) was built from a transcription that, it turns out, only covered the
+chapter's first 5 of 12 Wattpad pages (roughly the first 40% of the text, up
+to and including the Grycoin "address format" paragraph). Pages 6 through
+12 - the entire rest of the "II. Second Layer: Grycoin" whitepaper section
+from "3. Incentives" onward, and the entire "III. Second Identity" section
+(the Satoshi Code analysis) - had never been transcribed, checked, or tested
+at all. This was only discovered by applying the same lesson learned on the
+Finney post above: fetch the raw page/API source directly and diff it,
+paragraph by paragraph, against the working transcription, page by page,
+instead of trusting a single rendered copy.
+
+A person fetched all 12 pages directly (the live page's view-source for page
+1, then the chapter's own `https://www.wattpad.com/apiv2/?m=storytext&id=720888559&page=N`
+plain-text endpoint for pages 2 to 12, both unreachable from this research
+environment on their own). Each page's `<p data-p-id="...">` paragraphs were
+extracted and entity-decoded, then diffed paragraph-by-paragraph against the
+existing working transcription. Page 1 (35 paragraphs) matched exactly, 0
+diffs. Pages 2 through 5 surfaced 5 real, small byte-level fixes that the
+prior transcription had gotten wrong: a missing space before an inline
+`<br>` line break inside a paragraph (found twice, both fixed the same way -
+the raw source always has a literal space before an inline `<br>`), and a
+missing trailing space at the end of a paragraph, just before its closing
+`</p>` tag (found twice). One additional discrepancy was flagged but not
+resolved: at both of the 2 previously-confirmed non-breaking-space positions,
+this raw pull shows 2 plain ASCII spaces where an earlier direct
+browser-copy had shown NBSP + space; since the bounded 2-slot sweep below
+already tested NBSP, plain space, and deleted at both positions in
+combination, this ambiguity does not currently gate any new test. Pages 6
+through 12 (148 further paragraphs) were transcribed for the first time from
+the same raw source. The resulting complete chapter is 272 paragraphs,
+45,442 characters when joined with a blank line, against a page length of
+45,451 reported by the chapter's own metadata - consistent with a complete
+and accurate transcription (see `puzzle.json` sources for the chapter URL;
+the transcription itself is not reproduced here, per this repository's
+third-party-material policy).
+
+With the complete, byte-checked chapter available for the first time, an
+exhaustive sweep tested every contiguous paragraph range (every possible
+`[start, end)` window of the 272 paragraphs, 37,128 ranges), both with and
+without the certified case-flip rule, under the confirmed `\r\n\r\n`
+separator:
+
+| Hypothesis | Candidates | Result |
+|---|---|---|
+| Whole chapter, whole-chapter no-flip, and the 3 top-level sections (I, II, III) alone, flip and no-flip, `\r\n\r\n` and `\n\n` | 16 | 0 match |
+| Every contiguous paragraph range of the complete 272-paragraph chapter, flip and no-flip, `\r\n\r\n` | 74,256 | 0 match, completed 2026-08-17 |
+| Every contiguous paragraph range including the chapter's own title paragraph ("Second") as an optional leading paragraph, flip and no-flip, all 4 line-ending conventions (`\r\n\r\n`, `\n\n`, `\r\n`, `\n`) | 299,208 | running, started 2026-08-17, not yet complete as of this commit |
+
+This rules out, exhaustively and for the first time against the actual
+complete source text, every hypothesis of the form "some single contiguous
+run of paragraphs from the complete chapter, optionally case-flipped, joined
+by one of the 4 plausible line-ending conventions." It does not rule out
+non-contiguous paragraph selections (e.g. only the paragraphs matching some
+pattern, as Finney's post used first-letter matching against `ITASM`), nor
+character-level edits on top of a contiguous range beyond the bounded sweeps
+already run against the old, incomplete transcription (which should now be
+considered superseded and re-run against the complete chapter; not yet
+done).
+
 ## Real Big Block (0.777 BTC)
 
 The MD5-to-BIP39-to-BIP44 transform and the case-flip rule are both certified
-(see README, "Certified against", and the section above). What is not
+(see README, "Certified against", and the sections above). What is not
 established is exactly which paragraphs of the "Second" chapter the author
-modified on 2019-07-30 and the precise text she copied - and, per the Stage
-One reproduction above, whether the candidates tested below have all made the
-same mistake the Finney-post attempts made before it was fixed: reading a
-cleaned, paragraph-only copy of the page instead of one that preserves
-whatever the raw source actually attaches (an author's note, a correction,
-anything joined by less than a full paragraph gap). Every row below tests a
-specific hypothesis about paragraph selection and text, against both the
-current escrow (`14zMkTgaVXJcxdh4JdWi29MLRR44iUSG9W`) and its superseded
-predecessor (`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`); none of them have yet been
-re-checked against the chapter's own raw page HTML.
+modified on 2019-07-30 and the precise text she copied. Per the section
+above, the complete chapter is now available and byte-checked, and every
+contiguous-range hypothesis under the confirmed separator has been
+exhaustively ruled out; every row below predates that recovery and was built
+from the incomplete (pages 1-5 only) transcription, so any row that assumed
+"whole chapter" or drew paragraphs from pages 6-12 should be treated as
+untested rather than negative. Every row below tests a specific hypothesis
+about paragraph selection and text, against both the current escrow
+(`14zMkTgaVXJcxdh4JdWi29MLRR44iUSG9W`) and its superseded predecessor
+(`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`).
 
 | Hypothesis family | Candidates | Result |
 |---|---|---|
