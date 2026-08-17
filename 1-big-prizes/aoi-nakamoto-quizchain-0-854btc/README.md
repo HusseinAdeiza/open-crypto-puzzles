@@ -184,6 +184,7 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: every subset of 17 candidate paragraphs, 18 serializations | 2,360,000 | same | 0 match | yes | 2026-08-15 |
 | RBB: every single-character edit across 40 base texts | 266,038,400 | same | 0 match | yes: 3 planted witnesses per base plus the real Stage One text, all recovered | 2026-08-15 |
 | RBB: whole-chapter and whole-section candidates from a fresh 2026 screen read of the live page, headers in/out, 1 and 2 line breaks, raw and case-flipped | 24 | same | 0 match | yes | 2026-08-17 |
+| RBB: whole-chapter candidates from a direct browser copy-paste, preserving the 2 real NBSP characters confirmed in the chapter at their exact positions | 7 | same | 0 match | yes | 2026-08-17 |
 | RBB: name/word paragraph selectors, browser-copy simulation, invisible characters, alternate encodings | approximately 1,830,000 | same | 0 match | yes | 2026-08-15 |
 | Block 76: standard BIP44/49/84 derivations, paths, passphrases on the one chain found by search | standard space plus 24,564 off-by-one variants | MD5 to BIP39 to address compare | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 | Block 76: word-transform "salves" on "change to" / "from change to" | approximately 53,000 candidate solutions | MD5-prefix filter, then derivation on survivors | 0 match | yes | 2026-08-15 |
@@ -204,15 +205,18 @@ which rows are complete sweeps versus targeted tests, are in
    rendered and she copied in 2019, not today's raw storage. Confirmed by
    re-testing the already-tried paragraph selections against a faithfully
    reconstructed 2019 rendering; killed if that still does not match.
-2. **Verify a possible wording variant of the chapter's opening scene**
-   (minutes, needs a person with working Wattpad access). A 2026 screen read
-   of the live chapter appears to show its opening scene twice, with different
-   wording each time ("2020." vs "Still 21st Century.", "ten years" vs "one
-   hundred years", and 2 more pairs); this was tested (0 match) but is not
-   corroborated by the Wattpad-API-based research behind the rest of this
-   file, and is more likely a screen-capture/OCR artifact than a real second
-   edition of the chapter. Confirmed by an independent, non-OCR re-read
-   reproducing the same split; killed by a re-read showing only one wording.
+2. **Track down the impersonator's copy of the chapter, confirmed but likely
+   irrelevant to the hash** (minutes, if reachable). The live page shows the
+   chapter's opening scene twice with different wording each time ("2020." vs
+   "Still 21st Century.", "ten years" vs "one hundred years", and 2 more
+   pairs); confirmed real by 2 independent extractions (OCR and a direct
+   browser copy-paste), both tested (0 match). The chapter itself describes a
+   scammer who copied the author's Wattpad story under the near-identical
+   handle `Aoi_Nakamoto`, which better explains a second, altered copy
+   surfacing right where the real chapter ends than a second authorial
+   edition would. Confirmed as the explanation by finding that account's copy
+   of the chapter; would only become a live hashing lead again if a specific
+   reason turned up to think the author's own final edit used that wording.
 3. **Read the 27 posts and comments between the rehash and the shutdown**
    (about an hour). The author posted 2019-07-30 to 2019-08-04 before going
    silent; these have been read once for an explicit hint but not re-read

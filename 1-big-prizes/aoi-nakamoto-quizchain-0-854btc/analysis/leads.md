@@ -26,35 +26,38 @@ already-tested paragraph-selection hypotheses are re-applied to it.
 Cost: hours, mostly in getting the 2019 rendering right; the derivation itself is
 seconds per candidate.
 
-## 2. Verify a possible wording variant of the chapter's opening scene
+## 2. A second, differently-worded copy of the opening scene is real, but is very likely the impersonator's version, not the author's
 
-A fresh 2026 screen read of the live "Second" chapter, captured paragraph by
-paragraph, shows the opening scene (the "Good morning, Tom" / "What's your
-name" exchange) appearing twice with different wording: one version has "2020."
-for the year, "ten years", "A popular name", and "third rate quiz questions";
-a second, shorter version breaking off after the same exchange has "Still 21st
-Century.", "one hundred years", "Third most popular name", and "second rate
-quiz questions". Both were tested whole, joined and case-flipped, and spliced
-into the rest of the chapter (`analysis/tested.md`, "Whole-chapter and
-whole-section candidates" row); none matched.
+The live chapter page shows its opening scene (the "Good morning, Tom" /
+"What's your name" exchange) twice: the real chapter has "2020." for the year,
+"ten years", "A popular name", and "third rate quiz questions"; a second,
+shorter block right after it, in the position a Wattpad "you might also like"
+or highlight widget occupies, has "Still 21st Century.", "one hundred years",
+"Third most popular name", and "second rate quiz questions", then cuts off.
+This was first seen in a screenshot/OCR capture and re-confirmed with a direct
+browser copy-paste of the whole page (2 independent extractions, same text,
+same position), which rules out an OCR artifact.
 
-This would fit the author's own account of taking back the prize and rehashing
-"with a slightly different solution" far better than a pure line-break change
-would. But it was not corroborated by the Wattpad-API-based research behind the
-rest of this file (which reads the chapter's current raw storage and found no
-such wording split), it does not appear in any of the 272 million prior
-candidates, and screen-capture-to-text tools (especially AI-vision ones) are
-known to occasionally paraphrase or hallucinate text on a low-quality or
-duplicate image rather than transcribe it literally, which is a simpler
-explanation than a real second edition surviving on the live page.
+The likely explanation is in this same corpus: the author's own "Second"
+chapter (further down the page) describes a scammer who registered the
+near-identical Wattpad handle `Aoi_Nakamoto` (hers is `AoiNakamoto`, no
+underscore) and "copied all of my Wattpad story chapters and the cover," later
+removed. A second, altered copy of the same chapter's opening, surfacing as a
+recommendation right where the real chapter ends, matches that description
+better than a second authorial edition would: the author's own confirmed edit
+was to the block's hashed *text and possibly its line breaks*, made once,
+2019-07-30, not a second public copy of the whole story under another handle.
+Both wordings were tested whole, joined, case-flipped, and spliced into the
+rest of the chapter (`analysis/tested.md`); 0 match for either, consistent with
+the second copy being unrelated to the hash.
 
-What would confirm it: a second, independent screen capture of the live
-chapter (ideally a direct text copy, not an OCR/vision re-transcription)
-reproducing the same two-version split at the same place on the page.
-What would kill it: a re-read showing only one version of that scene, or the
-Wattpad API's raw chapter storage (already fetched for the `modifyDate` check)
-containing only one wording.
-Cost: minutes, needs a person with working Wattpad access to re-check.
+What would confirm this is the impersonator's copy rather than noise: finding
+the `Aoi_Nakamoto` (with underscore) account or story ID directly and matching
+its chapter text to the second block.
+What would revive it as a hashing candidate: a reason to think the author's own
+final edit matches the second wording specifically, beyond the generic
+"slightly different solution" quote already covered by lead 1.
+Cost: minutes, if Wattpad search for the account name is reachable.
 
 ## 3. Read the 27 posts and comments between the rehash and the shutdown
 
