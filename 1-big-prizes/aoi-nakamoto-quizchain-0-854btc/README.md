@@ -183,6 +183,7 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: chapter unmodified or with the certified rule on a small set of candidate paragraph groups | approximately 350,000 | MD5 to BIP39 to address compare | 0 match | yes: oracle certified against Stage One | 2026-08-15 |
 | RBB: every subset of 17 candidate paragraphs, 18 serializations | 2,360,000 | same | 0 match | yes | 2026-08-15 |
 | RBB: every single-character edit across 40 base texts | 266,038,400 | same | 0 match | yes: 3 planted witnesses per base plus the real Stage One text, all recovered | 2026-08-15 |
+| RBB: whole-chapter and whole-section candidates from a fresh 2026 screen read of the live page, headers in/out, 1 and 2 line breaks, raw and case-flipped | 24 | same | 0 match | yes | 2026-08-17 |
 | RBB: name/word paragraph selectors, browser-copy simulation, invisible characters, alternate encodings | approximately 1,830,000 | same | 0 match | yes | 2026-08-15 |
 | Block 76: standard BIP44/49/84 derivations, paths, passphrases on the one chain found by search | standard space plus 24,564 off-by-one variants | MD5 to BIP39 to address compare | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 | Block 76: word-transform "salves" on "change to" / "from change to" | approximately 53,000 candidate solutions | MD5-prefix filter, then derivation on survivors | 0 match | yes | 2026-08-15 |
@@ -203,25 +204,34 @@ which rows are complete sweeps versus targeted tests, are in
    rendered and she copied in 2019, not today's raw storage. Confirmed by
    re-testing the already-tried paragraph selections against a faithfully
    reconstructed 2019 rendering; killed if that still does not match.
-2. **Read the 27 posts and comments between the rehash and the shutdown**
+2. **Verify a possible wording variant of the chapter's opening scene**
+   (minutes, needs a person with working Wattpad access). A 2026 screen read
+   of the live chapter appears to show its opening scene twice, with different
+   wording each time ("2020." vs "Still 21st Century.", "ten years" vs "one
+   hundred years", and 2 more pairs); this was tested (0 match) but is not
+   corroborated by the Wattpad-API-based research behind the rest of this
+   file, and is more likely a screen-capture/OCR artifact than a real second
+   edition of the chapter. Confirmed by an independent, non-OCR re-read
+   reproducing the same split; killed by a re-read showing only one wording.
+3. **Read the 27 posts and comments between the rehash and the shutdown**
    (about an hour). The author posted 2019-07-30 to 2019-08-04 before going
    silent; these have been read once for an explicit hint but not re-read
    systematically against the now-narrower list of untested paragraph
    combinations. Confirmed by a new detail that, applied and tested, matches;
    killed by a full re-read producing nothing new.
-3. **A bounded 2-character-edit sweep on the strongest base texts** (about an
+4. **A bounded 2-character-edit sweep on the strongest base texts** (about an
    hour on a rented GPU). The 1-character sweep is exhaustive; a 2-character
    sweep restricted to the small set of NBSP and line-ending pairs, rather than
    every position, is a bounded extension. Confirmed by a match in that bounded
    space; killed by exhausting it with none.
-4. **Identify what "76" indexes for Block 76** (minutes per candidate corpus).
+5. **Identify what "76" indexes for Block 76** (minutes per candidate corpus).
    A method confirmed on 3 sibling blocks uses the block number as a position
    index into a specific numbered corpus; every corpus tried so far does not
    contain "change" at position 76. Confirmed by a match in an untried corpus
    (candidates include a fuller archive of Hal Finney's tweets, Satoshi's
    SourceForge posts, or the author's own r/Grycoin posts read as their own
    sequence); killed by exhausting the remaining candidate corpora.
-5. **A short, human-reasoned answer to "change to" / "from change to"**
+6. **A short, human-reasoned answer to "change to" / "from change to"**
    (minutes per candidate). The author's confirmed style elsewhere in the
    series favors short, punchy wordplay answers over long dictionary phrases; a
    free filter (`tools/oracle.py --block76-filter`) checks any candidate in

@@ -26,7 +26,37 @@ already-tested paragraph-selection hypotheses are re-applied to it.
 Cost: hours, mostly in getting the 2019 rendering right; the derivation itself is
 seconds per candidate.
 
-## 2. Read the 27 posts and comments between the rehash and the shutdown
+## 2. Verify a possible wording variant of the chapter's opening scene
+
+A fresh 2026 screen read of the live "Second" chapter, captured paragraph by
+paragraph, shows the opening scene (the "Good morning, Tom" / "What's your
+name" exchange) appearing twice with different wording: one version has "2020."
+for the year, "ten years", "A popular name", and "third rate quiz questions";
+a second, shorter version breaking off after the same exchange has "Still 21st
+Century.", "one hundred years", "Third most popular name", and "second rate
+quiz questions". Both were tested whole, joined and case-flipped, and spliced
+into the rest of the chapter (`analysis/tested.md`, "Whole-chapter and
+whole-section candidates" row); none matched.
+
+This would fit the author's own account of taking back the prize and rehashing
+"with a slightly different solution" far better than a pure line-break change
+would. But it was not corroborated by the Wattpad-API-based research behind the
+rest of this file (which reads the chapter's current raw storage and found no
+such wording split), it does not appear in any of the 272 million prior
+candidates, and screen-capture-to-text tools (especially AI-vision ones) are
+known to occasionally paraphrase or hallucinate text on a low-quality or
+duplicate image rather than transcribe it literally, which is a simpler
+explanation than a real second edition surviving on the live page.
+
+What would confirm it: a second, independent screen capture of the live
+chapter (ideally a direct text copy, not an OCR/vision re-transcription)
+reproducing the same two-version split at the same place on the page.
+What would kill it: a re-read showing only one version of that scene, or the
+Wattpad API's raw chapter storage (already fetched for the `modifyDate` check)
+containing only one wording.
+Cost: minutes, needs a person with working Wattpad access to re-check.
+
+## 3. Read the 27 posts and comments between the rehash and the shutdown
 
 The author rehashed and refunded the Real Big Block on 2019-07-30, then stopped
 posting shortly after. The 27 posts and comments she made between 2019-07-30 and
@@ -41,7 +71,7 @@ What would kill it: a full re-read producing no new candidate paragraph or rule
 variant beyond what `analysis/tested.md` already covers.
 Cost: an hour of reading.
 
-## 3. Two-character edits on the strongest base texts
+## 4. Two-character edits on the strongest base texts
 
 The single-character-edit sweep (266,038,400 candidates, `analysis/tested.md`)
 covers every one-character difference from 40 base texts and is exhaustive for
@@ -59,7 +89,7 @@ Cost: on the order of an hour on a rented GPU for the bounded version described
 above; the private research folder priced this at roughly 45 minutes per base
 text for a similarly scoped variant.
 
-## 4. Identify what "76" indexes for Block 76
+## 5. Identify what "76" indexes for Block 76
 
 A method confirmed on 3 other blocks in the same series (56, 57, 58) uses the
 block's own number as a position index into a specific corpus (a numbered post
@@ -80,7 +110,7 @@ What would kill it: exhausting the remaining candidate corpora with no match at
 position 76.
 Cost: minutes per corpus once a candidate corpus is assembled.
 
-## 5. A short, human-reasoned answer to "change to" / "from change to"
+## 6. A short, human-reasoned answer to "change to" / "from change to"
 
 The author's own hint structure (a short, freeform-text question plus a short
 TOMI expansion, confirmed on more than a dozen other blocks) argues for a short,
