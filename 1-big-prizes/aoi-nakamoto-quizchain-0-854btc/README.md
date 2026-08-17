@@ -189,6 +189,7 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: every subset of the chapter's 6 natural subsections, and every prefix/suffix of the chapter, under `\r\n\r\n`/`\n\n` | 2,172 | same | 0 match | yes | 2026-08-17 |
 | RBB: every single paragraph alone; dialogue-only, narration-only, and riddle-exchange extractions; leading/trailing separators; a naive curly-quote conversion | 168 | same | 0 match | yes | 2026-08-17 |
 | RBB: targeted single-character-edit sweep (delete, case toggle, whitespace family, quote style) at every position across 8 `\r\n\r\n`-joined bases | 772,720 planned | same | in progress | yes | 2026-08-17 |
+| RBB: Quizchain Block 29's own draft text (source of the chapter's duplicate opening excerpt) and its confirmed "voice" to "vOIce" correction, direct and applied to the identical sentence in the real chapter | 17 | same | 0 match | yes | 2026-08-17 |
 | RBB: name/word paragraph selectors, browser-copy simulation, invisible characters, alternate encodings | approximately 1,830,000 | same | 0 match | yes | 2026-08-15 |
 | Block 76: standard BIP44/49/84 derivations, paths, passphrases on the one chain found by search | standard space plus 24,564 off-by-one variants | MD5 to BIP39 to address compare | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 | Block 76: word-transform "salves" on "change to" / "from change to" | approximately 53,000 candidate solutions | MD5-prefix filter, then derivation on survivors | 0 match | yes | 2026-08-15 |
@@ -227,18 +228,20 @@ which rows are complete sweeps versus targeted tests, are in
    or profile comments from that window exist and remain unread, is still
    unconfirmed. Confirmed by another thread surfacing something new; killed by
    confirming this is the complete set.
-3. **Track down the impersonator's copy of the chapter, confirmed but likely
-   irrelevant to the hash** (minutes, if reachable). The live page shows the
-   chapter's opening scene twice with different wording each time ("2020." vs
-   "Still 21st Century.", "ten years" vs "one hundred years", and 2 more
-   pairs); confirmed real by 2 independent extractions (OCR and a direct
-   browser copy-paste), both tested (0 match). The chapter itself describes a
-   scammer who copied the author's Wattpad story under the near-identical
-   handle `Aoi_Nakamoto`, which better explains a second, altered copy
-   surfacing right where the real chapter ends than a second authorial
-   edition would. Confirmed as the explanation by finding that account's copy
-   of the chapter; would only become a live hashing lead again if a specific
-   reason turned up to think the author's own final edit used that wording.
+3. **The chapter's duplicate opening excerpt is identified, confirmed
+   irrelevant to the hash on its own, but points at a real, untested
+   mechanism** (minutes per word). The live page shows the chapter's opening
+   scene twice with different wording each time; the second copy is now
+   identified as the author's own draft text for an earlier, unrelated,
+   already-solved block ("Quizchain Block 29"), which she posted in full,
+   labeled "exactly same as used for hashing." That block's confirmed
+   mechanism was a single-word letter-case correction ("voice" to "vOIce"),
+   not the paragraph case-flip rule used elsewhere in the series. Both the
+   Block 29 text itself and the same correction applied to the identical
+   sentence inside the real chapter were tested (0 match, `analysis/tested.md`).
+   Confirmed as a live lead by a match on any other distinctive word in the
+   chapter tried the same way; killed by exhausting the chapter's distinctive
+   words with no match.
 4. **A bounded 2-character-edit sweep on the strongest base texts** (about an
    hour on a rented GPU). The 1-character sweep on the old `\n\n` bases is
    exhaustive, and a targeted 1-character sweep on the new `\r\n\r\n` bases is
