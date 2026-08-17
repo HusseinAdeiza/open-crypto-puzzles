@@ -38,6 +38,11 @@ predecessor (`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`).
 | Whole-chapter and whole-section candidates from a fresh 2026 screen read of the live page (both sections, headers included and excluded, paragraphs joined with one and two line breaks, raw and with the certified case-flip rule) | 24 | 0 match |
 | Whole-chapter candidates from a direct browser copy-paste of the live page, preserving the 2 real non-breaking spaces confirmed present in the chapter text at their exact positions, both left as NBSP and normalized to a regular space or deleted | 7 | 0 match |
 | Whole-chapter and whole-section candidates (both sections, headers in/out, raw and case-flipped), paragraphs joined by all 4 combinations of `\n` vs `\r\n` and single vs double, and checked against derivation indices 0 to 19 instead of 0 to 5 | 48 | 0 match |
+| Every subset of the chapter's 6 natural subsections (Second Coming, Running, Reverse Turing Test, Abstract, Purpose of Grycoin, Bitcoin With Two Changes), CRLF-CRLF and LF-LF, raw and case-flipped | 252 | 0 match |
+| Every prefix and every suffix of the full chapter and the no-headers chapter, all lengths, CRLF-CRLF and LF-LF, raw and case-flipped | 1,920 | 0 match |
+| Every single paragraph alone; dialogue-only and narration-only extractions; the short "truth or lie" riddle exchange alone | 128 | 0 match |
+| Leading/trailing separator variants (none, leading, trailing, both) on the 2 strongest bases; a naive straight-to-curly quote conversion of the same bases | 40 | 0 match |
+| A targeted single-character-edit sweep (delete, case toggle, whitespace insert/replace among space/NBSP/tab/CR/LF, straight/curly quote toggle) at every position, across 8 CRLF-CRLF-joined base texts | 772,720 planned | in progress as of 2026-08-17, see analysis/leads.md |
 
 Witness status: every row above used the oracle certified against Block 77 Stage
 One (see README, "Certified against"); the single-character-edit row additionally
