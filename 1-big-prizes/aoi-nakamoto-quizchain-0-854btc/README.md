@@ -186,6 +186,9 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: whole-chapter and whole-section candidates from a fresh 2026 screen read of the live page, headers in/out, 1 and 2 line breaks, raw and case-flipped | 24 | same | 0 match | yes | 2026-08-17 |
 | RBB: whole-chapter candidates from a direct browser copy-paste, preserving the 2 real NBSP characters confirmed in the chapter at their exact positions | 7 | same | 0 match | yes | 2026-08-17 |
 | RBB: whole-chapter and whole-section candidates joined with the author's own confirmed exact separator (`\r\n\r\n`, "13 10 13 10") and 3 other line-ending combinations, checked against derivation indices 0 to 19 | 48 | same | 0 match | yes | 2026-08-17 |
+| RBB: every subset of the chapter's 6 natural subsections, and every prefix/suffix of the chapter, under `\r\n\r\n`/`\n\n` | 2,172 | same | 0 match | yes | 2026-08-17 |
+| RBB: every single paragraph alone; dialogue-only, narration-only, and riddle-exchange extractions; leading/trailing separators; a naive curly-quote conversion | 168 | same | 0 match | yes | 2026-08-17 |
+| RBB: targeted single-character-edit sweep (delete, case toggle, whitespace family, quote style) at every position across 8 `\r\n\r\n`-joined bases | 772,720 planned | same | in progress | yes | 2026-08-17 |
 | RBB: name/word paragraph selectors, browser-copy simulation, invisible characters, alternate encodings | approximately 1,830,000 | same | 0 match | yes | 2026-08-15 |
 | Block 76: standard BIP44/49/84 derivations, paths, passphrases on the one chain found by search | standard space plus 24,564 off-by-one variants | MD5 to BIP39 to address compare | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 | Block 76: word-transform "salves" on "change to" / "from change to" | approximately 53,000 candidate solutions | MD5-prefix filter, then derivation on survivors | 0 match | yes | 2026-08-15 |
@@ -199,19 +202,34 @@ which rows are complete sweeps versus targeted tests, are in
 
 ## Open leads, ranked
 
-1. **Re-run the paragraph-subset hypotheses under the author's confirmed exact
+1. **Expand the 2 collapsed reply threads on the Real Big Block Discussion
+   post** (minutes, needs a person). A reader's own copy-paste of that thread
+   is now in `clues/author-posts.md` and is where the `\r\n\r\n` confirmation
+   below came from, but 2 sub-threads were left collapsed when copied: one
+   under a reader's initial line-break concern (2 replies), and one directly
+   under the author's own `\r\n\r\n` clarification (1 reply). Whether this
+   thread accounts for all 27 posts and comments in the window, or whether
+   other threads or profile comments from 2019-07-30 to 2019-08-04 exist, is
+   also unconfirmed. Confirmed by a detail in either collapsed reply that
+   changes the separator or candidate paragraphs when re-tested; killed by
+   both turning out to be unrelated and no other thread surfacing anything.
+2. **Re-run the paragraph-subset hypotheses under the author's confirmed exact
    separator** (minutes to re-run, more to identify the exact subsets again).
    A direct quote pins the line break between paragraphs at `\r\n\r\n` ("hit
    enter twice... 13 10 13 10"), read against an earlier, contradictory quote
    that the actual hashed string has only 1 line break; the difference between
-   the 2 may be exactly what changed in the rehash. Every whole-chapter and
-   whole-section candidate has been tested under all 4 line-ending
-   combinations (0 match); the narrower paragraph-subset hypotheses from
-   earlier research have not yet been re-run under this exact separator.
-   Confirmed by a match once re-run; killed by exhausting those subsets under
-   `\r\n\r\n` with 0 match, at which point the 2 contradictory quotes become
-   the thing to resolve.
-2. **Track down the impersonator's copy of the chapter, confirmed but likely
+   the 2 may be exactly what changed in the rehash. Every whole-chapter,
+   whole-section, subsection-subset, prefix/suffix, and single-paragraph
+   candidate has been tested under all 4 line-ending combinations (0 match,
+   see `analysis/tested.md`); a single-character-edit sweep on 8 of the
+   strongest bases is running in the background. The narrower
+   paragraph-subset hypotheses from the original private research (the
+   17-candidate-paragraph sweep) have not yet been re-run under this exact
+   separator, and that candidate list is not itself preserved anywhere in this
+   repo. Confirmed by a match once re-run; killed by exhausting the running
+   sweep and those subsets under `\r\n\r\n` with 0 match, at which point the 2
+   contradictory quotes become the thing to resolve.
+3. **Track down the impersonator's copy of the chapter, confirmed but likely
    irrelevant to the hash** (minutes, if reachable). The live page shows the
    chapter's opening scene twice with different wording each time ("2020." vs
    "Still 21st Century.", "ten years" vs "one hundred years", and 2 more
@@ -223,17 +241,13 @@ which rows are complete sweeps versus targeted tests, are in
    edition would. Confirmed as the explanation by finding that account's copy
    of the chapter; would only become a live hashing lead again if a specific
    reason turned up to think the author's own final edit used that wording.
-3. **Read the 27 posts and comments between the rehash and the shutdown**
-   (about an hour). The author posted 2019-07-30 to 2019-08-04 before going
-   silent; these have been read once for an explicit hint but not re-read
-   systematically against the now-narrower list of untested paragraph
-   combinations. Confirmed by a new detail that, applied and tested, matches;
-   killed by a full re-read producing nothing new.
 4. **A bounded 2-character-edit sweep on the strongest base texts** (about an
-   hour on a rented GPU). The 1-character sweep is exhaustive; a 2-character
-   sweep restricted to the small set of NBSP and line-ending pairs, rather than
-   every position, is a bounded extension. Confirmed by a match in that bounded
-   space; killed by exhausting it with none.
+   hour on a rented GPU). The 1-character sweep on the old `\n\n` bases is
+   exhaustive, and a targeted 1-character sweep on the new `\r\n\r\n` bases is
+   running now; a 2-character sweep restricted to the small set of NBSP and
+   line-ending pairs, rather than every position, is a bounded extension on
+   top of that. Confirmed by a match in that bounded space; killed by
+   exhausting it with none.
 5. **Identify what "76" indexes for Block 76** (minutes per candidate corpus).
    A method confirmed on 3 sibling blocks uses the block number as a position
    index into a specific numbered corpus; every corpus tried so far does not
