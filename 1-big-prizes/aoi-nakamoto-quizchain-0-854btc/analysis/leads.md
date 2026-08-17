@@ -2,7 +2,40 @@
 
 Ranked summary is in the README. This file has the reasoning behind the ranking.
 
-## 1. Fetch the "Second" chapter's raw page HTML and re-check for trailing content (confirmed method, not yet applied to the live target)
+## 1. Fetch the "Second" chapter's raw page HTML and re-check for trailing content (done; chapter now complete, contiguous ranges exhausted)
+
+**Update, 2026-08-17: the chapter's raw source has now been fetched in
+full and the working transcription was found to be badly incomplete.** All
+12 Wattpad pages were pulled directly (page 1's view-source, pages 2-12 via
+the chapter's own `apiv2?m=storytext` plain-text endpoint) and diffed
+paragraph-by-paragraph against the existing transcription. The prior
+transcription only covered pages 1-5 (roughly 40% of the chapter, ending
+mid-whitepaper); pages 6-12 (the rest of the Grycoin whitepaper and the
+entire "III. Second Identity" / Satoshi Code section, 148 paragraphs) had
+never been transcribed or tested at all. The diff also caught 5 small
+byte-level errors on pages 1-5 (missing spaces around 2 inline `<br>` line
+breaks, missing trailing spaces on 2 paragraph ends) and flagged one
+unresolved ambiguity (plain double-space vs NBSP+space at the 2 previously
+identified NBSP positions, already covered both ways by the bounded 2-edit
+sweep in lead 5). The complete, corrected chapter is 272 paragraphs, 45,442
+characters, closely matching the chapter's own reported page length of
+45,451.
+
+With the complete chapter available, an exhaustive sweep tested every
+contiguous paragraph range (`[start, end)`, all 37,128 possible windows of
+272 paragraphs), flip and no-flip, under the confirmed `\r\n\r\n` separator:
+74,256 candidates, 0 match, completed 2026-08-17. A second, broader pass
+added all 4 line-ending conventions and the chapter's own title paragraph as
+an optional leading paragraph (299,208 candidates); see `analysis/tested.md`
+for the completed result. **This closes the "fetch and check the raw
+source" question itself** (done, and productive: it found real errors and
+missing content) and, together with the range sweep, **exhausts every
+hypothesis of the form "a single contiguous run of the chapter's
+paragraphs."** What remains open is non-contiguous paragraph selection
+(picking specific paragraphs by a rule, as Finney's post used first-letter
+matching against `ITASM`, or the older private-research hypotheses in lead
+3) and character-level edits on top of a contiguous range, both still worth
+pursuing but neither exhausted by this sweep.
 
 **Resolved, 2026-08-17: the case-flip rule is real.** This repository's own
 prior notes claimed it "reproduces `19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` [Block
@@ -165,33 +198,28 @@ What would kill it as a lead entirely: no further distinctive single-word
 candidates in the chapter producing a match either.
 Cost: minutes per additional word tried.
 
-## 5. Two-character edits on the strongest base texts (bounded version exhausted)
+## 5. Character-level edits on top of the complete, corrected chapter
 
-The single-character-edit sweep (266,038,400 candidates, `analysis/tested.md`)
-covers every one-character difference from 40 base texts under the older `\n\n`
-assumption and is exhaustive for that distance; a targeted 1-character sweep on
-the 8 `\r\n\r\n`-joined bases completed 2026-08-17 with 0 match (see lead 3).
-Neither covered 2-character differences, which would catch a base text that is
-off by, for example, one inserted invisible character AND one capitalization
-slip.
+The single-character-edit sweep (266,038,400 candidates) and the bounded
+2-character sweep (163,698 candidates, every pair of inter-paragraph
+line-ending gaps and the 2 known NBSP positions deviating from baseline at
+once) are both exhaustive and negative for the spaces they define
+(`analysis/tested.md`) - but both were run against base texts built from the
+old, incomplete transcription (pages 1-5 only), before the 2026-08-17 chapter
+recovery found pages 6-12 and 5 further byte-level fixes on pages 1-5 (see
+lead 1). Re-running the same bounded sweeps' strongest base texts against the
+complete, corrected 272-paragraph chapter has not been done. The full,
+unbounded 2-character space (any 2 positions, any 2 characters, not just
+whitespace/NBSP slots) remains disproportionate without a narrower reason to
+expect the answer lives there, and is still not proposed.
 
-The bounded version proposed here - every pair of inter-paragraph line-ending
-gaps (4 possible states each) and the 2 known real NBSP positions (3 states
-each), both slots deviating from the `\r\n\r\n`/NBSP baseline at once, across
-4 base texts - completed 2026-08-17: 163,698 candidates, 0 match
-(`analysis/tested.md`). This exhausts the specific bounded space described
-here. The full, unbounded 2-character space (any 2 positions, any 2
-characters, not just whitespace/NBSP slots) is still not proposed, since its
-cost remains disproportionate without a narrower reason to expect the answer
-lives there.
-
-What would confirm it: not applicable; the bounded space is now exhausted.
-What would revive this lead: a specific reason to expect a 2-character
-deviation outside the NBSP/line-ending slots tested (for example, a stated
-detail from an unread source), which would justify defining a new, still-bounded
-search rather than the disproportionate full 2-character space.
-Cost: the bounded sweep took about 15 minutes of compute; the unbounded space
-remains an hour-plus on a rented GPU, not attempted.
+What would confirm it: a match once the existing sweeps are re-run against the
+corrected chapter.
+What would kill it: 0 match on the same re-run, at which point the same
+"specific reason needed" reasoning as before applies to the unbounded space.
+Cost: the original bounded sweep took about 15 minutes of compute; a re-run
+should be comparable. The unbounded space remains an hour-plus on a rented
+GPU, not attempted.
 
 ## 6. Identify what "76" indexes for Block 76
 

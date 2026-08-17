@@ -64,16 +64,15 @@
     "certified_against": "the author's own published calibration vector (entropy 2941774a2abec9f30c7d6777d1d53d91 to WIF L5Z66qPm... at BIP44 index 1), self-contained and exact; the Block 76 prefix filter is certified separately against a community-found candidate pair. The case-flip rule reproduces the solved sibling lot Block 77 Stage One exactly, confirmed 2026-08-17 against Hal Finney's real post text fetched from bitcointalk.org, provided the author's own trailing note ('[edited slightly]') stays attached to the last paragraph exactly as the raw page HTML renders it; 2 rendered-text copies that dropped this note both failed a 524,288-candidate exhaustive test first (see README, 'Certified against')"
   },
   "difficulty_left": "external-info",
-  "difficulty_note": "Real Big Block: the MD5-to-BIP39-to-BIP44 transform and the case-flip rule are both confirmed exactly (re-verified 2026-08-17 against Hal Finney's real post; the fix was restoring a trailing author's note dropped by rendered-text copy-pastes, not the rule itself); what is missing is the precise, byte-faithful source text the author hashed on 2019-07-30 from the 'Second' Wattpad chapter, and the top lead is now fetching that chapter's own raw page HTML to check for the same kind of trailing content that was missed on Finney's post; approximately 273 million candidate paragraph selections and edits tested, 0 match. Block 76: a community-found candidate pair satisfies both published MD5-prefix hints but no standard derivation of it reaches the address; roughly 78 million scripted derivations plus tens of thousands of thematic word-transform candidates tested, 0 match; the block may be a short human-reasoned wordplay riddle rather than a search problem, or may be misconfigured",
-  "tested_total": { "candidates": 350000000, "families": 21, "certified": true },
+  "difficulty_note": "Real Big Block: the MD5-to-BIP39-to-BIP44 transform and the case-flip rule are both confirmed exactly; the 'Second' Wattpad chapter's working transcription was found on 2026-08-17 to have silently covered only 5 of its 12 Wattpad pages, missing 148 paragraphs entirely, plus 5 smaller byte-level errors on the pages it did cover. The complete, corrected 272-paragraph chapter is now available for the first time, and an exhaustive sweep of every contiguous paragraph range under the confirmed separator found 0 match; what remains is non-contiguous paragraph selection or a character-level edit on top of a contiguous range. Approximately 273 million candidate paragraph selections and edits tested against the incomplete chapter, plus 74,256 against the complete one, 0 match anywhere. Block 76: a community-found candidate pair satisfies both published MD5-prefix hints but no standard derivation of it reaches the address; roughly 78 million scripted derivations plus tens of thousands of thematic word-transform candidates tested, 0 match; the block may be a short human-reasoned wordplay riddle rather than a search problem, or may be misconfigured",
+  "tested_total": { "candidates": 350074256, "families": 22, "certified": true },
   "leads": [
-    { "rank": 1, "title": "fetch the Second chapter's raw page HTML and re-check for trailing content", "cost": "minutes, needs a person", "status": "open" },
-    { "rank": 2, "title": "re-run the paragraph-subset hypotheses under the author's confirmed exact separator", "cost": "minutes to re-run, more to identify the exact subsets again", "status": "open" },
+    { "rank": 1, "title": "non-contiguous paragraph selection from the now-complete 272-paragraph chapter", "cost": "minutes per hypothesis once defined", "status": "open" },
+    { "rank": 2, "title": "character-level edits on top of the complete, corrected chapter", "cost": "about an hour, mostly compute", "status": "open" },
     { "rank": 3, "title": "check whether the Real Big Block Discussion thread covers all 27 posts in the window", "cost": "minutes, needs a person", "status": "open" },
     { "rank": 4, "title": "the chapter's duplicate opening excerpt points at a real, untested single-word-correction mechanism", "cost": "minutes per word", "status": "open" },
-    { "rank": 5, "title": "a bounded 2-character-edit sweep on the strongest base texts", "cost": "about an hour on a rented GPU", "status": "open" },
-    { "rank": 6, "title": "identify what 76 indexes for Block 76", "cost": "minutes per candidate corpus", "status": "open" },
-    { "rank": 7, "title": "a short, human-reasoned answer to change to / from change to", "cost": "minutes per candidate", "status": "open" }
+    { "rank": 5, "title": "identify what 76 indexes for Block 76", "cost": "minutes per candidate corpus", "status": "open" },
+    { "rank": 6, "title": "a short, human-reasoned answer to change to / from change to", "cost": "minutes per candidate", "status": "open" }
   ],
   "solutions": [],
   "artifacts": [],
@@ -87,5 +86,5 @@
     { "title": "Hal Finney, Bitcoin and me, bitcointalk topic 155054", "url": "https://bitcointalk.org/index.php?topic=155054.0", "date": "2013-05-27", "archived": null }
   ],
   "third_party_material": "no book, chapter text, forum dump, or other bulk third-party material is included; the Wattpad chapter (the author's own fiction) and Hal Finney's bitcointalk post (third-party historical content) are both referenced by URL only, never reproduced; quotes in clues/author-posts.md are short excerpts from the puzzle author's own public Reddit posts",
-  "last_updated": "2026-08-16"
+  "last_updated": "2026-08-17"
 }
