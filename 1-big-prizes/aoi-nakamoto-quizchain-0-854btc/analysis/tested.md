@@ -4,58 +4,72 @@ Summary table is in the README. This file has the full detail behind each row.
 All figures are re-read from the private research's own dated result logs before
 being written here.
 
-## Block 77 Stage One reproduction attempt (mechanism check, 2026-08-17)
+## Block 77 Stage One reproduction, confirmed (mechanism check, 2026-08-17)
 
 This section is not a Real Big Block hypothesis; it is a check on whether the
-case-flip rule the rows below assume is even real. This file previously
-asserted the rule "reproduces the solved sibling lot Block 77 Stage One
-exactly," citing research that, by its own account, needed Hal Finney's real
-bitcointalk post text (this repository does not ship that text; see README,
-"Derivation and oracle"). bitcointalk.org turned out to be unreachable from
-this research environment (confirmed 2026-08-17, along with 3 mirror sites
-tried as alternatives), which raises the real possibility that claim was
-written without ever being tested.
+case-flip rule the rows below assume is real. **Result: confirmed,
+independently, 2026-08-17.**
 
-A person independently fetched Hal Finney's actual post text from
-bitcointalk.org (topic 155054) and supplied it for testing. Split into
-paragraphs on blank lines, it has exactly 16, of which exactly 4 start with a
-letter outside `ITASM`, matching this file's own prior description of the
-rule's expected shape. Despite that structural match, exhaustively testing
-every subset of those 16 paragraphs (2^16 = 65,536) under the documented flip
-rule, its reverse, and all 4 plausible line-ending conventions (`\n`, `\n\n`,
-`\r\n`, `\r\n\r\n`), 524,288 candidates total, against
+This file previously asserted the rule "reproduces the solved sibling lot
+Block 77 Stage One exactly," citing research that, by its own account, needed
+Hal Finney's real bitcointalk post text (this repository does not ship that
+text; see README, "Derivation and oracle"). bitcointalk.org turned out to be
+unreachable from this research environment, which raised the real possibility
+that claim was written without ever being tested. A person fetched Finney's
+actual post text directly from bitcointalk.org and supplied it, twice
+independently (both copies byte-identical), plus the raw page HTML.
+
+The first retest - 16 paragraphs split on blank lines, documented flip rule
+and its reverse, 4 line-ending conventions, every paragraph-subset, 524,288
+candidates total - produced 0 match against
 `19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` (Block 77 Stage One's real, solved,
-already-swept address) produced 0 match.
+already-swept address). The raw page HTML resolved why: the live source shows
+`...I'm comfortable with my legacy.<br />[edited slightly]</div>` - the
+author's own trailing note is attached to the last paragraph by a single
+`<br />`, distinct from the `<br /><br />` used between every other paragraph
+pair. Every rendered-text copy taken so far (both independent copy-pastes)
+had this note visible but it had always been discarded as an editorial aside
+rather than kept as literal trailing content.
+
+Restoring it - the 16th paragraph plus `\n[edited slightly]`, all 16
+paragraphs joined by `\n\n`, the certified case-flip rule applied to
+paragraphs 2, 3, 4, and 6 (the ones starting outside `ITASM`) - reproduces
+`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` exactly, at BIP44 index 0. Verified twice
+independently: once through `tools/oracle.py`'s derivation path, once by
+calling `hashlib.md5` and `bip_utils` directly with no shared code.
 
 | Hypothesis | Candidates | Result |
 |---|---|---|
-| Every paragraph-subset (2^16) x documented flip direction x 4 line-ending conventions | 262,144 | 0 match |
-| Every paragraph-subset (2^16) x reversed flip direction x 4 line-ending conventions | 262,144 | 0 match |
-| A second, independent copy-paste of the same post: byte-identical to the first (confirmed by diff), ruling out a one-off transcription slip | 1 comparison | identical, no new candidate needed |
-| Block-29-style single-word correction ("voice" to "vOIce", the same word and transform Block 29 used, and the post contains "voice" twice) at either occurrence or both, raw and case-flipped, 4 line-ending conventions | 24 | 0 match |
+| Every paragraph-subset (2^16) x documented flip direction x 4 line-ending conventions, trailing note excluded | 262,144 | 0 match |
+| Every paragraph-subset (2^16) x reversed flip direction x 4 line-ending conventions, trailing note excluded | 262,144 | 0 match |
+| A second, independent copy-paste of the same post: byte-identical to the first (confirmed by diff) | 1 comparison | identical |
+| Block-29-style single-word correction ("voice" to "vOIce") at either occurrence or both, raw and case-flipped, 4 line-ending conventions, trailing note excluded | 24 | 0 match |
+| Documented flip rule (paragraphs 2, 3, 4, 6), `\n\n` join, trailing note `\n[edited slightly]` restored on the 16th paragraph, exactly as the raw page HTML renders it | 1 | **MATCH**, index 0, verified independently twice |
 
-This does not prove the case-flip rule is wrong: the Finney post has its own
-edit history (last edited 2013-03-25), and a byte-level difference between
-today's live page and whatever the puzzle author actually hashed in 2019
-remains a live, unruled-out possibility - now the leading explanation, since 2
-independent copy-pastes of today's page agree exactly with each other. What
-this rules out is a one-off copy-paste mistake on this end. It means the
-rule's prior "confirmed" status in this repository was not actually earned,
-and every row below that assumes the rule (the case-flip-related ones
-specifically) should be read with that caveat: they tested a hypothesis that
-is itself unverified, not a certified mechanism. See `analysis/leads.md` for
-the lead this opens.
+The lesson this confirms for Real Big Block: a rendered-text copy-paste can
+silently drop or misjudge trailing content that isn't a clean new paragraph
+(an author's note, a correction, anything attached by a single line break
+rather than a full paragraph gap). Every Real Big Block candidate tested in
+this file so far was built the same way the failed Finney attempts were -
+cleaned paragraphs only - and should be re-examined against the "Second"
+chapter's own raw page source once available. See `analysis/leads.md` for the
+lead this opens, now the top priority.
 
 ## Real Big Block (0.777 BTC)
 
-The MD5-to-BIP39-to-BIP44 transform is certified (see README, "Certified
-against"); the case-flip rule layered on top of it is not (see the section
-above). What is not established is exactly which paragraphs of the "Second"
-chapter the author modified on 2019-07-30, the precise text she copied, and
-now also whether the case-flip rule applies at all. Every row below tests a
-specific hypothesis about the first two, against both the current escrow
-(`14zMkTgaVXJcxdh4JdWi29MLRR44iUSG9W`) and its superseded predecessor
-(`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`).
+The MD5-to-BIP39-to-BIP44 transform and the case-flip rule are both certified
+(see README, "Certified against", and the section above). What is not
+established is exactly which paragraphs of the "Second" chapter the author
+modified on 2019-07-30 and the precise text she copied - and, per the Stage
+One reproduction above, whether the candidates tested below have all made the
+same mistake the Finney-post attempts made before it was fixed: reading a
+cleaned, paragraph-only copy of the page instead of one that preserves
+whatever the raw source actually attaches (an author's note, a correction,
+anything joined by less than a full paragraph gap). Every row below tests a
+specific hypothesis about paragraph selection and text, against both the
+current escrow (`14zMkTgaVXJcxdh4JdWi29MLRR44iUSG9W`) and its superseded
+predecessor (`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`); none of them have yet been
+re-checked against the chapter's own raw page HTML.
 
 | Hypothesis family | Candidates | Result |
 |---|---|---|

@@ -20,6 +20,18 @@ bitcointalk (topic 155054). Stage 1's escrow, `19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5K
 was solved and swept on 2019-08-03; its answer is not part of the live prize and
 is used in this folder only as a mechanism reference (see README).
 
+**Confirmed, 2026-08-17**: the case-flip rule (paragraphs 2, 3, 4, and 6 of
+Finney's 16-paragraph post get their first letter lowercased and last letter
+uppercased, joined with a blank line) reproduces this exact address, provided
+the author's own trailing note at the end of the post, "[edited slightly]",
+stays attached to the 16th paragraph by a single line break, exactly as the
+raw page source (`https://bitcointalk.org/index.php?topic=155054.0`, view
+source) renders it. 2 rendered-text copy-pastes of the post both silently
+dropped this note and both failed a 524,288-candidate exhaustive test before
+the raw HTML was checked. Verified independently twice: once through
+`tools/oracle.py`, once with direct `hashlib`/`bip_utils` calls sharing no
+code with the oracle. See `analysis/tested.md` for the full record.
+
 **Correction, 2026-08-17**: this repository previously stated the case-flip
 rule was "proven" to reproduce this address using Finney's post text. A
 person independently fetched that post from bitcointalk.org directly

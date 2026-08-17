@@ -2,53 +2,52 @@
 
 Ranked summary is in the README. This file has the reasoning behind the ranking.
 
-## 1. Resolve whether the case-flip rule is real at all
+## 1. Fetch the "Second" chapter's raw page HTML and re-check for trailing content (confirmed method, not yet applied to the live target)
 
-This repository's own prior notes claimed the case-flip rule "reproduces
-`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` [Block 77 Stage One] exactly," citing
-research done against Hal Finney's real bitcointalk post text. On 2026-08-17,
-a person supplied that real text directly (bitcointalk.org is unreachable from
-this research environment, confirmed by testing, along with 3 mirror sites),
-and an exhaustive test - every subset of the post's 16 paragraphs, both flip
-directions, all 4 line-ending conventions, 524,288 candidates total - produced
-0 match against that address (`analysis/tested.md`, "Block 77 Stage One
-reproduction attempt"). The post's structure matches what this file's own
-prior description implied (16 paragraphs, exactly 4 starting outside
-`ITASM`), which argues against a wildly different transcription, but does not
-rule one out.
+**Resolved, 2026-08-17: the case-flip rule is real.** This repository's own
+prior notes claimed it "reproduces `19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` [Block
+77 Stage One] exactly," without visible evidence that had actually been
+tested (bitcointalk.org is unreachable from this research environment). Two
+independent rendered-page copy-pastes of Finney's real post (byte-identical to
+each other) both failed an exhaustive test - every paragraph subset, both
+flip directions, 4 line-ending conventions, 524,288 candidates - against that
+address. A third source, the page's raw HTML, resolved it: the live source
+shows the author's trailing note, `[edited slightly]`, attached to the last
+paragraph by a single `<br />`, distinct from the `<br /><br />` between every
+other paragraph pair. Both rendered-text copies had silently dropped this as
+page furniture. Restoring it (last paragraph plus `\n[edited slightly]`, all
+16 paragraphs joined by `\n\n`, case-flip on paragraphs 2/3/4/6) reproduces
+the address exactly at BIP44 index 0, verified twice independently (through
+`tools/oracle.py`, and again with raw `hashlib`/`bip_utils` calls sharing no
+code with the first check). Full detail: `analysis/tested.md`, "Block 77
+Stage One reproduction, confirmed."
 
-This is the most consequential open question in this puzzle, because
-everything else in this folder that assumes the case-flip rule - the
-2^17-paragraph sweep, the "certified groups," the case-flipped variants of
-every whole-chapter and whole-section candidate tested since - inherits its
-uncertainty. If the rule is wrong, those negative results say nothing about
-whether the right paragraph selection was ever tried, since they were all
-tested under a transform that itself doesn't work.
+**This is now the top lead for Real Big Block itself.** Every candidate
+tested against the "Second" chapter in this file so far was built from a
+rendered-text copy-paste, cleaned to paragraphs only - the same kind of
+reading that failed on Finney's post until the raw HTML was checked. The
+chapter's own raw page source has not yet been fetched or examined for
+anything analogous: an author's note, a correction, a stray tag, anything
+attached to a paragraph by less than a full paragraph gap that a copy-paste
+would either drop or silently absorb differently than the actual stored
+bytes. Given the author's own account that she "added extra line breaks
+between paragraphs" when posting to Wattpad, and that the case-flip rule
+itself is now proven sound (it isn't the paragraph selection that's
+necessarily wrong; it may be a fidelity gap identical in kind to the one just
+found on Finney's post), this is a highly promising, concrete, and
+comparatively cheap next step.
 
-**Update, 2026-08-17**: a second, independent copy-paste of the same post was
-supplied and is byte-identical to the first (confirmed by `diff`); pure ASCII,
-no hidden Unicode. A Block-29-style single-word correction was also tried
-directly on this text ("voice" to "vOIce" - the post contains "voice" twice,
-the same word Block 29 corrected), at either occurrence, both, raw and
-case-flipped, under all 4 line-ending conventions: 24 more candidates, 0
-match. This rules out a one-off copy-paste mistake on the reader's end as the
-explanation; it does not rule out today's live page having drifted from what
-was hashed in 2019, which is now the leading explanation if the rule itself
-is sound.
-
-What would confirm the rule is real: a transcription of Finney's post from a
-source that could differ from today's live rendering - specifically "view
-source" / raw HTML instead of a rendered-page copy (in case whitespace or
-HTML entities differ from what displays but 2 rendered-page copies would
-agree on), or an archived/cached version from closer to 2019 (Finney's post
-has its own edit history, last dated 2013-03-25) - that reproduces
-`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` under some serialization.
-What would kill the rule entirely (as this specific mechanism): the same
-sources above also failing to reproduce the address under a reasonably
-thorough search, at which point Real Big Block's mechanism should be treated
-as fully unknown, not "case-flip on an unknown paragraph subset."
-Cost: minutes if an alternate source of the text is available; the derivation
-itself is fast.
+What would confirm it: the chapter's raw HTML (view-source on
+`https://www.wattpad.com/720888559-second`, or the Wattpad API response
+`https://www.wattpad.com/apiv2/storytext?id=720888559`) revealing a
+paragraph-boundary detail not present in any rendered-text copy taken so far,
+which, restored, reproduces `14zMkTgaVXJcxdh4JdWi29MLRR44iUSG9W` under the
+case-flip rule.
+What would kill it: the raw HTML matching every rendered-text copy already
+tested exactly, with no trailing or attached content anywhere, at which point
+the remaining unknown reverts to paragraph selection specifically (lead 2).
+Cost: minutes, needs a person to fetch the raw source (Wattpad, unlike
+bitcointalk.org, has been reachable to readers throughout this research).
 
 ## 2. Expand the remaining collapsed reply threads on the Real Big Block Discussion post (mostly exhausted)
 
