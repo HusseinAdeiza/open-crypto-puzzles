@@ -8,9 +8,11 @@ used across this author's series. I reversed and certified the decrypt pipeline 
 solved sibling puzzle, but the author never published any length or charset constraint
 for this puzzle specifically, unlike most of its siblings. Reading the 5 keys against the
 answer grammar of 3 other solved puzzles in the series, I have tested on the order of 8
-million literal, pun, and genesis-block candidate readings with 0 matches. The most
-promising untested reading is the full biblical text the "[0-19]" bracket and the "6 3 18"
-notation seem to point toward.
+million literal, pun, and genesis-block candidate readings with 0 matches, plus 10 direct
+transcriptions of Genesis 28's actual text tested 2026-08-16 (the full chapter, and the 2
+most literal readings of the "[0-19]" bracket and "6 3 18" notation), also negative. What
+remains is the specific token-selection rule the author actually used, not the passage
+identification itself.
 
 ## At a glance
 
@@ -117,13 +119,27 @@ Cumulative: on the order of 8,010,190 candidates tested to completion, 0 matches
 candidate sets (about 2,450,000 combined) were generated but not run to exhaustion and are
 not counted here as negatives.
 
+10 direct readings of Genesis 28's actual KJV text (sourced 2026-08-16 from a public-domain
+KJV JSON dataset, not transcribed from memory, since a single wrong word would silently
+fail every hash) were tested 2026-08-16: the full chapter with and without punctuation and
+spaces; verses 1-19 only (matching the "[0-19]" bracket clue); verses 6, 3 and 18
+concatenated in that order and verses 3 through 18 as a range (both readings of the
+handwritten "6 3 18" clue); and verse 12 alone (the ladder verse itself), with and without
+punctuation. 0 matches. This was the specific gap the open lead below called the most
+promising untested reading; it is no longer untested, though the underlying hypothesis
+(some reading of Genesis 28 is the answer) is not itself ruled out, only these 10 direct
+transcriptions of it.
+
 ## Open leads, ranked
 
-1. **The exact wording of Bible Genesis chapter 28** (hours), the Jacob's Ladder / Bethel
-   passage, transcribed as a long word-series the way solved sibling #7's 57-character
-   answer is built. This is the one corner of the genesis-as-scripture reading that has
-   not been enumerated yet. Confirmed by a candidate matching the escrow exactly; killed
-   by exhausting every reasonable transcription of the passage.
+1. **The exact wording of Bible Genesis chapter 28** (hours; 10 direct readings tested
+   2026-08-16, 0 matches, see above). The Jacob's Ladder / Bethel passage, transcribed as
+   a long word-series the way solved sibling #7's 57-character answer is built. The 10
+   most direct transcriptions (full chapter, the 2 bracket/notation-guided verse subsets,
+   the ladder verse alone) are now tested; what remains is the specific token-selection
+   and concatenation rule sibling #7 actually used, which is not documented in this folder
+   and was not reverse-engineered here. Confirmed by a candidate matching the escrow
+   exactly; killed by exhausting every reasonable transcription of the passage.
 2. **Non-public channels** (needs a person): the author's Telegram group, a later Discord,
    or a direct reply, none of which have produced a #10-specific hint in the public
    record searched so far. A community-notes author's contact email surfaced during this

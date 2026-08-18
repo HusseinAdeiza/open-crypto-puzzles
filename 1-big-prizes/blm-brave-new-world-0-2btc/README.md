@@ -109,6 +109,18 @@ public vector matches the escrow. Reproduced 2026-08-16.
 5. The geometric rune script (about 85 glyphs across 3 locations on the image) decodes as
    Russian-language prose under a monoalphabetic substitution, consistent with natural-language
    text by an index-of-coincidence check; it names no seed word directly.
+6. A faint signature, "CHaRLy", sits rotated 90 degrees in the image's top-left corner
+   (crop `[15:220, 0:90]`), previously undocumented in this research. It most likely credits
+   the illustrator commissioned to draw the collage rather than the puzzle author `u/stsh_n`
+   himself; a web search on the handle alone returns no clear match to a known artist account.
+   Noted here for completeness, not as a seed-word source. Found 2026-08-16.
+7. A line of small, low-contrast text runs vertically beside the escrow address on the Statue
+   of Liberty (crop `[1478:1770, 0:60]` before rotation; visible only after autocontrast):
+   "PAY FOR THE FUTURE. THIS IS THE FIRST PREDICTION." This sentence is not referenced anywhere
+   in this folder's prior notes. `pay` is old-Electrum-exclusive (not in BIP39); `future` and
+   `first` are valid in both wordlists. Whether these 3 words are already part of the roughly
+   30-word candidate pool tracked in the private research folder (see `data/format-fork.json`)
+   is unconfirmed from this public repository alone. Found 2026-08-16.
 
 ## What has been tested
 
@@ -134,18 +146,28 @@ directly from the image has not been run (see "Open leads, ranked").
    against a pipeline whose own known-answer test passes, but their result was never written
    down. Confirmed if either rerun prints a match; killed as a source of new candidates once
    both are logged clean.
-2. **Re-derive the word inventory from the image itself** (hours). Every large campaign to
-   date, including the anchor-free sweep, still uses a fixed candidate pool rather than a fresh,
-   systematic relisting of every word visible on the collage. Confirmed if a word absent from
-   every prior pool derives the target once combined with the rest; killed if the relisting
-   reproduces the same pool already tested.
-3. **Cross the rune transcription against the Russian-prose cipher key** (minutes, free). The
-   positioned 85-glyph transcription and the substitution-cipher hypothesis have never been
-   directly checked against each other. Confirmed as closed if the decoded prose reads
-   coherently start to finish; reopened as a candidate word source if it does not.
-4. **Settle BIP39 versus old-Electrum from a source, not from more derivation** (needs new
+2. **Re-derive the word inventory from the image itself** (hours; partially started). Every
+   large campaign to date, including the anchor-free sweep, still uses a fixed candidate pool
+   rather than a fresh, systematic relisting of every word visible on the collage. A first
+   contrast-boosted pass over the full image on 2026-08-16 turned up one sentence not in any
+   prior note (see established fact 7), but did not attempt a full pixel-by-pixel relisting.
+   Confirmed if a word absent from every prior pool derives the target once combined with the
+   rest; killed if a complete relisting reproduces the same pool already tested.
+3. **Settle BIP39 versus old-Electrum from a source, not from more derivation** (needs new
    information). This single fact would cut the remaining search space roughly in half; no
    message signature or other author confirmation is known to exist.
+4. **Identify the artist "CHaRLy"** (needs a person, low probability). A signature by this
+   handle sits in the image's top-left corner; a name-only web search found no clear match.
+   Ranks last: the signature most likely credits an illustrator commissioned to execute the
+   collage, not the puzzle's designer, so even a confirmed identity may carry no information
+   about the seed. Confirmed by contact that yields any detail about word placement or intent;
+   killed by no reply or by confirmation the artist worked from a brief with no puzzle
+   knowledge.
+
+Closed: crossing the rune transcription against the Russian-prose cipher key was already done
+and logged in `analysis/tested.md` on 2026-08-02 (index-of-coincidence match to natural-language
+text, not seed words); this file's ranked list had not been updated to reflect it. See
+`analysis/leads.md`.
 
 Full notes: [analysis/leads.md](analysis/leads.md).
 

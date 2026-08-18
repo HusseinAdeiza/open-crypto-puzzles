@@ -5,7 +5,7 @@ oracle.py -- candidate checker for the Aoi Nakamoto Quizchain puzzle.
 Purpose:
     Given a candidate text, reproduce the puzzle's confirmed transform: MD5 the
     UTF-8 bytes of the text to get 128 bits of entropy, turn that entropy into a
-    BIP39 mnemonic, derive BIP44 path m/44'/0'/0'/0/i for i = 0 to 5, and compare
+    BIP39 mnemonic, derive BIP44 path m/44'/0'/0'/0/i for i = 0 to 19, and compare
     each resulting P2PKH address against the two open escrows (Real Big Block and
     Quizchain2 Block 76). A separate mode checks the two free MD5-prefix filters
     the author published for Block 76, ahead of any full derivation. A helper
@@ -131,7 +131,7 @@ def apply_stage_one_rule(paragraphs: list[str]) -> str:
 
 def attempt(candidate: str) -> tuple[bool, dict]:
     entropy = md5_entropy(candidate)
-    addresses = derive_addresses(entropy, n=6)
+    addresses = derive_addresses(entropy, n=20)
     for i, addr in enumerate(addresses):
         if addr in TARGETS:
             return True, {"address": addr, "label": TARGETS[addr], "index": i}
@@ -165,7 +165,7 @@ def selftest() -> bool:
     print(f"author's own vector: entropy {VECTOR_ENTROPY[:8]}... index 1 WIF -> {'OK' if part1 else 'FAIL'}")
     ok = ok and part1
 
-    others = [derive_wif(entropy, i) for i in range(6) if i != 1]
+    others = [derive_wif(entropy, i) for i in range(20) if i != 1]
     part1b = wif1 not in others
     print(f"that WIF appears at no other index (no collision): {'OK' if part1b else 'FAIL'}")
     ok = ok and part1b

@@ -1,16 +1,32 @@
 # Open leads, ranked
 
-## 1. A systematic LSB scan of the continuous grayscale and alpha channels (hours)
+## 1. A systematic LSB scan of the continuous grayscale and alpha channels (hours; 1- and 2-bit widths done, 2026-08-16)
 
-Every candidate tried so far reads the geometry (building heights, widths, roof lines) or the
-container metadata as a whole value, hashed as a block. What has not been run is a bit-level
-scan of the 2 continuous 8-bit channels (grayscale, 256 levels; alpha, 26 distinct values
-observed) with a tool built for exactly this, such as `zsteg -a` or `stegoveritas`, keeping only
-a 64-hex output that derives exactly to the target address. This is the most direct reading of
-the author's own hint that "format does not matter," which argues for a payload in the pixel
-values themselves rather than in any container structure. Confirms: an extracted 64-hex string
-derives the target address exactly. Kills: an exhaustive bit-order and bit-width sweep of both
-channels with no address match, which has not yet been run to exhaustion.
+Every candidate tried before 2026-08-16 read the geometry (building heights, widths, roof
+lines) or the container metadata as a whole value, hashed as a block. What was missing was a
+bit-level scan of the 2 continuous 8-bit channels (grayscale, 256 levels; alpha, 26 distinct
+values observed), the most direct reading of the author's own hint that "format does not
+matter," which argues for a payload in the pixel values themselves rather than in any container
+structure.
+
+Run on 2026-08-16: every possible 256-bit window, sliding 1 pixel at a time, across
+{grayscale, alpha} x {row-major, column-major} x {MSB-first, LSB-first byte packing}, at both 1
+and 2 bits extracted per pixel. 13,431,083 candidates total (4,994,119 at 1 bit per pixel,
+8,436,964 at 2 bits per pixel), each derived to an ETH address and compared byte-exact to the
+target. 0 matches; the best coincidental prefix match was 3 of 20 address bytes at 1 bit per
+pixel and 2 of 20 at 2 bits per pixel, both consistent with chance at this sample size, not a
+signal. See `analysis/tested.md` for the full family-by-family breakdown, rates, and dates.
+
+This confirms: an extracted 64-hex string derives the target address exactly, which did not
+happen. Kills, for 1 and 2 bits per pixel specifically: an exhaustive bit-order and bit-width
+sweep of both channels with no address match, which has now been run to exhaustion at those 2
+widths. Not yet run: bit widths of 3 or more per pixel. Each additional width has a lower prior
+probability as an intended encoding (simple 1-bit LSB steganography is by far the most common
+convention, which is why it was tried first and most thoroughly), and extending further without
+a narrowing insight first would be exactly the kind of open-ended compute this repository's own
+methodology (`AGENTS.md`) argues against. This lead is downgraded from the top-ranked open lead
+to closed-at-known-widths; the next step here needs a reason to expect the encoding is wider
+than 2 bits per pixel, not more raw scanning.
 
 ## 2. Join the community Telegram group and search first-hand for the "$100" hint (needs a
 person)

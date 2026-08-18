@@ -4,14 +4,169 @@ Summary table is in the README. This file has the full detail behind each row.
 All figures are re-read from the private research's own dated result logs before
 being written here.
 
+## Block 77 Stage One reproduction, confirmed (mechanism check, 2026-08-17)
+
+This section is not a Real Big Block hypothesis; it is a check on whether the
+case-flip rule the rows below assume is real. **Result: confirmed,
+independently, 2026-08-17.**
+
+This file previously asserted the rule "reproduces the solved sibling lot
+Block 77 Stage One exactly," citing research that, by its own account, needed
+Hal Finney's real bitcointalk post text (this repository does not ship that
+text; see README, "Derivation and oracle"). bitcointalk.org turned out to be
+unreachable from this research environment, which raised the real possibility
+that claim was written without ever being tested. A person fetched Finney's
+actual post text directly from bitcointalk.org and supplied it, twice
+independently (both copies byte-identical), plus the raw page HTML.
+
+The first retest - 16 paragraphs split on blank lines, documented flip rule
+and its reverse, 4 line-ending conventions, every paragraph-subset, 524,288
+candidates total - produced 0 match against
+`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` (Block 77 Stage One's real, solved,
+already-swept address). The raw page HTML resolved why: the live source shows
+`...I'm comfortable with my legacy.<br />[edited slightly]</div>` - the
+author's own trailing note is attached to the last paragraph by a single
+`<br />`, distinct from the `<br /><br />` used between every other paragraph
+pair. Every rendered-text copy taken so far (both independent copy-pastes)
+had this note visible but it had always been discarded as an editorial aside
+rather than kept as literal trailing content.
+
+Restoring it - the 16th paragraph plus `\n[edited slightly]`, all 16
+paragraphs joined by `\n\n`, the certified case-flip rule applied to
+paragraphs 2, 3, 4, and 6 (the ones starting outside `ITASM`) - reproduces
+`19TbyN5KCg1Lg7qHwezifsLVcdSa2Rj5KN` exactly, at BIP44 index 0. Verified twice
+independently: once through `tools/oracle.py`'s derivation path, once by
+calling `hashlib.md5` and `bip_utils` directly with no shared code.
+
+| Hypothesis | Candidates | Result |
+|---|---|---|
+| Every paragraph-subset (2^16) x documented flip direction x 4 line-ending conventions, trailing note excluded | 262,144 | 0 match |
+| Every paragraph-subset (2^16) x reversed flip direction x 4 line-ending conventions, trailing note excluded | 262,144 | 0 match |
+| A second, independent copy-paste of the same post: byte-identical to the first (confirmed by diff) | 1 comparison | identical |
+| Block-29-style single-word correction ("voice" to "vOIce") at either occurrence or both, raw and case-flipped, 4 line-ending conventions, trailing note excluded | 24 | 0 match |
+| Documented flip rule (paragraphs 2, 3, 4, 6), `\n\n` join, trailing note `\n[edited slightly]` restored on the 16th paragraph, exactly as the raw page HTML renders it | 1 | **MATCH**, index 0, verified independently twice |
+
+The lesson this confirms for Real Big Block: a rendered-text copy-paste can
+silently drop or misjudge trailing content that isn't a clean new paragraph
+(an author's note, a correction, anything attached by a single line break
+rather than a full paragraph gap). Every Real Big Block candidate tested in
+this file so far was built the same way the failed Finney attempts were -
+cleaned paragraphs only - and should be re-examined against the "Second"
+chapter's own raw page source once available. See `analysis/leads.md` for the
+lead this opens, now the top priority.
+
+## "Second" chapter, complete raw-source recovery and full-chapter sweep (2026-08-17)
+
+Every Real Big Block candidate tested before this section (the whole table
+below) was built from a transcription that, it turns out, only covered the
+chapter's first 5 of 12 Wattpad pages (roughly the first 40% of the text, up
+to and including the Grycoin "address format" paragraph). Pages 6 through
+12 - the entire rest of the "II. Second Layer: Grycoin" whitepaper section
+from "3. Incentives" onward, and the entire "III. Second Identity" section
+(the Satoshi Code analysis) - had never been transcribed, checked, or tested
+at all. This was only discovered by applying the same lesson learned on the
+Finney post above: fetch the raw page/API source directly and diff it,
+paragraph by paragraph, against the working transcription, page by page,
+instead of trusting a single rendered copy.
+
+A person fetched all 12 pages directly (the live page's view-source for page
+1, then the chapter's own `https://www.wattpad.com/apiv2/?m=storytext&id=720888559&page=N`
+plain-text endpoint for pages 2 to 12, both unreachable from this research
+environment on their own). Each page's `<p data-p-id="...">` paragraphs were
+extracted and entity-decoded, then diffed paragraph-by-paragraph against the
+existing working transcription. Page 1 (35 paragraphs) matched exactly, 0
+diffs. Pages 2 through 5 surfaced 5 real, small byte-level fixes that the
+prior transcription had gotten wrong: a missing space before an inline
+`<br>` line break inside a paragraph (found twice, both fixed the same way -
+the raw source always has a literal space before an inline `<br>`), and a
+missing trailing space at the end of a paragraph, just before its closing
+`</p>` tag (found twice). One additional discrepancy was flagged but not
+resolved: at both of the 2 previously-confirmed non-breaking-space positions,
+this raw pull shows 2 plain ASCII spaces where an earlier direct
+browser-copy had shown NBSP + space; since the bounded 2-slot sweep below
+already tested NBSP, plain space, and deleted at both positions in
+combination, this ambiguity does not currently gate any new test. Pages 6
+through 12 (148 further paragraphs) were transcribed for the first time from
+the same raw source. The resulting complete chapter is 272 paragraphs,
+45,442 characters when joined with a blank line, against a page length of
+45,451 reported by the chapter's own metadata - consistent with a complete
+and accurate transcription (see `puzzle.json` sources for the chapter URL;
+the transcription itself is not reproduced here, per this repository's
+third-party-material policy).
+
+With the complete, byte-checked chapter available for the first time, an
+exhaustive sweep tested every contiguous paragraph range (every possible
+`[start, end)` window of the 272 paragraphs, 37,128 ranges), both with and
+without the certified case-flip rule, under the confirmed `\r\n\r\n`
+separator:
+
+| Hypothesis | Candidates | Result |
+|---|---|---|
+| Whole chapter, whole-chapter no-flip, and the 3 top-level sections (I, II, III) alone, flip and no-flip, `\r\n\r\n` and `\n\n` | 16 | 0 match |
+| Every contiguous paragraph range of the complete 272-paragraph chapter, flip and no-flip, `\r\n\r\n` | 74,256 | 0 match, completed 2026-08-17 |
+| Every contiguous paragraph range including the chapter's own title paragraph ("Second") as an optional leading paragraph, flip and no-flip, all 4 line-ending conventions (`\r\n\r\n`, `\n\n`, `\r\n`, `\n`) | 299,208 | 0 match, completed 2026-08-18 |
+
+This rules out, exhaustively and for the first time against the actual
+complete source text, every hypothesis of the form "some single contiguous
+run of paragraphs from the complete chapter, optionally case-flipped, joined
+by one of the 4 plausible line-ending conventions." It does not rule out
+non-contiguous paragraph selections, nor character-level edits on top of a
+contiguous range beyond the bounded sweeps already run against the old,
+incomplete transcription.
+
+A first non-contiguous hypothesis was tried next: instead of applying the
+case-flip rule to non-`ITASM`-initial paragraphs (as confirmed on Stage One),
+*selecting only* the paragraphs whose first letter is (or is not) in `ITASM`
+and dropping the rest, on the theory that the chapter's own "Satoshi Code"
+section (which explains exactly this initials mechanism as applied to
+Finney's post) might be pointing at the same mechanism turned into a
+selection rule for itself. Tried on the whole chapter, each of the 3
+top-level sections, and all 26 finer-grained numbered/lettered subsections,
+both selection directions, with and without the case-flip rule applied to
+the selected paragraphs, under all 4 line-ending conventions:
+
+| Hypothesis | Candidates | Result |
+|---|---|---|
+| ITASM-initial paragraph selection (kept vs dropped), with/without case-flip on the kept set, whole chapter and with/without title, 4 line-ending conventions | 48 | 0 match |
+| Same selection, applied separately to each of the 3 top-level sections | 64 | 0 match |
+| Same selection, applied to each of 26 finer-grained numbered/lettered subsections, plus the plain whole-subsection candidate (flip/no-flip, all 4 separators) at that same granularity | 504 | 0 match |
+| Same kept/dropped selection method with 7 other thematic initial-letter sets in place of `ITASM` (from "AOI NAKAMOTO", "GRYCOIN", "SATOSHI NAKAMOTO", "THOMAS", "HAL FINNEY", "BITCOIN", and the "F/W" pair that marked Finney's own non-`ITASM` paragraphs), on the whole chapter and each of the 3 sections, flip and no-flip, all 4 separators | 512 | 0 match |
+| Dialogue-only (paragraphs starting with a quote mark) and narration-only (the rest) extractions, whole chapter and each of the 3 sections, flip and no-flip, all 4 separators | 192 | 0 match |
+| Every Nth paragraph for n = 2 to 5 at every starting offset (an arithmetic-subsequence selection, not necessarily contiguous), whole chapter and each of the 3 sections, flip and no-flip, all 4 separators | 312 | 0 match |
+| Every contiguous paragraph range, case-flip rule applied using 7 alternate no-flip letter sets (from "AOI NAKAMOTO", "GRYCOIN", "SATOSHI NAKAMOTO", "THOMAS", "HAL FINNEY", "BITCOIN", "REAL BIG BLOCK") in place of the confirmed `ITASM`, under `\r\n\r\n` | 259,896 | 0 match, completed 2026-08-18 |
+| ITASM-initial selection (kept vs dropped, with/without flip on the kept set) applied to every contiguous paragraph range, not just predefined boundaries, under `\r\n\r\n` | 148,512 | 0 match, completed 2026-08-18 |
+| Prime-indexed and Fibonacci-indexed paragraph selection (0- and 1-based), whole chapter and each of the 3 sections, flip and no-flip, all 4 separators | 128 | 0 match |
+| Content-keyword paragraph selection (paragraphs containing "second", "bitcoin", "satoshi", "grycoin", "aoi", "nakamoto", "tom", or "finney" anywhere in their text, not just as the first letter), flip and no-flip, all 4 separators | 64 | 0 match |
+| Every contiguous paragraph range, REVERSED case-flip direction (first letter to upper, last letter to lower, opposite of the confirmed direction), ITASM no-flip set, `\r\n\r\n` | 37,128 | 0 match, completed 2026-08-18 |
+
+With all contiguous-range and ITASM-selection hypotheses exhausted, the
+original single-character-edit sweep (the one that found 266,038,400
+candidates and 0 match on the old, incomplete transcription) was re-run
+against the complete, corrected chapter: every delete, case toggle,
+whitespace-family insert/replace, and quote-style toggle at every position,
+across 8 base texts (whole chapter and each of the 3 top-level sections, raw
+and case-flipped), under the confirmed `\r\n\r\n` separator.
+
+| Hypothesis | Candidates | Result |
+|---|---|---|
+| Single-character-edit sweep on the complete, corrected chapter, 8 base texts | 1,390,004 | 0 match, completed 2026-08-18 |
+| Bounded 2-character-edit sweep on the complete, corrected chapter (every pair of inter-paragraph line-ending gaps and the 2 confirmed real NBSP positions deviating from baseline at once), 4 base texts | 443,807 | 0 match, completed 2026-08-18 |
+
 ## Real Big Block (0.777 BTC)
 
-The mechanism is certified (the case-flip rule reproduces the solved sibling lot
-Block 77 Stage One exactly). What is not established is exactly which paragraphs
-of the "Second" chapter the author modified on 2019-07-30, and the precise text
-she copied. Every row below tests a specific hypothesis about that, against both
-the current escrow (`14zMkTgaVXJcxdh4JdWi29MLRR44iUSG9W`) and its superseded
-predecessor (`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`).
+The MD5-to-BIP39-to-BIP44 transform and the case-flip rule are both certified
+(see README, "Certified against", and the sections above). What is not
+established is exactly which paragraphs of the "Second" chapter the author
+modified on 2019-07-30 and the precise text she copied. Per the section
+above, the complete chapter is now available and byte-checked, and every
+contiguous-range hypothesis under the confirmed separator has been
+exhaustively ruled out; every row below predates that recovery and was built
+from the incomplete (pages 1-5 only) transcription, so any row that assumed
+"whole chapter" or drew paragraphs from pages 6-12 should be treated as
+untested rather than negative. Every row below tests a specific hypothesis
+about paragraph selection and text, against both the current escrow
+(`14zMkTgaVXJcxdh4JdWi29MLRR44iUSG9W`) and its superseded predecessor
+(`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`).
 
 | Hypothesis family | Candidates | Result |
 |---|---|---|
@@ -35,18 +190,49 @@ predecessor (`1EFojcAo2vbhRGCGCa7q8Wwvzss28mhQYC`).
 | All of the above serialization families repeated under CRLF line endings | 2,448 texts (14,688 address checks) | 0 match |
 | 1 to 3 single-letter case toggles across all sign positions, and 1 to 2 across all paragraph boundaries | 1,450,000 | 0 match |
 | Every single-character edit (insert, delete, replace, case toggle) at every position, across 40 base texts (5 paragraph-set choices x 2 NBSP conventions x 2 line-ending conventions x 2 separator conventions) | 266,038,400 | 0 match |
+| Whole-chapter and whole-section candidates from a fresh 2026 screen read of the live page (both sections, headers included and excluded, paragraphs joined with one and two line breaks, raw and with the certified case-flip rule) | 24 | 0 match |
+| Whole-chapter candidates from a direct browser copy-paste of the live page, preserving the 2 real non-breaking spaces confirmed present in the chapter text at their exact positions, both left as NBSP and normalized to a regular space or deleted | 7 | 0 match |
+| Whole-chapter and whole-section candidates (both sections, headers in/out, raw and case-flipped), paragraphs joined by all 4 combinations of `\n` vs `\r\n` and single vs double, and checked against derivation indices 0 to 19 instead of 0 to 5 | 48 | 0 match |
+| Every subset of the chapter's 6 natural subsections (Second Coming, Running, Reverse Turing Test, Abstract, Purpose of Grycoin, Bitcoin With Two Changes), CRLF-CRLF and LF-LF, raw and case-flipped | 252 | 0 match |
+| Every prefix and every suffix of the full chapter and the no-headers chapter, all lengths, CRLF-CRLF and LF-LF, raw and case-flipped | 1,920 | 0 match |
+| Every single paragraph alone; dialogue-only and narration-only extractions; the short "truth or lie" riddle exchange alone | 128 | 0 match |
+| Leading/trailing separator variants (none, leading, trailing, both) on the 2 strongest bases; a naive straight-to-curly quote conversion of the same bases | 40 | 0 match |
+| A targeted single-character-edit sweep (delete, case toggle, whitespace insert/replace among space/NBSP/tab/CR/LF, straight/curly quote toggle) at every position, across 8 CRLF-CRLF-joined base texts | 772,720 | 0 match, completed 2026-08-17 |
+| Quizchain Block 29's own draft text (identified as the source of the chapter's duplicate opening excerpt), raw and with its own confirmed "voice" to "vOIce" correction, tested directly against Real Big Block; the identical sentence inside the real chapter, with the same correction applied alone and combined with the certified case-flip rule, under `\r\n\r\n` | 17 | 0 match |
+| Fixing 2 genuine typos in the chapter's own text ("Paloecene" to "Paleocene", "marktet" to "market"), alone and combined, on 4 base texts, raw and case-flipped, under `\r\n\r\n` | 24 | 0 match |
+| Bounded 2-slot edit sweep: every pair of inter-paragraph line-ending gaps (4 states each: `\r\n\r\n`, `\r\n`, `\n\n`, `\n`) and the 2 known real NBSP positions (3 states each: NBSP, space, deleted), both slots deviating from the `\r\n\r\n`/NBSP baseline simultaneously, across 4 base texts | 163,698 | 0 match, completed 2026-08-17 |
+| Block-29-style single-word corrections applied to "Grycoin"/"grycoin"/"grycoins" (the chapter's most-repeated invented term, whose letters the text itself says were deliberately chosen), 3 transform styles, on 2 base texts | 18 | 0 match |
 
-Witness status: every row above used the oracle certified against Block 77 Stage
-One (see README, "Certified against"); the single-character-edit row additionally
-planted 3 synthetic witnesses per base text (head, middle, tail) and recovered
-all of them on all 40 bases, plus recovered the real Stage One text and address
-when run as a 41st base. Dates: all rows 2026-08-15.
+Witness status: every row above used the oracle certified against the author's
+own self-contained MD5-to-address calibration vector (see README, "Certified
+against"), which does not depend on the case-flip rule or on Finney's post
+text. The single-character-edit row additionally planted 3 synthetic witnesses
+per base text (head, middle, tail) and recovered all of them on all 40 bases.
+An earlier version of this line also claimed that run "recovered the real
+Stage One text and address... when run as a 41st base"; that claim is
+withdrawn as of 2026-08-17, since it is directly contradicted by the
+524,288-candidate reproduction attempt in the section above, which found 0
+match under every plausible reading of the rule. Dates: all rows 2026-08-15
+unless marked otherwise.
 
-Cumulative for Real Big Block: approximately 272 million candidates tested, 0
-match. The single-character-edit sweep accounts for the large majority of this
-total and is the only row certified as a complete sweep of its stated space (all
-40 bases, every single edit); every other row is a targeted, not exhaustive,
-test of one specific hypothesis about which paragraphs were modified.
+Cumulative for Real Big Block: approximately 273 million candidates tested
+against the old, incomplete (pages-1-5-only) transcription, plus 2,654,635
+against the complete, corrected 272-paragraph chapter recovered 2026-08-17
+(74,256 + 299,208 contiguous-range candidates, 616 non-contiguous
+ITASM-selection candidates, a 1,390,004-candidate single-character-edit
+sweep across 8 base texts, a 443,807-candidate bounded 2-character-edit
+sweep across 4 base texts, a 259,896-candidate alternate-letter-set
+contiguous-range sweep, a 148,512-candidate ITASM-selection-on-every-range
+sweep, 128 prime/Fibonacci-selection candidates, 64 content-keyword-selection
+candidates, and a 37,128-candidate reversed-case-flip-direction
+contiguous-range sweep, all completed 2026-08-18), 0 match anywhere. The 3
+single-character-edit sweeps and 2 bounded 2-character-edit sweeps together
+(the originals on the old transcription, plus the 2026-08-18 re-runs on the
+corrected chapter) account for the large majority of all candidates tested
+and are the only rows certified as complete sweeps of their stated space
+(every base, every single or bounded-pair edit); every other row is a
+targeted, not exhaustive, test of one specific hypothesis about which
+paragraphs were modified.
 
 ## Quizchain2 Block 76 (0.077 BTC)
 
@@ -99,6 +285,27 @@ Hal Finney, by position), does not carry over to block 76: post number 76 in
 every corpus and ordering tried (Satoshi's bitcointalk posts newest-first and
 chronological, Hal Finney's posts, Hal Finney's tweets) contains neither "change"
 nor "from".
+
+The Bitcoin whitepaper was also tried as the indexed corpus (2026-08-18), fetched
+directly from a GitHub-hosted plain-text mirror since bitcoin.org, bitcointalk.org,
+SourceForge, and Reddit are all unreachable from this research environment (only
+GitHub and search-engine backends are reachable; confirmed by direct `curl` probes
+returning proxy-level 403s for the others). Read as numbered paragraphs, the
+whitepaper has only 53 real prose paragraphs (headers and the ASCII diagram
+excluded), too few to have a position 76 at all, ruling out that unit size outright.
+Read as numbered sentences (152 total, naive `.`/`!`/`?` boundary split), both
+position 76 counting from the start ("In our case, it is CPU time and electricity
+that is expended.") and position 76 counting from the end ("The incentive can also
+be funded with transaction fees.") contain neither "change" nor "from"; 0 match on
+the same literal-content heuristic used for the other corpora. (Sentence 99,
+`"...at most two outputs: one for the payment, and one returning any change, if
+any, back to the sender,"` is thematically the whitepaper's one sentence about
+Bitcoin's own "change" output, but it falls at position 99, not 76, so does not
+satisfy the index method as stated.) The remaining untried corpora from this
+family (Bitcoin v0.1 source code as numbered units, the author's own r/Grycoin
+posts as a numbered sequence, a fuller Hal Finney tweet archive) all live on
+domains also unreachable from here (SourceForge, Reddit, X/Twitter) and need a
+person to fetch and paste them, same as the Wattpad chapters were.
 
 A large dictionary-times-corpus sweep tested every 1-to-4-word phrase built from
 the author's own writing (Reddit posts, comments, and Wattpad chapters) as a
