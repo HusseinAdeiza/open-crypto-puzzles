@@ -286,6 +286,27 @@ every corpus and ordering tried (Satoshi's bitcointalk posts newest-first and
 chronological, Hal Finney's posts, Hal Finney's tweets) contains neither "change"
 nor "from".
 
+The Bitcoin whitepaper was also tried as the indexed corpus (2026-08-18), fetched
+directly from a GitHub-hosted plain-text mirror since bitcoin.org, bitcointalk.org,
+SourceForge, and Reddit are all unreachable from this research environment (only
+GitHub and search-engine backends are reachable; confirmed by direct `curl` probes
+returning proxy-level 403s for the others). Read as numbered paragraphs, the
+whitepaper has only 53 real prose paragraphs (headers and the ASCII diagram
+excluded), too few to have a position 76 at all, ruling out that unit size outright.
+Read as numbered sentences (152 total, naive `.`/`!`/`?` boundary split), both
+position 76 counting from the start ("In our case, it is CPU time and electricity
+that is expended.") and position 76 counting from the end ("The incentive can also
+be funded with transaction fees.") contain neither "change" nor "from"; 0 match on
+the same literal-content heuristic used for the other corpora. (Sentence 99,
+`"...at most two outputs: one for the payment, and one returning any change, if
+any, back to the sender,"` is thematically the whitepaper's one sentence about
+Bitcoin's own "change" output, but it falls at position 99, not 76, so does not
+satisfy the index method as stated.) The remaining untried corpora from this
+family (Bitcoin v0.1 source code as numbered units, the author's own r/Grycoin
+posts as a numbered sequence, a fuller Hal Finney tweet archive) all live on
+domains also unreachable from here (SourceForge, Reddit, X/Twitter) and need a
+person to fetch and paste them, same as the Wattpad chapters were.
+
 A large dictionary-times-corpus sweep tested every 1-to-4-word phrase built from
 the author's own writing (Reddit posts, comments, and Wattpad chapters) as a
 candidate TOMI value, against a dictionary-and-WordNet-derived candidate solution

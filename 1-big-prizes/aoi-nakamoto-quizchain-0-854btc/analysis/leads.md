@@ -325,19 +325,33 @@ block's own number as a position index into a specific corpus (a numbered post
 by Satoshi Nakamoto or Hal Finney on bitcointalk, read in a specific order). The
 same method, tried against every corpus and ordering available (Satoshi's and
 Hal Finney's bitcointalk posts, Hal Finney's tweets), does not produce a post
-containing "change" or "from" at position 76. The corpus this method should
-index for block 76 has not been identified; candidates not yet tried include the
-complete list of Hal Finney's tweets (only 58 were recovered through the
-official API; a fuller archive may exist), Satoshi's SourceForge posts, the
-Bitcoin whitepaper or v0.1 source code read as a sequence of numbered units, and
-the author's own r/Grycoin posts read as their own numbered sequence.
+containing "change" or "from" at position 76.
+
+**Update, 2026-08-18: the Bitcoin whitepaper was also tried and ruled out.**
+Fetched directly from a GitHub-hosted mirror (one of the few domains reachable
+from this research environment; bitcoin.org, bitcointalk.org, SourceForge, and
+Reddit all return proxy-level 403s on direct probes). Read as numbered
+paragraphs it has only 53, too few to reach position 76 at all. Read as numbered
+sentences (152), neither position 76 from the start nor position 76 counting
+from the end contains "change" or "from" (`analysis/tested.md`).
+
+What remains untried, all on domains this environment cannot reach directly and
+needing a person to fetch and paste (the same way the Wattpad chapters were
+supplied this session): the complete list of Hal Finney's tweets (only 58 were
+recovered through the official API; a fuller archive may exist), Satoshi's
+SourceForge mailing-list posts specifically (a much smaller, distinct corpus
+from the general bitcointalk forum posts already tried), the Bitcoin v0.1
+source code read as a sequence of numbered units, and the author's own
+r/Grycoin posts read as their own numbered sequence.
 
 What would confirm it: a position-76 item in the right corpus containing "change
 to" or "from change to", tested through `tools/oracle.py --block76-filter` and
 then a full derivation.
 What would kill it: exhausting the remaining candidate corpora with no match at
 position 76.
-Cost: minutes per corpus once a candidate corpus is assembled.
+Cost: minutes per corpus once a candidate corpus is assembled; fetching the
+remaining corpora needs a person, since this environment cannot reach
+SourceForge, Reddit, or X/Twitter directly.
 
 ## 7. A short, human-reasoned answer to "change to" / "from change to"
 

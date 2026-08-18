@@ -321,13 +321,18 @@ which rows are complete sweeps versus targeted tests, are in
    chapter were tested (0 match, `analysis/tested.md`). Confirmed as a live
    lead by a match on any other distinctive word in the chapter tried the same
    way; killed by exhausting the chapter's distinctive words with no match.
-4. **Identify what "76" indexes for Block 76** (minutes per candidate corpus).
-   A method confirmed on 3 sibling blocks uses the block number as a position
-   index into a specific numbered corpus; every corpus tried so far does not
-   contain "change" at position 76. Confirmed by a match in an untried corpus
-   (candidates include a fuller archive of Hal Finney's tweets, Satoshi's
-   SourceForge posts, or the author's own r/Grycoin posts read as their own
-   sequence); killed by exhausting the remaining candidate corpora.
+4. **Identify what "76" indexes for Block 76** (minutes per candidate corpus,
+   needs a person for the remaining ones). A method confirmed on 3 sibling
+   blocks uses the block number as a position index into a specific numbered
+   corpus; every corpus tried so far, including the Bitcoin whitepaper read as
+   numbered paragraphs (only 53, too few) or numbered sentences (152, 0 match
+   at position 76), does not contain "change" or "from" at position 76.
+   Remaining candidates (Satoshi's SourceForge mailing-list posts, a fuller
+   archive of Hal Finney's tweets, Bitcoin v0.1 source code, or the author's
+   own r/Grycoin posts) all live on domains this environment cannot reach
+   directly (SourceForge, X/Twitter, Reddit all return proxy-level 403s).
+   Confirmed by a match in an untried corpus; killed by exhausting the
+   remaining candidate corpora.
 5. **A short, human-reasoned answer to "change to" / "from change to"**
    (minutes per candidate). The author's confirmed style elsewhere in the
    series favors short, punchy wordplay answers over long dictionary phrases; a
