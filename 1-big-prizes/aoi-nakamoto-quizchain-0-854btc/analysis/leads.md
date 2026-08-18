@@ -212,33 +212,37 @@ What would kill it as a lead entirely: no further distinctive single-word
 candidates in the chapter producing a match either.
 Cost: minutes per additional word tried.
 
-## 5. Character-level edits on top of the complete, corrected chapter (1-character sweep done)
+## 5. Character-level edits on top of the complete, corrected chapter (done, both sweeps exhausted)
 
 The single-character-edit sweep (266,038,400 candidates) and the bounded
 2-character sweep (163,698 candidates, every pair of inter-paragraph
 line-ending gaps and the 2 known NBSP positions deviating from baseline at
-once) are both exhaustive and negative for the spaces they define
-(`analysis/tested.md`) - but both were run against base texts built from the
-old, incomplete transcription (pages 1-5 only), before the 2026-08-17 chapter
-recovery found pages 6-12 and 5 further byte-level fixes on pages 1-5 (see
-lead 1). **The single-character sweep has now been re-run against the
-complete, corrected 272-paragraph chapter**: every delete, case toggle,
-whitespace-family insert/replace, and quote-style toggle at every position,
-across 8 base texts (whole chapter and each of the 3 top-level sections, raw
-and case-flipped), under the confirmed `\r\n\r\n` separator - 1,390,004
-candidates, 0 match, completed 2026-08-18 (`analysis/tested.md`). The bounded
-2-character sweep has not yet been re-run against the corrected chapter. The
-full, unbounded 2-character space (any 2 positions, any 2 characters, not
-just whitespace/NBSP slots) remains disproportionate without a narrower
-reason to expect the answer lives there, and is still not proposed.
+once) were both exhaustive and negative for the old, incomplete transcription
+(pages 1-5 only, before the 2026-08-17 chapter recovery found pages 6-12 and
+5 further byte-level fixes; see lead 1). **Both sweeps have now been re-run
+against the complete, corrected 272-paragraph chapter.** The single-character
+sweep (every delete, case toggle, whitespace-family insert/replace, and
+quote-style toggle at every position, across 8 base texts: whole chapter and
+each of the 3 top-level sections, raw and case-flipped, under the confirmed
+`\r\n\r\n` separator): 1,390,004 candidates, 0 match, completed 2026-08-18.
+The bounded 2-character sweep (same slot definition, re-confirmed the
+complete chapter still has exactly 2 real NBSP characters, both in section
+II, across 4 base texts: whole chapter and each of the 3 sections):
+443,807 candidates, 0 match, completed 2026-08-18 (`analysis/tested.md`).
+This exhausts every character-level-edit hypothesis attempted so far against
+the complete chapter. The full, unbounded 2-character space (any 2
+positions, any 2 characters, not just whitespace/NBSP slots) remains
+disproportionate without a narrower reason to expect the answer lives there,
+and is still not proposed.
 
-What would confirm it: a match once the bounded 2-character sweep is re-run
-against the corrected chapter.
-What would kill it: 0 match on the same re-run, at which point the same
-"specific reason needed" reasoning as before applies to the unbounded space.
-Cost: the original bounded sweep took about 15 minutes of compute; a re-run
-should be comparable. The unbounded space remains an hour-plus on a rented
-GPU, not attempted.
+What would confirm it: not applicable; both bounded spaces are now exhausted
+against the complete chapter.
+What would revive this lead: a specific reason to expect a deviation outside
+the slots tested (analogous to what happened with Finney's post: a
+paragraph-boundary detail nobody had checked for yet).
+Cost: the original bounded sweep took about 15 minutes of compute; the re-run
+against the complete chapter took about the same. The unbounded space
+remains an hour-plus on a rented GPU, not attempted.
 
 ## 6. Identify what "76" indexes for Block 76
 
