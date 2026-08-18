@@ -201,5 +201,44 @@ match on the wrong field-name literal, exactly as this repo's own
 2019-07-29-comment-timing cross-check already suspected. A first small test
 (solution "format" against "FU", "BFUB", and other old-name variants in
 place of "TOMI", against a handful of plausible values) found no prefix or
-derivation match, but the real old-format text is not yet known and this
-remains the single most promising open lead for Block 76.
+derivation match.
+
+**Update, 2026-08-18: "Utter Disaster Three Block Series" and "Complete
+Quizchain" have both now been read; neither is the source, but "Complete
+Quizchain" reveals the full history and rules out the naming-bug hypothesis
+for Block 76 specifically.** "Utter Disaster Three Block Series" turned out
+to be about an unrelated earlier incident (blocks 42-44, Reddit
+automoderator removals and a link omission), not the TOMI rename. "Complete
+Quizchain" (720895205) is a full retrospective log of the entire series -
+every block's question, format, and (for Round 1, which is fully solved)
+its answer. It pins the BFUB-to-TOMI rename precisely: "Block 48: Failed
+block. Changed name of BFUB field to TOMI and hashed with old name (same
+failure in next blocks 49 and 50)" - **the bug affected only blocks 48, 49,
+and 50, not 76**, ruling out that specific hypothesis for Block 76.
+
+The retrospective is also the first confirmation that this series'
+solutions and TOMI values are frequently literal references to the same
+Wattpad story's other chapter titles - for example Round 1's own "Block 76"
+(a *different* block, question "Jesus", already solved, not to be confused
+with our target "Quizchain2 Block 76," question "change to") had solution
+"Easter" and TOMI field "Second Life" (a chapter title in this story); Round
+1 Block 53's solution was literally "Satoshi's Stash" (another chapter
+title); Round 2 Block 2 was solved entirely from the "Quizchain as a
+Password Manager" chapter's worked example. This is strong, repeated
+evidence that the answer to our still-open Block 76 likely also references
+specific Wattpad chapter content, not a generic dictionary phrase - exactly
+the kind of source this repo's large scripted dictionary sweep (`analysis/tested.md`)
+could never have reached.
+
+"Complete Quizchain" stops early in "Round 2" (only 3 blocks in), well
+before reaching Quizchain2's own Block 76 - it was evidently written and
+published before Round 2 progressed that far. A later, higher-numbered
+chapter in the same story, "Complete Second Round of the Quizchain"
+(742662804), is very likely the equivalent retrospective for Round 2 and
+has not yet been read; it is now the single most promising unread chapter
+for resolving Block 76.
+
+A first round of literal-reading tests on Block 76 given these new patterns
+(solution "BFUB" alone; solution "format" against each of the story's 33
+chapter titles as the TOMI value; the literal edited question text "from
+change to" as the solution) all found 0 prefix or derivation match.
