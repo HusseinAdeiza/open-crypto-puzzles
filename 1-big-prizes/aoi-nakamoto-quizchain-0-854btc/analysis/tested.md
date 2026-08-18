@@ -104,18 +104,32 @@ separator:
 |---|---|---|
 | Whole chapter, whole-chapter no-flip, and the 3 top-level sections (I, II, III) alone, flip and no-flip, `\r\n\r\n` and `\n\n` | 16 | 0 match |
 | Every contiguous paragraph range of the complete 272-paragraph chapter, flip and no-flip, `\r\n\r\n` | 74,256 | 0 match, completed 2026-08-17 |
-| Every contiguous paragraph range including the chapter's own title paragraph ("Second") as an optional leading paragraph, flip and no-flip, all 4 line-ending conventions (`\r\n\r\n`, `\n\n`, `\r\n`, `\n`) | 299,208 | running, started 2026-08-17, not yet complete as of this commit |
+| Every contiguous paragraph range including the chapter's own title paragraph ("Second") as an optional leading paragraph, flip and no-flip, all 4 line-ending conventions (`\r\n\r\n`, `\n\n`, `\r\n`, `\n`) | 299,208 | 0 match, completed 2026-08-18 |
 
 This rules out, exhaustively and for the first time against the actual
 complete source text, every hypothesis of the form "some single contiguous
 run of paragraphs from the complete chapter, optionally case-flipped, joined
 by one of the 4 plausible line-ending conventions." It does not rule out
-non-contiguous paragraph selections (e.g. only the paragraphs matching some
-pattern, as Finney's post used first-letter matching against `ITASM`), nor
-character-level edits on top of a contiguous range beyond the bounded sweeps
-already run against the old, incomplete transcription (which should now be
-considered superseded and re-run against the complete chapter; not yet
-done).
+non-contiguous paragraph selections, nor character-level edits on top of a
+contiguous range beyond the bounded sweeps already run against the old,
+incomplete transcription.
+
+A first non-contiguous hypothesis was tried next: instead of applying the
+case-flip rule to non-`ITASM`-initial paragraphs (as confirmed on Stage One),
+*selecting only* the paragraphs whose first letter is (or is not) in `ITASM`
+and dropping the rest, on the theory that the chapter's own "Satoshi Code"
+section (which explains exactly this initials mechanism as applied to
+Finney's post) might be pointing at the same mechanism turned into a
+selection rule for itself. Tried on the whole chapter, each of the 3
+top-level sections, and all 26 finer-grained numbered/lettered subsections,
+both selection directions, with and without the case-flip rule applied to
+the selected paragraphs, under all 4 line-ending conventions:
+
+| Hypothesis | Candidates | Result |
+|---|---|---|
+| ITASM-initial paragraph selection (kept vs dropped), with/without case-flip on the kept set, whole chapter and with/without title, 4 line-ending conventions | 48 | 0 match |
+| Same selection, applied separately to each of the 3 top-level sections | 64 | 0 match |
+| Same selection, applied to each of 26 finer-grained numbered/lettered subsections, plus the plain whole-subsection candidate (flip/no-flip, all 4 separators) at that same granularity | 504 | 0 match |
 
 ## Real Big Block (0.777 BTC)
 
@@ -180,10 +194,14 @@ withdrawn as of 2026-08-17, since it is directly contradicted by the
 match under every plausible reading of the rule. Dates: all rows 2026-08-15
 unless marked otherwise.
 
-Cumulative for Real Big Block: approximately 273 million candidates tested, 0
-match. The 2 single-character-edit sweeps (the original 40-base LF sweep and
-the 2026-08-17 8-base CRLF-CRLF sweep) account for the large majority of this
-total and are the only rows certified as complete sweeps of their stated space
+Cumulative for Real Big Block: approximately 273 million candidates tested
+against the old, incomplete (pages-1-5-only) transcription, plus 374,080
+against the complete, corrected 272-paragraph chapter recovered 2026-08-17
+(74,256 + 299,208 contiguous-range candidates, plus 616 non-contiguous
+ITASM-selection candidates) - 0 match anywhere. The 2 single-character-edit
+sweeps (the original 40-base LF sweep and the 2026-08-17 8-base CRLF-CRLF
+sweep) account for the large majority of the older total and are the only
+rows certified as complete sweeps of their stated space
 (every base, every single edit); every other row is a targeted, not exhaustive,
 test of one specific hypothesis about which paragraphs were modified.
 

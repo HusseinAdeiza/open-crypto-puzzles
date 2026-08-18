@@ -240,6 +240,8 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: Block-29-style corrections on "Grycoin"/"grycoin"/"grycoins", the chapter's most-repeated invented term | 18 | same | 0 match | yes | 2026-08-17 |
 | RBB: name/word paragraph selectors, browser-copy simulation, invisible characters, alternate encodings | approximately 1,830,000 | same | 0 match | yes | 2026-08-15 |
 | RBB: complete 272-paragraph chapter recovered (pages 6-12 had never been transcribed before), diffed page by page against raw source, 5 byte-level fixes applied; every contiguous paragraph range of the complete chapter, flip and no-flip, under the confirmed `\r\n\r\n` separator | 74,256 | same | 0 match | yes | 2026-08-17 |
+| RBB: same, every contiguous range under all 4 line-ending conventions, plus the chapter's title paragraph as an optional leading paragraph | 299,208 | same | 0 match | yes | 2026-08-18 |
+| RBB: non-contiguous ITASM-initial paragraph selection (kept vs dropped, with/without case-flip on the kept set) on the whole chapter, each top-level section, and 26 finer subsections | 616 | same | 0 match | yes | 2026-08-18 |
 | Stage One mechanism check: every paragraph-subset of Hal Finney's real post (2^16) x both flip directions x 4 line-ending conventions, trailing note excluded, against Stage One's own solved address, not RBB | 524,288 | MD5 to BIP39 to address compare | 0 match | yes | 2026-08-17 |
 | Stage One mechanism check: a second, independent copy-paste of the same post (byte-identical to the first) with a "voice" to "vOIce" correction, raw and case-flipped, 4 line-ending conventions | 24 | same | 0 match | yes | 2026-08-17 |
 | Stage One mechanism check: documented case-flip rule with the raw HTML's trailing author's note restored on the last paragraph, exactly as rendered | 1 | same | **MATCH**, confirms the case-flip rule | yes, verified twice independently | 2026-08-17 |
@@ -247,11 +249,10 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | Block 76: word-transform "salves" on "change to" / "from change to" | approximately 53,000 candidate solutions | MD5-prefix filter, then derivation on survivors | 0 match | yes | 2026-08-15 |
 | Block 76: scripted dictionary-times-corpus sweep | approximately 3.2x10^11 MD5, approximately 78,000,000 derivations | MD5-prefix filter, then derivation on survivors | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 
-Cumulative: approximately 273 million candidates tested against Real Big Block
-(this figure predates the 2026-08-17 chapter recovery below and does not yet
-include its 74,256 candidates, added separately since most of the earlier
-total was built from an incomplete, pages-1-5-only transcription)
-and approximately 78 million derivations plus approximately 78,000 smaller
+Cumulative: approximately 273 million candidates tested against Real Big
+Block's old, incomplete (pages-1-5-only) transcription, plus 374,080 against
+the complete, corrected 272-paragraph chapter recovered 2026-08-17 (0 match
+anywhere), and approximately 78 million derivations plus approximately 78,000 smaller
 candidates tested against Block 76, all negative. Full scope notes, including
 which rows are complete sweeps versus targeted tests, are in
 `analysis/tested.md`.
@@ -266,18 +267,23 @@ which rows are complete sweeps versus targeted tests, are in
    Grycoin whitepaper and the entire "Second Identity" section) entirely, plus
    5 smaller byte-level errors on the pages it did cover. With the complete,
    byte-checked 272-paragraph chapter now available, an exhaustive sweep
-   tested every *contiguous* paragraph range under the confirmed `\r\n\r\n`
-   separator, flip and no-flip: 74,256 candidates, 0 match
+   tested every *contiguous* paragraph range, under all 4 line-ending
+   conventions, flip and no-flip, with and without the chapter's own title
+   paragraph as a leading paragraph: 373,464 candidates total, 0 match
    (`analysis/tested.md`). This rules out every "single contiguous run of
-   paragraphs" hypothesis. What is not ruled out is a non-contiguous
-   selection - specific paragraphs picked by a rule, the way Finney's post
-   used first-letter matching against `ITASM` - including the original
-   private research's 17-candidate-paragraph hypothesis, which has never been
-   re-derived or re-run against the complete chapter or the confirmed exact
-   separator. Confirmed by a match on any non-contiguous selection; killed by
-   exhausting the specific rules worth trying with 0 match (this space is not
-   boundable the way contiguous ranges are, so "killed" here means "no more
-   promising rules identified," not exhaustion).
+   paragraphs" hypothesis, under every plausible separator. A first
+   non-contiguous hypothesis was also tried: selecting (rather than just
+   flipping) only the paragraphs whose first letter is, or is not, in `ITASM`
+   - motivated by the chapter's own "Satoshi Code" section explaining exactly
+   this mechanism as applied to Finney's post - on the whole chapter, each
+   top-level section, and 26 finer subsections: 616 candidates, 0 match. What
+   is not yet ruled out is any other non-contiguous selection rule, including
+   the original private research's 17-candidate-paragraph hypothesis, which
+   has never been re-derived or re-run against the complete chapter. Confirmed
+   by a match on any non-contiguous selection; killed by exhausting the
+   specific rules worth trying with 0 match (this space is not boundable the
+   way contiguous ranges are, so "killed" here means "no more promising rules
+   identified," not exhaustion).
 2. **Character-level edits on top of the complete, corrected chapter**
    (about an hour, mostly compute). The single-character and bounded
    2-character sweeps in `analysis/tested.md` (772,720 and 163,698
