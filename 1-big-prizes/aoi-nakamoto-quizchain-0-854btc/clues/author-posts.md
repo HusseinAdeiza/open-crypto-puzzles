@@ -168,3 +168,38 @@ missing trailing spaces at the end of 2 paragraphs) and, far more
 significantly, the missing 148 paragraphs from pages 6-12. The complete,
 corrected chapter is 272 paragraphs; see README and `analysis/tested.md` for
 what has since been tested against it.
+
+**Update, 2026-08-18: "Second" is 1 of 33 chapters ("parts") in a single
+Wattpad story, not a standalone piece.** The story's own page metadata lists
+all 33 part titles and URLs; this had never been examined before. Several
+titles are directly relevant and unread as of this update: "TOMI" (720888559
++ ~617k = 721505724), "Complete Quizchain" (720895205), "Complete Second
+Round of the Quizchain" (742662804), "Utter Disaster Three Block Series"
+(720893344), "Second Life", "Hoax", "FU AOI", "4444 and 4442" (all published
+essentially back-to-back with "Second" itself, judging by how close their
+part IDs are to 720888559), plus a long tail of titles suggesting
+meta-commentary on the puzzle series itself ("Difficulty", "Difficult
+Hints", "Exceedingly Unfair Riddle", "Quizchain Lottery", "Satoshi's
+Puzzle???", "Genesis Block Mystery", and more).
+
+The "TOMI" chapter (read in full 2026-08-18) explains the field's history
+directly relevant to Block 76: it was originally called "BFUB" (the "FU" the
+author says she got "annoyed by... in the field name"), renamed to "TOMI"
+("Thinking Only Method" + a nonce "I", also Japanese for "wealth"). Critically,
+she writes: "I had already written a three block new post hashed with the
+old format. When I changed the text to the new one, I forgot that this would
+not work. I would need to hash with TOMI again... I realized this once a
+user reported that hashing with the rather obvious solution for this did not
+work." This is a direct admission of a display/hash mismatch bug affecting a
+post covering 3 blocks - and a Wattpad chapter titled "Utter Disaster Three
+Block Series" exists in the same story, strongly suggesting it is that exact
+post, not yet read. If Block 76 is one of the 3 affected blocks, the
+community-found "format"/"before TOMI" pair - which passes both published
+MD5-prefix hints but has never produced the escrow address under any
+derivation tried (see `analysis/tested.md`) - may be a coincidental prefix
+match on the wrong field-name literal, exactly as this repo's own
+2019-07-29-comment-timing cross-check already suspected. A first small test
+(solution "format" against "FU", "BFUB", and other old-name variants in
+place of "TOMI", against a handful of plausible values) found no prefix or
+derivation match, but the real old-format text is not yet known and this
+remains the single most promising open lead for Block 76.

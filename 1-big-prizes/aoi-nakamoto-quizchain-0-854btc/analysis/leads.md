@@ -2,6 +2,65 @@
 
 Ranked summary is in the README. This file has the reasoning behind the ranking.
 
+## 0. "Second" is 1 of 33 chapters in a single Wattpad story; most are unread (new top priority, 2026-08-18)
+
+Every candidate tested against Real Big Block or Block 76 so far, including
+the exhaustive contiguous-range and character-edit sweeps against the
+"complete" chapter, only ever used the text of the single Wattpad part
+titled "Second" (id 720888559). That part's own page metadata reveals it
+belongs to a 33-chapter story (Wattpad "book"), also titled "Second," with
+part IDs and titles spanning from "Welcome to the Quizchain" (717956015)
+through "Starting Up" (762380140). Only 2 parts have been read: "Second"
+itself, and, as of this update, "TOMI" (721505724).
+
+The "TOMI" chapter is directly relevant to Block 76: it explains the field
+was originally named something involving "FU" (an abbreviation "BFUB"),
+later renamed to "TOMI" ("Thinking Only Method" + a meaningless "I" nonce,
+also Japanese for "wealth"). The author states plainly: "I had already
+written a three block new post hashed with the old format. When I changed
+the text to the new one, I forgot that this would not work. I would need to
+hash with TOMI again... I realized this once a user reported that hashing
+with the rather obvious solution for this did not work." This is a direct,
+first-person admission of a display/hash mismatch bug on a post covering 3
+blocks. The story's part list includes a chapter titled "Utter Disaster
+Three Block Series" (720893344), an extremely strong title match for that
+exact post, not yet read.
+
+This directly bears on the standing puzzle in `analysis/tested.md`: the
+community-found `solution = "format"`, `TOMI = "before TOMI"` pair passes
+both of Block 76's published MD5-prefix hints but has never produced the
+escrow address under any derivation tried, and this repo's own 2019-07-29
+comment-timing cross-check already suspected it was a coincidental prefix
+match rather than the real answer. If Block 76 is one of the 3 posts
+affected by the naming-mismatch bug, the real hashed string may use the old
+field name literal (something built from "FU" or "BFUB") in place of
+"TOMI", which would explain the total derivation failure independent of
+which "solution" or value candidates have been tried. A first small test
+(solution "format" against a handful of "FU"/"BFUB"-based field-name
+variants and plausible values) found no prefix or derivation match, but the
+real old-format text is not yet known.
+
+The rest of the story's parts are also unread and cover a wide range of
+likely-relevant titles: fiction-narrative-sounding parts published
+essentially back-to-back with "Second" itself, judging by how close their
+part IDs are to 720888559 ("Second Life", "Hoax", "FU AOI", "4444 and
+4442"), and meta-commentary-sounding parts throughout the rest of the story
+("Complete Quizchain", "Complete Second Round of the Quizchain",
+"Difficulty", "Difficult Hints", "Exceedingly Unfair Riddle", "Quizchain
+Lottery", "Satoshi's Puzzle???", "Genesis Block Mystery", and more; the full
+list is in `clues/author-posts.md`).
+
+What would confirm it: reading "Utter Disaster Three Block Series" and
+finding it names Block 76 (or 75/77) as affected, with the old field-name
+text stated explicitly enough to re-derive; or any other part directly
+stating a fuller Real Big Block source or Block 76 answer.
+What would kill it: reading through the remaining unread parts with nothing
+relevant found (this is a bound on effort, not a logical exhaustion - there
+is no way to rule out relevance without reading each part).
+Cost: minutes per chapter to fetch (needs a person; wattpad.com is
+unreachable from this research environment on its own, same limitation as
+"Second" itself), instant to search once read.
+
 ## 1. Fetch the "Second" chapter's raw page HTML and re-check for trailing content (done; chapter now complete, contiguous ranges exhausted)
 
 **Update, 2026-08-17: the chapter's raw source has now been fetched in

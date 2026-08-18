@@ -18,10 +18,14 @@ page furniture to strip out. Applying that same fidelity check to the
 transcription had silently covered only the first 5 of the chapter's 12
 Wattpad pages; the complete, byte-checked 272-paragraph chapter is now
 available for the first time, and an exhaustive sweep of every contiguous
-paragraph range under the confirmed separator found 0 match. What remains is
+paragraph range, every character-level edit, and a first batch of
+non-contiguous paragraph selections all found 0 match. A newer discovery
+(2026-08-18): "Second" is only 1 of 33 chapters in a single Wattpad story,
+and one of the others, "TOMI," directly explains a display/hash mismatch bug
+on a post covering 3 blocks - a strong new lead for Block 76 specifically,
+not yet resolved. What remains is reading the rest of that story, plus
 non-contiguous paragraph selection or a character-level edit on top of a
-contiguous range for Real Big Block, plus a short answer to a word riddle
-for Block 76.
+contiguous range for Real Big Block.
 
 ## At a glance
 
@@ -261,7 +265,32 @@ which rows are complete sweeps versus targeted tests, are in
 
 ## Open leads, ranked
 
-1. **Non-contiguous paragraph selection from the now-complete chapter**
+1. **Read the rest of the 33-chapter Wattpad story "Second" belongs to**
+   (minutes per chapter, needs a person; new top priority, 2026-08-18). Every
+   candidate tested against either escrow so far, including the exhaustive
+   sweeps against the "complete" chapter, used only the single Wattpad part
+   titled "Second." That part's own page metadata reveals it is 1 of 33 parts
+   in one Wattpad story, spanning titles from "Welcome to the Quizchain"
+   through "Starting Up." Only "Second" and, as of this update, "TOMI" have
+   been read. The "TOMI" chapter directly concerns Block 76: it explains the
+   `TOMI` field was renamed from an older name built from "FU" (abbreviated
+   "BFUB"), and the author admits outright, "I had already written a three
+   block new post hashed with the old format. When I changed the text to the
+   new one, I forgot that this would not work... I realized this once a user
+   reported that hashing with the rather obvious solution for this did not
+   work." A chapter titled "Utter Disaster Three Block Series" exists in the
+   same story and is an extremely strong title match for that exact post,
+   not yet read. If Block 76 was one of the 3 affected blocks, the
+   community-found `format`/`before TOMI` pair (which passes both published
+   MD5-prefix hints but has never derived the address) may be a coincidental
+   prefix match on the wrong field name, exactly as this repo's own
+   2019-07-29 comment-timing cross-check already suspected. Confirmed by
+   reading a part that names the affected block(s) and the real old-format
+   text, or states a fuller Real Big Block source; killed only by reading
+   through the remaining parts with nothing relevant found (a bound on
+   effort, not a logical exhaustion). Full list of part titles and detail:
+   `clues/author-posts.md`, `analysis/leads.md`.
+2. **Non-contiguous paragraph selection from the now-complete chapter**
    (minutes per hypothesis once defined). Fetching the chapter's raw page
    source and checking it for trailing content (formerly this lead) is done:
    it found the working transcription had silently covered only the first 5
@@ -285,7 +314,7 @@ which rows are complete sweeps versus targeted tests, are in
    exhausting the specific rules worth trying with 0 match (this space is not
    boundable the way contiguous ranges are, so "killed" here means "no more
    promising rules identified," not exhaustion).
-2. **Check whether the Real Big Block Discussion thread covers all 27 posts in
+3. **Check whether the Real Big Block Discussion thread covers all 27 posts in
    the window** (minutes, needs a person). That thread has now been read in
    full, including its 3 previously-collapsed reply threads (2 contributed
    nothing beyond what's already recorded); it is where the `\r\n\r\n`
@@ -294,7 +323,7 @@ which rows are complete sweeps versus targeted tests, are in
    or profile comments from that window exist and remain unread, is still
    unconfirmed. Confirmed by another thread surfacing something new; killed by
    confirming this is the complete set.
-3. **The chapter's duplicate opening excerpt is identified, confirmed
+4. **The chapter's duplicate opening excerpt is identified, confirmed
    irrelevant to the hash on its own, but points at a real, untested
    mechanism** (minutes per word). The live page shows the chapter's opening
    scene twice with different wording each time; the second copy is now
@@ -309,14 +338,14 @@ which rows are complete sweeps versus targeted tests, are in
    chapter were tested (0 match, `analysis/tested.md`). Confirmed as a live
    lead by a match on any other distinctive word in the chapter tried the same
    way; killed by exhausting the chapter's distinctive words with no match.
-4. **Identify what "76" indexes for Block 76** (minutes per candidate corpus).
+5. **Identify what "76" indexes for Block 76** (minutes per candidate corpus).
    A method confirmed on 3 sibling blocks uses the block number as a position
    index into a specific numbered corpus; every corpus tried so far does not
    contain "change" at position 76. Confirmed by a match in an untried corpus
    (candidates include a fuller archive of Hal Finney's tweets, Satoshi's
    SourceForge posts, or the author's own r/Grycoin posts read as their own
    sequence); killed by exhausting the remaining candidate corpora.
-5. **A short, human-reasoned answer to "change to" / "from change to"**
+6. **A short, human-reasoned answer to "change to" / "from change to"**
    (minutes per candidate). The author's confirmed style elsewhere in the
    series favors short, punchy wordplay answers over long dictionary phrases; a
    free filter (`tools/oracle.py --block76-filter`) checks any candidate in
