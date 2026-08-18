@@ -87,7 +87,7 @@
         "certified_against": "the author's own published calibration vector (entropy 2941774a2abec9f30c7d6777d1d53d91 to WIF L5Z66qPm... at BIP44 index 1), self-contained and exact; the Block 76 prefix filter is certified separately against a community-found candidate pair. The case-flip rule reproduces the solved sibling lot Block 77 Stage One exactly, confirmed 2026-08-17 against Hal Finney's real post text fetched from bitcointalk.org, provided the author's own trailing note ('[edited slightly]') stays attached to the last paragraph exactly as the raw page HTML renders it; 2 rendered-text copies that dropped this note both failed a 524,288-candidate exhaustive test first (see README, 'Certified against')"
       },
       "difficulty_left": "external-info",
-      "difficulty_note": "Real Big Block: the MD5-to-BIP39-to-BIP44 transform and the case-flip rule are both confirmed exactly; the 'Second' Wattpad chapter's working transcription was found on 2026-08-17 to have silently covered only 5 of its 12 Wattpad pages, missing 148 paragraphs entirely, plus 5 smaller byte-level errors on the pages it did cover. The complete, corrected 272-paragraph chapter is now available for the first time; every contiguous paragraph range under all 4 line-ending conventions, a first non-contiguous selection hypothesis (ITASM-initial paragraph selection), a single-character-edit sweep across 8 base texts, and a bounded 2-character-edit sweep across 4 base texts have all been exhaustively ruled out, 0 match. What remains is any other non-contiguous paragraph selection rule. Approximately 273 million candidate paragraph selections and edits tested against the incomplete chapter, plus 2,208,907 against the complete one, 0 match anywhere. Block 76: a community-found candidate pair satisfies both published MD5-prefix hints but no standard derivation of it reaches the address; roughly 78 million scripted derivations plus tens of thousands of thematic word-transform candidates tested, 0 match; the block may be a short human-reasoned wordplay riddle rather than a search problem, or may be misconfigured",
+      "difficulty_note": "Real Big Block: the MD5-to-BIP39-to-BIP44 transform and the case-flip rule are both confirmed exactly; the 'Second' Wattpad chapter's working transcription was found on 2026-08-17 to have silently covered only 5 of its 12 Wattpad pages, missing 148 paragraphs entirely, plus 5 smaller byte-level errors on the pages it did cover. The complete, corrected 272-paragraph chapter is now available for the first time; every contiguous paragraph range under all 4 line-ending conventions, a first non-contiguous selection hypothesis (ITASM-initial paragraph selection), a single-character-edit sweep across 8 base texts, and a bounded 2-character-edit sweep across 4 base texts have all been exhaustively ruled out, 0 match. What remains is any other non-contiguous paragraph selection rule. Approximately 273 million candidate paragraph selections and edits tested against the incomplete chapter, plus 2,208,907 against the complete one, 0 match anywhere. Block 76: a community-found candidate pair satisfies both published MD5-prefix hints but no standard derivation of it reaches the address; roughly 78 million scripted derivations plus tens of thousands of thematic word-transform candidates tested, 0 match. The 'Second' chapter was found on 2026-08-18 to be 1 of 33 chapters in a single Wattpad story; 16 were read directly, ruling out a TOMI-field-rename hypothesis and confirming this series' answers are often literal chapter-title or Bitcoin-technical-term references, but Quizchain2's Block 76 entry was not located anywhere in the story. The block may be a short human-reasoned wordplay riddle rather than a search problem, may reference this story in a way not yet recognized, or may be misconfigured",
       "tested_total": {
         "candidates": 352208907,
         "families": 25,
@@ -96,45 +96,39 @@
       "leads": [
         {
           "rank": 1,
-          "title": "read Complete Second Round of the Quizchain (742662804), the likely Round-2 retrospective covering Quizchain2's Block 76 directly",
-          "cost": "minutes per chapter, needs a person",
-          "status": "open"
-        },
-        {
-          "rank": 2,
-          "title": "Block 76 and Real Big Block answers in this series are often literal Wattpad chapter references (confirmed pattern); read the remaining unread chapters of the 33-part Second story",
-          "cost": "minutes per chapter, needs a person",
-          "status": "open"
-        },
-        {
-          "rank": 3,
           "title": "non-contiguous paragraph selection from the now-complete 272-paragraph chapter",
           "cost": "minutes per hypothesis once defined",
           "status": "open"
         },
         {
-          "rank": 4,
+          "rank": 2,
           "title": "check whether the Real Big Block Discussion thread covers all 27 posts in the window",
           "cost": "minutes, needs a person",
           "status": "open"
         },
         {
-          "rank": 5,
+          "rank": 3,
           "title": "the chapter's duplicate opening excerpt points at a real, untested single-word-correction mechanism",
           "cost": "minutes per word",
           "status": "open"
         },
         {
-          "rank": 6,
+          "rank": 4,
           "title": "identify what 76 indexes for Block 76",
           "cost": "minutes per candidate corpus",
           "status": "open"
         },
         {
-          "rank": 7,
+          "rank": 5,
           "title": "a short, human-reasoned answer to change to / from change to",
           "cost": "minutes per candidate",
           "status": "open"
+        },
+        {
+          "rank": 6,
+          "title": "closed: the 33-chapter Second Wattpad story was fully surveyed (16 parts read directly); Block 76's answer was not found in it, see clues/author-posts.md",
+          "cost": "already paid",
+          "status": "closed"
         }
       ],
       "solutions": [],

@@ -299,13 +299,52 @@ UTXO, RPOW, burn address, change/mining terminology) - trying "change",
 "change address", "change output" and case variants as the Block 76
 solution - found 0 prefix match.
 
-**Status as of this update: 8 of the 33 story parts have been read
-("Second," "TOMI," "Utter Disaster Three Block Series," "Complete
-Quizchain," "Complete Second Round of the Quizchain," "End Phase of the
-Experiment," "Waking Up," "Starting Up," "Tragic Boating Accident" - 9
-actually, counting "Second" itself), none contains Quizchain2's Block 76
-entry directly. The remaining 24 unread parts ("Mistakes," "Lucky 7
-Giveaway," "Difficulty," "Genesis Block Mystery," "Scripting Players,"
-"Difficult Hints," "HQ Trivia," "Satoshi Mystery," "Quizchain and AI,"
-"Cariga Bright," "THOMAS and SATOSHI," "The Satoshi Code," and others not
-yet individually assessed) remain a live, if increasingly diffuse, lead.**
+**Final update, 2026-08-18: all remaining substantive parts of the 33-part
+story have now been read (16 of 33 directly; the other 17 either duplicate
+material already covered or have their exact block-answer role already
+established via the retrospectives). Block 76's own entry was not found
+anywhere in the story.** The additional parts read, in order: "Genesis
+Block Mystery" (genesis-block-address vanity-search speculation, later
+retracted by the author herself - "we can really be 100% sure that Satoshi
+did not write the puzzle"), "Mistakes" (Round 1 mistake summary, predates
+Round 2, reconfirms the already-ruled-out TOMI rename bug), "Difficulty"
+(general meta-commentary on balancing brute-force resistance against human
+solvability), "Difficult Hints" (about Block 77's hint pacing, not Block
+76), "Scripting Players" (meta-commentary on bot/script players), "HQ
+Trivia" (Grycoin project origin story, includes a passing "tragic boating
+accident" joke reused from "Tragic Boating Accident"), "Satoshi Mystery"
+and "Satoshi's Real Identity" and "Satoshi's Puzzle???" and "THOMAS and
+SATOSHI" and "The Satoshi Code" (all backstory/decoding essays about
+Block 77's genesis-block-address puzzle and the Hal Finney identity theme,
+none mentioning Block 76; "THOMAS and SATOSHI" duplicates content already
+in "Second"; "The Satoshi Code" is new deeper decoding detail, not a
+duplicate, but still entirely about Block 77's mechanism), "Quizchain and
+AI" (meta-commentary on bot-resistance philosophy), "Cariga Bright" (an
+anti-impersonation identity-verification challenge tied to Block 63's
+funding key, not Block 76), "Quizchain Lottery" (about Block 66's lottery
+experiment), and "Lucky 7 Giveaway" (documents a real impersonation scam
+using a copied Wattpad account, confirming this repo's earlier
+"impersonator" theory as a real phenomenon, though superseded for the
+chapter's own duplicate-excerpt question by the Block 29 draft explanation
+- see README).
+
+The 3 parts not read directly ("Satoshi's Stash," "Darling," "Quizchain as
+a Password Manager") already have their exact roles established from
+"Complete Second Round of the Quizchain"'s own solutions section: they are
+the literal answer/mechanism sources for Round 2 Blocks 53, 63, and 2
+respectively, not for Block 76.
+
+**Conclusion: the 33-part Wattpad story does not appear to contain
+Quizchain2 Block 76's answer in any directly stated form.** Either the
+answer lies outside this story entirely (consistent with several Round 2
+answers being plain Bitcoin technical terms or general trivia rather than
+story references - UTXO, RPOW, cypherpunks, burn address, halvening,
+Fibonacci, the Da Vinci Code, the Samson riddle, "Running bitcoin"), or it
+references a part of this story in a way not obvious from a straight read
+(the way "Second Life" was a one-word aside used as TOMI text for Round 1's
+different Block 76, easy to miss without knowing to look for it). This
+lead is not marked exhausted in the strict sense - a distinctive word or
+phrase from later analysis could still send someone back to re-examine a
+specific paragraph - but no further open-ended reading of this story is
+expected to be productive without a new, more specific reason to select a
+particular chapter or passage.

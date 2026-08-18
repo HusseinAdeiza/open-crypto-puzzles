@@ -19,13 +19,16 @@ transcription had silently covered only the first 5 of the chapter's 12
 Wattpad pages; the complete, byte-checked 272-paragraph chapter is now
 available for the first time, and an exhaustive sweep of every contiguous
 paragraph range, every character-level edit, and a first batch of
-non-contiguous paragraph selections all found 0 match. A newer discovery
-(2026-08-18): "Second" is only 1 of 33 chapters in a single Wattpad story,
-and one of the others, "TOMI," directly explains a display/hash mismatch bug
-on a post covering 3 blocks - a strong new lead for Block 76 specifically,
-not yet resolved. What remains is reading the rest of that story, plus
-non-contiguous paragraph selection or a character-level edit on top of a
-contiguous range for Real Big Block.
+non-contiguous paragraph selections all found 0 match. A further discovery
+(2026-08-18): "Second" is only 1 of 33 chapters in a single Wattpad story;
+16 have now been read directly, ruling out one hypothesis for Block 76 (a
+display/hash mismatch bug on the TOMI field, confirmed to affect only
+blocks 48-50) and confirming this series' answers are often literal
+chapter-title or Bitcoin-technical-term references, but without locating
+Quizchain2's Block 76 entry anywhere in the story. What remains is any
+other non-contiguous paragraph selection or character-level edit for Real
+Big Block, and, for Block 76, either an answer outside this story or a
+passage within it not yet recognized as relevant.
 
 ## At a glance
 
@@ -265,39 +268,7 @@ which rows are complete sweeps versus targeted tests, are in
 
 ## Open leads, ranked
 
-1. **Read the rest of the 33-chapter Wattpad story "Second" belongs to**
-   (minutes per chapter, needs a person; top priority, 2026-08-18). Every
-   candidate tested against either escrow so far, including the exhaustive
-   sweeps against the "complete" chapter, used only the single Wattpad part
-   titled "Second." That part's own page metadata reveals it is 1 of 33 parts
-   in one Wattpad story, spanning titles from "Welcome to the Quizchain"
-   through "Starting Up." 4 parts have been read: "Second," "TOMI,"
-   "Utter Disaster Three Block Series," and "Complete Quizchain" (a full
-   retrospective log of the whole series' questions/formats/answers). The
-   TOMI-rename hypothesis first raised by the "TOMI" chapter is now **ruled
-   out**: "Complete Quizchain" pins the display/hash mismatch bug to blocks
-   48-50 specifically ("Changed name of BFUB field to TOMI and hashed with
-   old name"), long before block 76, which consistently uses "TOMI"
-   throughout. A stronger pattern remains open, though: "Complete Quizchain"
-   repeatedly shows this series' solutions and TOMI values are literal
-   references to the story's own chapter titles (Round 1's own, different
-   Block 76 had solution "Easter," TOMI "Second Life"; Block 53's solution
-   was literally "Satoshi's Stash"; Round 2's Block 2 was solved entirely
-   from the "Quizchain as a Password Manager" chapter). "Complete Quizchain"
-   itself stops early in Round 2 (3 blocks in), before reaching Quizchain2's
-   Block 76 - a later, higher-ID chapter, "Complete Second Round of the
-   Quizchain" (742662804), is very likely the equivalent retrospective for
-   Round 2 and is now the single most promising unread chapter, not yet
-   fetched. A first round of literal-reading tests on Block 76 (solution
-   "BFUB" alone; "format" against all 33 chapter titles as TOMI; the
-   literal edited question text "from change to" as the solution) found 0
-   match. Confirmed by reading "Complete Second Round of the Quizchain" and
-   finding Quizchain2's Block 76 entry, or any other part directly stating a
-   fuller Real Big Block source; killed only by reading through the
-   remaining parts with nothing relevant found (a bound on effort, not a
-   logical exhaustion). Full list of part titles and detail:
-   `clues/author-posts.md`, `analysis/leads.md`.
-2. **Non-contiguous paragraph selection from the now-complete chapter**
+1. **Non-contiguous paragraph selection from the now-complete chapter**
    (minutes per hypothesis once defined). Fetching the chapter's raw page
    source and checking it for trailing content (formerly this lead) is done:
    it found the working transcription had silently covered only the first 5
@@ -321,7 +292,7 @@ which rows are complete sweeps versus targeted tests, are in
    exhausting the specific rules worth trying with 0 match (this space is not
    boundable the way contiguous ranges are, so "killed" here means "no more
    promising rules identified," not exhaustion).
-3. **Check whether the Real Big Block Discussion thread covers all 27 posts in
+2. **Check whether the Real Big Block Discussion thread covers all 27 posts in
    the window** (minutes, needs a person). That thread has now been read in
    full, including its 3 previously-collapsed reply threads (2 contributed
    nothing beyond what's already recorded); it is where the `\r\n\r\n`
@@ -330,7 +301,7 @@ which rows are complete sweeps versus targeted tests, are in
    or profile comments from that window exist and remain unread, is still
    unconfirmed. Confirmed by another thread surfacing something new; killed by
    confirming this is the complete set.
-4. **The chapter's duplicate opening excerpt is identified, confirmed
+3. **The chapter's duplicate opening excerpt is identified, confirmed
    irrelevant to the hash on its own, but points at a real, untested
    mechanism** (minutes per word). The live page shows the chapter's opening
    scene twice with different wording each time; the second copy is now
@@ -345,20 +316,31 @@ which rows are complete sweeps versus targeted tests, are in
    chapter were tested (0 match, `analysis/tested.md`). Confirmed as a live
    lead by a match on any other distinctive word in the chapter tried the same
    way; killed by exhausting the chapter's distinctive words with no match.
-5. **Identify what "76" indexes for Block 76** (minutes per candidate corpus).
+4. **Identify what "76" indexes for Block 76** (minutes per candidate corpus).
    A method confirmed on 3 sibling blocks uses the block number as a position
    index into a specific numbered corpus; every corpus tried so far does not
    contain "change" at position 76. Confirmed by a match in an untried corpus
    (candidates include a fuller archive of Hal Finney's tweets, Satoshi's
    SourceForge posts, or the author's own r/Grycoin posts read as their own
    sequence); killed by exhausting the remaining candidate corpora.
-6. **A short, human-reasoned answer to "change to" / "from change to"**
+5. **A short, human-reasoned answer to "change to" / "from change to"**
    (minutes per candidate). The author's confirmed style elsewhere in the
    series favors short, punchy wordplay answers over long dictionary phrases; a
    free filter (`tools/oracle.py --block76-filter`) checks any candidate in
    under a second before a full derivation. This lead has no exhaustion
    condition; it is a standing invitation, same as any human-reasoned wordplay
    block in the series.
+
+**Closed, 2026-08-18: reading the 33-chapter Wattpad story "Second" belongs
+to.** "Second" turned out to be 1 part of a 33-part Wattpad story; 16 parts
+were read directly and the other 17 have their exact role already
+established. This surfaced real findings (ruled out a TOMI-rename hypothesis
+for Block 76; confirmed this series' answers are often literal chapter-title
+or Bitcoin-technical-term references), but did not locate Quizchain2's
+Block 76 entry anywhere in the story, and no further open-ended reading of
+it is expected to be productive without a new, specific reason to
+re-examine a particular passage. Full detail: `clues/author-posts.md`,
+`analysis/leads.md`.
 
 Full notes: [analysis/leads.md](analysis/leads.md).
 
