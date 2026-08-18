@@ -131,6 +131,18 @@ the selected paragraphs, under all 4 line-ending conventions:
 | Same selection, applied separately to each of the 3 top-level sections | 64 | 0 match |
 | Same selection, applied to each of 26 finer-grained numbered/lettered subsections, plus the plain whole-subsection candidate (flip/no-flip, all 4 separators) at that same granularity | 504 | 0 match |
 
+With all contiguous-range and ITASM-selection hypotheses exhausted, the
+original single-character-edit sweep (the one that found 266,038,400
+candidates and 0 match on the old, incomplete transcription) was re-run
+against the complete, corrected chapter: every delete, case toggle,
+whitespace-family insert/replace, and quote-style toggle at every position,
+across 8 base texts (whole chapter and each of the 3 top-level sections, raw
+and case-flipped), under the confirmed `\r\n\r\n` separator.
+
+| Hypothesis | Candidates | Result |
+|---|---|---|
+| Single-character-edit sweep on the complete, corrected chapter, 8 base texts | 1,390,004 | 0 match, completed 2026-08-18 |
+
 ## Real Big Block (0.777 BTC)
 
 The MD5-to-BIP39-to-BIP44 transform and the case-flip rule are both certified
@@ -195,15 +207,18 @@ match under every plausible reading of the rule. Dates: all rows 2026-08-15
 unless marked otherwise.
 
 Cumulative for Real Big Block: approximately 273 million candidates tested
-against the old, incomplete (pages-1-5-only) transcription, plus 374,080
+against the old, incomplete (pages-1-5-only) transcription, plus 1,764,084
 against the complete, corrected 272-paragraph chapter recovered 2026-08-17
-(74,256 + 299,208 contiguous-range candidates, plus 616 non-contiguous
-ITASM-selection candidates) - 0 match anywhere. The 2 single-character-edit
-sweeps (the original 40-base LF sweep and the 2026-08-17 8-base CRLF-CRLF
-sweep) account for the large majority of the older total and are the only
-rows certified as complete sweeps of their stated space
-(every base, every single edit); every other row is a targeted, not exhaustive,
-test of one specific hypothesis about which paragraphs were modified.
+(74,256 + 299,208 contiguous-range candidates, 616 non-contiguous
+ITASM-selection candidates, plus a 1,390,004-candidate single-character-edit
+sweep across 8 base texts, completed 2026-08-18), 0 match anywhere. The 3
+single-character-edit sweeps total (the original 40-base LF sweep, the
+2026-08-17 8-base CRLF-CRLF sweep, both on the old transcription, and the
+2026-08-18 8-base sweep on the corrected chapter) account for the large
+majority of all candidates tested and are the only rows certified as complete
+sweeps of their stated space (every base, every single edit); every other row
+is a targeted, not exhaustive, test of one specific hypothesis about which
+paragraphs were modified.
 
 ## Quizchain2 Block 76 (0.077 BTC)
 

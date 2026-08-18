@@ -212,7 +212,7 @@ What would kill it as a lead entirely: no further distinctive single-word
 candidates in the chapter producing a match either.
 Cost: minutes per additional word tried.
 
-## 5. Character-level edits on top of the complete, corrected chapter
+## 5. Character-level edits on top of the complete, corrected chapter (1-character sweep done)
 
 The single-character-edit sweep (266,038,400 candidates) and the bounded
 2-character sweep (163,698 candidates, every pair of inter-paragraph
@@ -221,14 +221,19 @@ once) are both exhaustive and negative for the spaces they define
 (`analysis/tested.md`) - but both were run against base texts built from the
 old, incomplete transcription (pages 1-5 only), before the 2026-08-17 chapter
 recovery found pages 6-12 and 5 further byte-level fixes on pages 1-5 (see
-lead 1). Re-running the same bounded sweeps' strongest base texts against the
-complete, corrected 272-paragraph chapter has not been done. The full,
-unbounded 2-character space (any 2 positions, any 2 characters, not just
-whitespace/NBSP slots) remains disproportionate without a narrower reason to
-expect the answer lives there, and is still not proposed.
+lead 1). **The single-character sweep has now been re-run against the
+complete, corrected 272-paragraph chapter**: every delete, case toggle,
+whitespace-family insert/replace, and quote-style toggle at every position,
+across 8 base texts (whole chapter and each of the 3 top-level sections, raw
+and case-flipped), under the confirmed `\r\n\r\n` separator - 1,390,004
+candidates, 0 match, completed 2026-08-18 (`analysis/tested.md`). The bounded
+2-character sweep has not yet been re-run against the corrected chapter. The
+full, unbounded 2-character space (any 2 positions, any 2 characters, not
+just whitespace/NBSP slots) remains disproportionate without a narrower
+reason to expect the answer lives there, and is still not proposed.
 
-What would confirm it: a match once the existing sweeps are re-run against the
-corrected chapter.
+What would confirm it: a match once the bounded 2-character sweep is re-run
+against the corrected chapter.
 What would kill it: 0 match on the same re-run, at which point the same
 "specific reason needed" reasoning as before applies to the unbounded space.
 Cost: the original bounded sweep took about 15 minutes of compute; a re-run
