@@ -26,12 +26,26 @@ contiguous paragraph range (`[start, end)`, all 37,128 possible windows of
 272 paragraphs), flip and no-flip, under the confirmed `\r\n\r\n` separator:
 74,256 candidates, 0 match, completed 2026-08-17. A second, broader pass
 added all 4 line-ending conventions and the chapter's own title paragraph as
-an optional leading paragraph (299,208 candidates); see `analysis/tested.md`
-for the completed result. **This closes the "fetch and check the raw
+an optional leading paragraph: 299,208 candidates, 0 match, completed
+2026-08-18 (`analysis/tested.md`). **This closes the "fetch and check the raw
 source" question itself** (done, and productive: it found real errors and
 missing content) and, together with the range sweep, **exhausts every
 hypothesis of the form "a single contiguous run of the chapter's
-paragraphs."** What remains open is non-contiguous paragraph selection
+paragraphs," under every plausible separator.**
+
+A first non-contiguous hypothesis was also tried: rather than applying the
+case-flip rule to non-`ITASM`-initial paragraphs (as confirmed on Stage One),
+*selecting only* the paragraphs whose first letter is (or is not) in `ITASM`
+and dropping the rest - motivated directly by the chapter's own newly-read
+"Satoshi Code" section, which explains exactly this initials mechanism as
+applied to Finney's post, raising the possibility the author reused it as a
+selection rule for her own chapter. Tried on the whole chapter, each
+top-level section, and all 26 finer numbered/lettered subsections, both
+selection directions, with and without case-flip on the kept paragraphs,
+under all 4 line-ending conventions: 616 candidates, 0 match, completed
+2026-08-18.
+
+What remains open is any other non-contiguous paragraph selection
 (picking specific paragraphs by a rule, as Finney's post used first-letter
 matching against `ITASM`, or the older private-research hypotheses in lead
 3) and character-level edits on top of a contiguous range, both still worth
