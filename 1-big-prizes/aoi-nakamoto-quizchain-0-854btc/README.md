@@ -266,29 +266,36 @@ which rows are complete sweeps versus targeted tests, are in
 ## Open leads, ranked
 
 1. **Read the rest of the 33-chapter Wattpad story "Second" belongs to**
-   (minutes per chapter, needs a person; new top priority, 2026-08-18). Every
+   (minutes per chapter, needs a person; top priority, 2026-08-18). Every
    candidate tested against either escrow so far, including the exhaustive
    sweeps against the "complete" chapter, used only the single Wattpad part
    titled "Second." That part's own page metadata reveals it is 1 of 33 parts
    in one Wattpad story, spanning titles from "Welcome to the Quizchain"
-   through "Starting Up." Only "Second" and, as of this update, "TOMI" have
-   been read. The "TOMI" chapter directly concerns Block 76: it explains the
-   `TOMI` field was renamed from an older name built from "FU" (abbreviated
-   "BFUB"), and the author admits outright, "I had already written a three
-   block new post hashed with the old format. When I changed the text to the
-   new one, I forgot that this would not work... I realized this once a user
-   reported that hashing with the rather obvious solution for this did not
-   work." A chapter titled "Utter Disaster Three Block Series" exists in the
-   same story and is an extremely strong title match for that exact post,
-   not yet read. If Block 76 was one of the 3 affected blocks, the
-   community-found `format`/`before TOMI` pair (which passes both published
-   MD5-prefix hints but has never derived the address) may be a coincidental
-   prefix match on the wrong field name, exactly as this repo's own
-   2019-07-29 comment-timing cross-check already suspected. Confirmed by
-   reading a part that names the affected block(s) and the real old-format
-   text, or states a fuller Real Big Block source; killed only by reading
-   through the remaining parts with nothing relevant found (a bound on
-   effort, not a logical exhaustion). Full list of part titles and detail:
+   through "Starting Up." 4 parts have been read: "Second," "TOMI,"
+   "Utter Disaster Three Block Series," and "Complete Quizchain" (a full
+   retrospective log of the whole series' questions/formats/answers). The
+   TOMI-rename hypothesis first raised by the "TOMI" chapter is now **ruled
+   out**: "Complete Quizchain" pins the display/hash mismatch bug to blocks
+   48-50 specifically ("Changed name of BFUB field to TOMI and hashed with
+   old name"), long before block 76, which consistently uses "TOMI"
+   throughout. A stronger pattern remains open, though: "Complete Quizchain"
+   repeatedly shows this series' solutions and TOMI values are literal
+   references to the story's own chapter titles (Round 1's own, different
+   Block 76 had solution "Easter," TOMI "Second Life"; Block 53's solution
+   was literally "Satoshi's Stash"; Round 2's Block 2 was solved entirely
+   from the "Quizchain as a Password Manager" chapter). "Complete Quizchain"
+   itself stops early in Round 2 (3 blocks in), before reaching Quizchain2's
+   Block 76 - a later, higher-ID chapter, "Complete Second Round of the
+   Quizchain" (742662804), is very likely the equivalent retrospective for
+   Round 2 and is now the single most promising unread chapter, not yet
+   fetched. A first round of literal-reading tests on Block 76 (solution
+   "BFUB" alone; "format" against all 33 chapter titles as TOMI; the
+   literal edited question text "from change to" as the solution) found 0
+   match. Confirmed by reading "Complete Second Round of the Quizchain" and
+   finding Quizchain2's Block 76 entry, or any other part directly stating a
+   fuller Real Big Block source; killed only by reading through the
+   remaining parts with nothing relevant found (a bound on effort, not a
+   logical exhaustion). Full list of part titles and detail:
    `clues/author-posts.md`, `analysis/leads.md`.
 2. **Non-contiguous paragraph selection from the now-complete chapter**
    (minutes per hypothesis once defined). Fetching the chapter's raw page
