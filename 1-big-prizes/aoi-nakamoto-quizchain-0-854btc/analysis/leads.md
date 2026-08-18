@@ -45,6 +45,19 @@ selection directions, with and without case-flip on the kept paragraphs,
 under all 4 line-ending conventions: 616 candidates, 0 match, completed
 2026-08-18.
 
+Both character-level-edit sweeps (single-character, 1,390,004 candidates,
+and bounded 2-character, 443,807 candidates) have since been re-run against
+the complete chapter, both 0 match (see lead 5). A further batch of
+non-contiguous selection ideas was also tried: 7 more thematic
+initial-letter sets in place of `ITASM` (from "AOI NAKAMOTO", "GRYCOIN",
+"SATOSHI NAKAMOTO", "THOMAS", "HAL FINNEY", "BITCOIN", and the specific "F/W"
+pair that marked Finney's own non-`ITASM` paragraphs), dialogue-only versus
+narration-only extraction (paragraphs starting with a quote mark or not),
+and an arithmetic every-Nth-paragraph selection for n = 2 to 5 at every
+offset - each tried on the whole chapter and all 3 sections, flip and
+no-flip, all 4 separators: 1,016 more candidates, 0 match, completed
+2026-08-18 (`analysis/tested.md`).
+
 What remains open is any other non-contiguous paragraph selection
 (picking specific paragraphs by a rule, as Finney's post used first-letter
 matching against `ITASM`, or the older private-research hypotheses in lead

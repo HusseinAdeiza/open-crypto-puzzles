@@ -252,7 +252,7 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | Block 76: scripted dictionary-times-corpus sweep | approximately 3.2x10^11 MD5, approximately 78,000,000 derivations | MD5-prefix filter, then derivation on survivors | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 
 Cumulative: approximately 273 million candidates tested against Real Big
-Block's old, incomplete (pages-1-5-only) transcription, plus 2,207,891 against
+Block's old, incomplete (pages-1-5-only) transcription, plus 2,208,907 against
 the complete, corrected 272-paragraph chapter recovered 2026-08-17 (0 match
 anywhere), and approximately 78 million derivations plus approximately 78,000 smaller
 candidates tested against Block 76, all negative. Full scope notes, including

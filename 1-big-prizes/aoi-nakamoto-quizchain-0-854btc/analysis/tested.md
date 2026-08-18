@@ -130,6 +130,9 @@ the selected paragraphs, under all 4 line-ending conventions:
 | ITASM-initial paragraph selection (kept vs dropped), with/without case-flip on the kept set, whole chapter and with/without title, 4 line-ending conventions | 48 | 0 match |
 | Same selection, applied separately to each of the 3 top-level sections | 64 | 0 match |
 | Same selection, applied to each of 26 finer-grained numbered/lettered subsections, plus the plain whole-subsection candidate (flip/no-flip, all 4 separators) at that same granularity | 504 | 0 match |
+| Same kept/dropped selection method with 7 other thematic initial-letter sets in place of `ITASM` (from "AOI NAKAMOTO", "GRYCOIN", "SATOSHI NAKAMOTO", "THOMAS", "HAL FINNEY", "BITCOIN", and the "F/W" pair that marked Finney's own non-`ITASM` paragraphs), on the whole chapter and each of the 3 sections, flip and no-flip, all 4 separators | 512 | 0 match |
+| Dialogue-only (paragraphs starting with a quote mark) and narration-only (the rest) extractions, whole chapter and each of the 3 sections, flip and no-flip, all 4 separators | 192 | 0 match |
+| Every Nth paragraph for n = 2 to 5 at every starting offset (an arithmetic-subsequence selection, not necessarily contiguous), whole chapter and each of the 3 sections, flip and no-flip, all 4 separators | 312 | 0 match |
 
 With all contiguous-range and ITASM-selection hypotheses exhausted, the
 original single-character-edit sweep (the one that found 266,038,400
@@ -208,7 +211,7 @@ match under every plausible reading of the rule. Dates: all rows 2026-08-15
 unless marked otherwise.
 
 Cumulative for Real Big Block: approximately 273 million candidates tested
-against the old, incomplete (pages-1-5-only) transcription, plus 2,207,891
+against the old, incomplete (pages-1-5-only) transcription, plus 2,208,907
 against the complete, corrected 272-paragraph chapter recovered 2026-08-17
 (74,256 + 299,208 contiguous-range candidates, 616 non-contiguous
 ITASM-selection candidates, a 1,390,004-candidate single-character-edit
