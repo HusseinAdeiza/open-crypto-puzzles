@@ -242,3 +242,33 @@ A first round of literal-reading tests on Block 76 given these new patterns
 (solution "BFUB" alone; solution "format" against each of the story's 33
 chapter titles as the TOMI value; the literal edited question text "from
 change to" as the solution) all found 0 prefix or derivation match.
+
+**Update, 2026-08-18: "Complete Second Round of the Quizchain" and "End
+Phase of the Experiment" have both now been read; neither reaches Block
+76's own entry.** "Complete Second Round of the Quizchain" (742662804) is
+only 10 pages long and its retrospective log stops at Round 2's Block 32
+(with full solution and TOMI field revealed for every block through 32);
+it does not continue further, so it never reaches Block 76. Along the way
+it reconfirmed the chapter-title/technical-term answer pattern extensively:
+answers included "UTXO", "burn address", "cypherpunks", "RPOW", "Running
+bitcoin" (Hal Finney's tweet), and TOMI text "Extremely unfair riddle"
+(matching the chapter title "Exceedingly Unfair Riddle").
+
+"End Phase of the Experiment" (759761389) is a single-page reflective essay
+(pages 2 and 3 are empty), written shortly before Block 76 was posted -
+it directly confirms the chronology already established in this repo:
+"Block 76 will be posted on Monday next week. Phase 2 of block 77 (with a
+777 mbtc prize) will follow as soon as Block 76 is solved." It gives no
+puzzle content for Block 76 itself, only author commentary on the
+experiment as a whole (mentions "over the course of 147 blocks at last
+count", i.e. Round 1's 77 plus roughly 70 of Round 2 at time of writing).
+
+No further retrospective chapter covering Round 2 blocks 33 onward has
+been identified in the 33-part list. The remaining unread parts
+("Tragic Boating Accident", "Mistakes", "Lucky 7 Giveaway", "Difficulty",
+"Genesis Block Mystery", "Scripting Players", "Difficult Hints", "HQ
+Trivia", "Satoshi Mystery", "Quizchain and AI", "Cariga Bright", "THOMAS
+and SATOSHI", "Waking Up", "The Satoshi Code", "Starting Up") are
+individual chapters rather than a log, so any of them (if relevant to
+Block 76 at all) would need to be read on its own merits rather than
+found by following a retrospective through to the right block number.
