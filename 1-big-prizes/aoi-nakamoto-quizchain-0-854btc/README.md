@@ -242,6 +242,7 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: complete 272-paragraph chapter recovered (pages 6-12 had never been transcribed before), diffed page by page against raw source, 5 byte-level fixes applied; every contiguous paragraph range of the complete chapter, flip and no-flip, under the confirmed `\r\n\r\n` separator | 74,256 | same | 0 match | yes | 2026-08-17 |
 | RBB: same, every contiguous range under all 4 line-ending conventions, plus the chapter's title paragraph as an optional leading paragraph | 299,208 | same | 0 match | yes | 2026-08-18 |
 | RBB: non-contiguous ITASM-initial paragraph selection (kept vs dropped, with/without case-flip on the kept set) on the whole chapter, each top-level section, and 26 finer subsections | 616 | same | 0 match | yes | 2026-08-18 |
+| RBB: single-character-edit sweep (delete, case toggle, whitespace family, quote style) at every position, re-run against the complete, corrected chapter, 8 base texts (whole chapter and each of the 3 top-level sections, raw and case-flipped) | 1,390,004 | same | 0 match | yes | 2026-08-18 |
 | Stage One mechanism check: every paragraph-subset of Hal Finney's real post (2^16) x both flip directions x 4 line-ending conventions, trailing note excluded, against Stage One's own solved address, not RBB | 524,288 | MD5 to BIP39 to address compare | 0 match | yes | 2026-08-17 |
 | Stage One mechanism check: a second, independent copy-paste of the same post (byte-identical to the first) with a "voice" to "vOIce" correction, raw and case-flipped, 4 line-ending conventions | 24 | same | 0 match | yes | 2026-08-17 |
 | Stage One mechanism check: documented case-flip rule with the raw HTML's trailing author's note restored on the last paragraph, exactly as rendered | 1 | same | **MATCH**, confirms the case-flip rule | yes, verified twice independently | 2026-08-17 |
@@ -250,7 +251,7 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | Block 76: scripted dictionary-times-corpus sweep | approximately 3.2x10^11 MD5, approximately 78,000,000 derivations | MD5-prefix filter, then derivation on survivors | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 
 Cumulative: approximately 273 million candidates tested against Real Big
-Block's old, incomplete (pages-1-5-only) transcription, plus 374,080 against
+Block's old, incomplete (pages-1-5-only) transcription, plus 1,764,084 against
 the complete, corrected 272-paragraph chapter recovered 2026-08-17 (0 match
 anywhere), and approximately 78 million derivations plus approximately 78,000 smaller
 candidates tested against Block 76, all negative. Full scope notes, including
@@ -284,16 +285,17 @@ which rows are complete sweeps versus targeted tests, are in
    specific rules worth trying with 0 match (this space is not boundable the
    way contiguous ranges are, so "killed" here means "no more promising rules
    identified," not exhaustion).
-2. **Character-level edits on top of the complete, corrected chapter**
-   (about an hour, mostly compute). The single-character and bounded
-   2-character sweeps in `analysis/tested.md` (772,720 and 163,698
-   candidates, both 0 match) were run against the old, incomplete
-   transcription - accurate for the pages-1-5 text they covered, but built
-   before pages 6-12 existed in this repo's working copy and before the 5
-   small fixes found on 2026-08-17. Re-running the same sweeps' strongest
-   base texts against the complete, corrected chapter has not been done.
-   Confirmed by a match once re-run; killed by 0 match on the same bounded
-   space.
+2. **A bounded 2-character-edit sweep on the complete, corrected chapter**
+   (about 15 minutes, mostly compute). The single-character sweep has now
+   been re-run against the complete, corrected 272-paragraph chapter: every
+   delete, case toggle, whitespace-family insert/replace, and quote-style
+   toggle at every position, across 8 base texts (whole chapter and each of
+   the 3 top-level sections, raw and case-flipped) - 1,390,004 candidates,
+   0 match, completed 2026-08-18 (`analysis/tested.md`). The bounded
+   2-character sweep that found 0 match on the old, incomplete transcription
+   (163,698 candidates) has not yet been re-run against the corrected
+   chapter. Confirmed by a match once re-run; killed by 0 match on the same
+   bounded space.
 3. **Check whether the Real Big Block Discussion thread covers all 27 posts in
    the window** (minutes, needs a person). That thread has now been read in
    full, including its 3 previously-collapsed reply threads (2 contributed
