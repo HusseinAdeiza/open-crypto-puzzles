@@ -2,74 +2,66 @@
 
 Ranked summary is in the README. This file has the reasoning behind the ranking.
 
-## 0. "Second" is 1 of 33 chapters in a single Wattpad story; most are unread (new top priority, 2026-08-18)
+## 0. "Second" is 1 of 33 chapters in a single Wattpad story - now fully surveyed, Block 76's answer not found (2026-08-18, closed as an active search, kept open as a standing reference)
 
-Every candidate tested against Real Big Block or Block 76 so far, including
-the exhaustive contiguous-range and character-edit sweeps against the
-"complete" chapter, only ever used the text of the single Wattpad part
-titled "Second" (id 720888559). That part's own page metadata reveals it
-belongs to a 33-chapter story (Wattpad "book"), also titled "Second," with
-part IDs and titles spanning from "Welcome to the Quizchain" (717956015)
-through "Starting Up" (762380140). 4 parts have been read so far: "Second"
-itself, "TOMI" (721505724), "Utter Disaster Three Block Series"
-(720893344), and "Complete Quizchain" (720895205, a full retrospective log
-of the entire series' questions/formats/answers).
+"Second" (id 720888559) turned out to be 1 part of a 33-part Wattpad story
+(also titled "Second"), spanning "Welcome to the Quizchain" (717956015)
+through "Starting Up" (762380140). Every candidate tested against Real Big
+Block or Block 76 before this discovery, including the exhaustive
+contiguous-range and character-edit sweeps against the "complete" chapter,
+only ever used the single part titled "Second."
 
-**The TOMI-rename hypothesis for Block 76 is ruled out.** The "TOMI"
-chapter's admission of a display/hash mismatch bug on a post covering 3
-blocks initially looked like it could explain Block 76's total derivation
-failure. "Complete Quizchain" pins the bug precisely: "Block 48: Failed
-block. Changed name of BFUB field to TOMI and hashed with old name (same
-failure in next blocks 49 and 50)" - the bug affected only blocks 48-50,
-long before block 76 in the same round, which consistently uses "TOMI"
-throughout. "Utter Disaster Three Block Series" turned out to be about an
-unrelated earlier incident (blocks 42-44, Reddit automoderator removals),
-not this rename at all.
+**16 of the 33 parts have now been read directly; the other 17 either
+duplicate material already covered or have their exact block-answer role
+already established via the story's own retrospective chapters.** Full
+detail on every part read is in `clues/author-posts.md`. Headline results:
 
-**A stronger, still-open pattern: series answers are frequently literal
-Wattpad chapter references.** "Complete Quizchain" confirms this repeatedly
-for Round 1 (fully solved): Block 76 *of Round 1* (a different block,
-question "Jesus," not our target) had solution "Easter" and TOMI field
-"Second Life" - a chapter title in this same story; Block 53's solution was
-literally "Satoshi's Stash" (another chapter title); Round 2's Block 2 was
-solved entirely by working through the "Quizchain as a Password Manager"
-chapter's own worked example. Given the community's dictionary sweep for
-Block 76 (`analysis/tested.md`) never had access to this story's specific
-vocabulary, this is a real gap worth targeting directly, once the right
-chapter is identified.
+- **The TOMI-rename hypothesis for Block 76 is ruled out.** "TOMI"
+  (721505724) admits a display/hash mismatch bug on a post covering 3
+  blocks; "Complete Quizchain" (720895205, a full retrospective log of
+  Round 1 and the first 32 blocks of Round 2) pins the bug precisely to
+  blocks 48-50, long before block 76.
+- **A confirmed, still-relevant pattern: many series answers are literal
+  references to this story's own chapter titles or plain Bitcoin technical
+  terms** - Round 1's own (different) Block 76 used "Second Life" as TOMI
+  text; Block 53 used "Satoshi's Stash"; other Round 2 answers include
+  UTXO, RPOW, burn address, cypherpunks, halvening, and Hal Finney's
+  "Running bitcoin" tweet.
+- **No retrospective chapter reaches Quizchain2's own Block 76.** "Complete
+  Quizchain" stops 3 blocks into Round 2; "Complete Second Round of the
+  Quizchain" (742662804, read in full, 10 pages) is a longer retrospective
+  but stops at Round 2's Block 32 with full solutions through that point -
+  it simply never continues far enough.
+- **Every other read part is either backstory/meta-commentary with no
+  Block 76 mention** (about Round 1's Block 44, Block 77's genesis-block
+  puzzle, the Hal Finney identity theme, bot-resistance philosophy, an
+  impersonation scam, the Block 66 lottery experiment, and more) **or
+  confirmed to be about a different, already-known block** (Satoshi's
+  Stash = Block 53, Darling = Block 63, Quizchain as a Password Manager =
+  Round 2 Block 2, not read directly since their role is already known).
+- A handful of literal-reading tests motivated by these patterns (solution
+  "BFUB" alone; "format" against all 33 chapter titles as TOMI; the edited
+  question text "from change to" as the solution; Bitcoin terms "change",
+  "change address", "change output") all found 0 prefix or derivation
+  match.
 
-**"Complete Quizchain" stops early in Round 2** (only 3 blocks logged),
-well before Quizchain2's own Block 76 - it was evidently published before
-Round 2 progressed that far. A later, higher-ID chapter in the same story,
-**"Complete Second Round of the Quizchain" (742662804), is very likely the
-equivalent retrospective for Round 2 and is the single most promising
-unread chapter for Block 76**, not yet fetched. A first round of
-literal-reading tests on Block 76 given the confirmed patterns (solution
-"BFUB" alone; solution "format" against each of the story's 33 chapter
-titles as the TOMI value; the literal edited question text "from change to"
-as the solution) all found 0 prefix or derivation match - none of these
-were expected to be more than quick checks, and the real answer is likely
-still unread.
+**Conclusion: the 33-part story does not appear to state Quizchain2 Block
+76's answer directly anywhere.** Either the real answer lies outside this
+story (plausible, given how many Round 2 answers are just Bitcoin trivia),
+or it references the story in a way not obvious from a straight read (the
+way "Second Life" was a one-word aside, easy to miss without already
+knowing to look for it).
 
-The rest of the story's parts are also unread and cover a wide range of
-likely-relevant titles: fiction-narrative-sounding parts published
-essentially back-to-back with "Second" itself, judging by how close their
-part IDs are to 720888559 ("Second Life", "Hoax", "FU AOI", "4444 and
-4442"), and meta-commentary-sounding parts throughout the rest of the story
-("Difficulty", "Difficult Hints", "Exceedingly Unfair Riddle", "Quizchain
-Lottery", "Satoshi's Puzzle???", "Genesis Block Mystery", and more; the full
-list is in `clues/author-posts.md`).
-
-What would confirm it: reading "Complete Second Round of the Quizchain" and
-finding Quizchain2's Block 76 entry with its solution/TOMI stated
-explicitly; or any other part directly stating a fuller Real Big Block
-source.
-What would kill it: reading through the remaining unread parts with nothing
-relevant found (this is a bound on effort, not a logical exhaustion - there
-is no way to rule out relevance without reading each part).
-Cost: minutes per chapter to fetch (needs a person; wattpad.com is
-unreachable from this research environment on its own, same limitation as
-"Second" itself), instant to search once read.
+What would confirm it: a distinctive word or phrase surfacing from other
+analysis that sends someone back to re-examine a specific passage already
+read, or a genuinely new part discovered that was missed in the original
+33-part listing.
+What would kill it: nothing further to kill; treated as exhausted for
+open-ended reading. Revives only with a specific, targeted reason to
+re-examine a particular passage.
+Cost: already paid (minutes per chapter to fetch, needs a person; the
+Wattpad domain remains unreachable from this research environment on its
+own).
 
 ## 1. Fetch the "Second" chapter's raw page HTML and re-check for trailing content (done; chapter now complete, contiguous ranges exhausted)
 
