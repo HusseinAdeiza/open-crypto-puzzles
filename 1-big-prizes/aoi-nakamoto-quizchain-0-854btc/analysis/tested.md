@@ -134,6 +134,9 @@ the selected paragraphs, under all 4 line-ending conventions:
 | Dialogue-only (paragraphs starting with a quote mark) and narration-only (the rest) extractions, whole chapter and each of the 3 sections, flip and no-flip, all 4 separators | 192 | 0 match |
 | Every Nth paragraph for n = 2 to 5 at every starting offset (an arithmetic-subsequence selection, not necessarily contiguous), whole chapter and each of the 3 sections, flip and no-flip, all 4 separators | 312 | 0 match |
 | Every contiguous paragraph range, case-flip rule applied using 7 alternate no-flip letter sets (from "AOI NAKAMOTO", "GRYCOIN", "SATOSHI NAKAMOTO", "THOMAS", "HAL FINNEY", "BITCOIN", "REAL BIG BLOCK") in place of the confirmed `ITASM`, under `\r\n\r\n` | 259,896 | 0 match, completed 2026-08-18 |
+| ITASM-initial selection (kept vs dropped, with/without flip on the kept set) applied to every contiguous paragraph range, not just predefined boundaries, under `\r\n\r\n` | 148,512 | 0 match, completed 2026-08-18 |
+| Prime-indexed and Fibonacci-indexed paragraph selection (0- and 1-based), whole chapter and each of the 3 sections, flip and no-flip, all 4 separators | 128 | 0 match |
+| Content-keyword paragraph selection (paragraphs containing "second", "bitcoin", "satoshi", "grycoin", "aoi", "nakamoto", "tom", or "finney" anywhere in their text, not just as the first letter), flip and no-flip, all 4 separators | 64 | 0 match |
 
 With all contiguous-range and ITASM-selection hypotheses exhausted, the
 original single-character-edit sweep (the one that found 266,038,400
@@ -212,7 +215,7 @@ match under every plausible reading of the rule. Dates: all rows 2026-08-15
 unless marked otherwise.
 
 Cumulative for Real Big Block: approximately 273 million candidates tested
-against the old, incomplete (pages-1-5-only) transcription, plus 2,468,803
+against the old, incomplete (pages-1-5-only) transcription, plus 2,617,507
 against the complete, corrected 272-paragraph chapter recovered 2026-08-17
 (74,256 + 299,208 contiguous-range candidates, 616 non-contiguous
 ITASM-selection candidates, a 1,390,004-candidate single-character-edit
