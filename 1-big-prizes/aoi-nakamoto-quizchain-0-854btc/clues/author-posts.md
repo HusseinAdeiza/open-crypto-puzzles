@@ -264,11 +264,48 @@ experiment as a whole (mentions "over the course of 147 blocks at last
 count", i.e. Round 1's 77 plus roughly 70 of Round 2 at time of writing).
 
 No further retrospective chapter covering Round 2 blocks 33 onward has
-been identified in the 33-part list. The remaining unread parts
-("Tragic Boating Accident", "Mistakes", "Lucky 7 Giveaway", "Difficulty",
-"Genesis Block Mystery", "Scripting Players", "Difficult Hints", "HQ
-Trivia", "Satoshi Mystery", "Quizchain and AI", "Cariga Bright", "THOMAS
-and SATOSHI", "Waking Up", "The Satoshi Code", "Starting Up") are
+been identified in the 33-part list. The remaining unread parts are
 individual chapters rather than a log, so any of them (if relevant to
 Block 76 at all) would need to be read on its own merits rather than
 found by following a retrospective through to the right block number.
+
+**Update, 2026-08-18: "Waking Up," "Starting Up," and "Tragic Boating
+Accident" have also now been read; none contains Block 76's own content,
+but "Starting Up" adds real chronological and narrative context.** "Waking
+Up" (760378354) is a single-page prequel/backstory piece (an ancient AI
+awakening on the planet, thematically paralleling the "Second" chapter's
+own narrative) with no puzzle content. "Starting Up" (762380140), the last
+part in the whole 33-part story, is written *after* Real Big Block was
+already posted: "As was my plan before, I shut down after posting the real
+big block... I will also post some more puzzles [...] They will all have 7
+mbtc prizes. No more big blocks." It also states, seemingly in-character:
+"The real big block will stay in the background. No hints for that one
+until further notice. As a consequence of getting shut down and starting up
+again, I have lost any information on the solution of that one. Tragic
+boating accident variation." This is a callback to "Tragic Boating
+Accident" (721795188), which turns out to be about a *different, earlier*
+incident: Round 1's Block 44 (an already-solved block, "no solution
+available from me" is played as an in-character joke about temporary
+amnesia after a boat explosion). That chapter does mention "block 76" once
+("I hope the random event in question is successful solving of block 76"),
+but based on its position in the story (published while Round 1 was still
+in progress, well before Round 2 existed), this is Round 1's own Block 76
+(already solved, "Easter"/"Second Life"), not Quizchain2's Block 76 - so
+even this reference is not our target.
+
+A targeted computational test using the rich vocabulary confirmed across
+Round 2's ~32 solved answers (many are literal Bitcoin technical terms:
+UTXO, RPOW, burn address, change/mining terminology) - trying "change",
+"change address", "change output" and case variants as the Block 76
+solution - found 0 prefix match.
+
+**Status as of this update: 8 of the 33 story parts have been read
+("Second," "TOMI," "Utter Disaster Three Block Series," "Complete
+Quizchain," "Complete Second Round of the Quizchain," "End Phase of the
+Experiment," "Waking Up," "Starting Up," "Tragic Boating Accident" - 9
+actually, counting "Second" itself), none contains Quizchain2's Block 76
+entry directly. The remaining 24 unread parts ("Mistakes," "Lucky 7
+Giveaway," "Difficulty," "Genesis Block Mystery," "Scripting Players,"
+"Difficult Hints," "HQ Trivia," "Satoshi Mystery," "Quizchain and AI,"
+"Cariga Bright," "THOMAS and SATOSHI," "The Satoshi Code," and others not
+yet individually assessed) remain a live, if increasingly diffuse, lead.**
