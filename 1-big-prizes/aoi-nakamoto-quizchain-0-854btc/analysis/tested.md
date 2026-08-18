@@ -137,6 +137,7 @@ the selected paragraphs, under all 4 line-ending conventions:
 | ITASM-initial selection (kept vs dropped, with/without flip on the kept set) applied to every contiguous paragraph range, not just predefined boundaries, under `\r\n\r\n` | 148,512 | 0 match, completed 2026-08-18 |
 | Prime-indexed and Fibonacci-indexed paragraph selection (0- and 1-based), whole chapter and each of the 3 sections, flip and no-flip, all 4 separators | 128 | 0 match |
 | Content-keyword paragraph selection (paragraphs containing "second", "bitcoin", "satoshi", "grycoin", "aoi", "nakamoto", "tom", or "finney" anywhere in their text, not just as the first letter), flip and no-flip, all 4 separators | 64 | 0 match |
+| Every contiguous paragraph range, REVERSED case-flip direction (first letter to upper, last letter to lower, opposite of the confirmed direction), ITASM no-flip set, `\r\n\r\n` | 37,128 | 0 match, completed 2026-08-18 |
 
 With all contiguous-range and ITASM-selection hypotheses exhausted, the
 original single-character-edit sweep (the one that found 266,038,400
@@ -215,12 +216,16 @@ match under every plausible reading of the rule. Dates: all rows 2026-08-15
 unless marked otherwise.
 
 Cumulative for Real Big Block: approximately 273 million candidates tested
-against the old, incomplete (pages-1-5-only) transcription, plus 2,617,507
+against the old, incomplete (pages-1-5-only) transcription, plus 2,654,635
 against the complete, corrected 272-paragraph chapter recovered 2026-08-17
 (74,256 + 299,208 contiguous-range candidates, 616 non-contiguous
 ITASM-selection candidates, a 1,390,004-candidate single-character-edit
-sweep across 8 base texts, and a 443,807-candidate bounded 2-character-edit
-sweep across 4 base texts, all completed 2026-08-18), 0 match anywhere. The 3
+sweep across 8 base texts, a 443,807-candidate bounded 2-character-edit
+sweep across 4 base texts, a 259,896-candidate alternate-letter-set
+contiguous-range sweep, a 148,512-candidate ITASM-selection-on-every-range
+sweep, 128 prime/Fibonacci-selection candidates, 64 content-keyword-selection
+candidates, and a 37,128-candidate reversed-case-flip-direction
+contiguous-range sweep, all completed 2026-08-18), 0 match anywhere. The 3
 single-character-edit sweeps and 2 bounded 2-character-edit sweeps together
 (the originals on the old transcription, plus the 2026-08-18 re-runs on the
 corrected chapter) account for the large majority of all candidates tested
