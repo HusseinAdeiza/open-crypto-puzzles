@@ -251,6 +251,11 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | RBB: non-contiguous ITASM-initial paragraph selection (kept vs dropped, with/without case-flip on the kept set) on the whole chapter, each top-level section, and 26 finer subsections | 616 | same | 0 match | yes | 2026-08-18 |
 | RBB: single-character-edit sweep (delete, case toggle, whitespace family, quote style) at every position, re-run against the complete, corrected chapter, 8 base texts (whole chapter and each of the 3 top-level sections, raw and case-flipped) | 1,390,004 | same | 0 match | yes | 2026-08-18 |
 | RBB: bounded 2-character-edit sweep (line-ending gap pairs and the 2 confirmed NBSP positions), re-run against the complete, corrected chapter, 4 base texts | 443,807 | same | 0 match | yes | 2026-08-18 |
+| RBB: every contiguous paragraph range, alternate no-flip letter sets in place of ITASM, `\r\n\r\n` separator | 259,896 | same | 0 match | yes | 2026-08-18 |
+| RBB: ITASM-initial paragraph selection (kept vs dropped) extended to every contiguous paragraph range, not just predefined section boundaries | 148,512 | same | 0 match | yes | 2026-08-18 |
+| RBB: prime-indexed and Fibonacci-indexed paragraph selection | 128 | same | 0 match | yes | 2026-08-18 |
+| RBB: content-keyword paragraph selection (matches on chapter's own repeated terms) | 64 | same | 0 match | yes | 2026-08-18 |
+| RBB: every contiguous paragraph range, REVERSED case-flip direction (first letter to upper, last letter to lower, opposite of the confirmed direction), ITASM no-flip set, `\r\n\r\n` | 37,128 | same | 0 match | yes | 2026-08-18 |
 | Stage One mechanism check: every paragraph-subset of Hal Finney's real post (2^16) x both flip directions x 4 line-ending conventions, trailing note excluded, against Stage One's own solved address, not RBB | 524,288 | MD5 to BIP39 to address compare | 0 match | yes | 2026-08-17 |
 | Stage One mechanism check: a second, independent copy-paste of the same post (byte-identical to the first) with a "voice" to "vOIce" correction, raw and case-flipped, 4 line-ending conventions | 24 | same | 0 match | yes | 2026-08-17 |
 | Stage One mechanism check: documented case-flip rule with the raw HTML's trailing author's note restored on the last paragraph, exactly as rendered | 1 | same | **MATCH**, confirms the case-flip rule | yes, verified twice independently | 2026-08-17 |
@@ -259,7 +264,7 @@ Full ledger in [analysis/tested.md](analysis/tested.md). Summary:
 | Block 76: scripted dictionary-times-corpus sweep | approximately 3.2x10^11 MD5, approximately 78,000,000 derivations | MD5-prefix filter, then derivation on survivors | 0 match | yes: calibrated on blocks 73 and 74 | 2026-08-15 |
 
 Cumulative: approximately 273 million candidates tested against Real Big
-Block's old, incomplete (pages-1-5-only) transcription, plus 2,617,507 against
+Block's old, incomplete (pages-1-5-only) transcription, plus 2,654,635 against
 the complete, corrected 272-paragraph chapter recovered 2026-08-17 (0 match
 anywhere), and approximately 78 million derivations plus approximately 78,000 smaller
 candidates tested against Block 76, all negative. Full scope notes, including
